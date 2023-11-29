@@ -1,18 +1,18 @@
 package com.novachess;
 
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.hateoas.IanaLinkRelations;
 
 // tag::hateoas-imports[]
 // end::hateoas-imports[]
@@ -20,30 +20,38 @@ import org.springframework.web.bind.annotation.RestController;
 class PuzzleController {
 
 	private final PuzzleRepository repository;
+	private final PuzzleModelAssembler assembler;
 
-	PuzzleController(PuzzleRepository repository) {
+	PuzzleController(PuzzleRepository repository, PuzzleModelAssembler assembler) {
 		this.repository = repository;
+		this.assembler = assembler;
 	}
 
 
 	// Aggregate root
 	// tag::get-aggregate-root[]
 	@GetMapping("/puzzles")
-	List<Puzzle> all() {
-		return repository.findAll();
-	}
+	CollectionModel<EntityModel<Puzzle>> all() {
+		List<EntityModel<Puzzle>> puzzles = repository.findAll().stream()
+			.map(assembler::toModel)
+			.collect(Collectors.toList());
+
+		return CollectionModel.of(puzzles, linkTo(methodOn(PuzzleController.class).all()).withSelfRel());
+		}
 	// end::get-aggregate-root[]
 
 	// Single item
 	
 	@GetMapping("/puzzles/{id}")
-	Puzzle one(@PathVariable Long id) {
-		return repository.findById(id)
-            .orElseThrow(() -> new PuzzleNotFoundException(id));
+	EntityModel<Puzzle> one(@PathVariable Long id) {
+		Puzzle puzzle = repository.findById(id)
+			.orElseThrow(() -> new PuzzleNotFoundException(id));
+
+		return assembler.toModel(puzzle);
 	}
 
 	@PatchMapping("/puzzles/{id}/upvote")
-	Puzzle upvotePuzzle(@PathVariable Long id) {
+	ResponseEntity<?> upvotePuzzle(@PathVariable Long id) {
 		Puzzle upvotedPuzzle = repository.findById(id)
 			.map(puzzle -> {
 				puzzle.setPopularity(puzzle.getPopularity() + 1);
@@ -51,11 +59,15 @@ class PuzzleController {
 			})
 			.orElseThrow(() -> new PuzzleNotFoundException(id));
 
-		return upvotedPuzzle;
+		EntityModel<Puzzle> puzzleEntityModel = assembler.toModel(upvotedPuzzle);
+		
+		return ResponseEntity
+			.created(puzzleEntityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
+			.body(puzzleEntityModel);
 	}
 
 	@PatchMapping("/puzzles/{id}/downvote")
-	Puzzle downvotePuzzle(@PathVariable Long id) {
+	ResponseEntity<EntityModel<Puzzle>> downvotePuzzle(@PathVariable Long id) {
 		Puzzle downvotedPuzzle = repository.findById(id)
 			.map(puzzle -> {
 				puzzle.setPopularity(puzzle.getPopularity() - 1);
@@ -63,6 +75,10 @@ class PuzzleController {
 			})
 			.orElseThrow(() -> new PuzzleNotFoundException(id));
 
-		return downvotedPuzzle;
+		EntityModel<Puzzle> puzzleEntityModel = assembler.toModel(downvotedPuzzle);
+		
+		return ResponseEntity
+			.created(puzzleEntityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
+			.body(puzzleEntityModel);
 	}
 }
