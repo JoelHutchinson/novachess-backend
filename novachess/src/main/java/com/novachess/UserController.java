@@ -1,0 +1,53 @@
+package com.novachess;
+
+import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+import org.springframework.hateoas.CollectionModel;
+import org.springframework.hateoas.EntityModel;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.hateoas.IanaLinkRelations;
+
+// tag::hateoas-imports[]
+// end::hateoas-imports[]
+@RestController
+class UserController {
+
+	private final UserRepository repository;
+	private final UserModelAssembler assembler;
+
+	UserController(UserRepository repository, UserModelAssembler assembler) {
+		this.repository = repository;
+		this.assembler = assembler;
+	}
+
+
+	// Aggregate root
+	// tag::get-aggregate-root[]
+	@GetMapping("/users")
+	CollectionModel<EntityModel<User>> all() {
+		List<EntityModel<User>> users = repository.findAll().stream()
+			.map(assembler::toModel)
+			.collect(Collectors.toList());
+
+		return CollectionModel.of(users, linkTo(methodOn(UserController.class).all()).withSelfRel());
+		}
+	// end::get-aggregate-root[]
+
+	// Single item
+	
+	@GetMapping("/users/{username}")
+	EntityModel<User> one(@PathVariable String username) {
+		User user = repository.findByUsername(username)
+			.orElseThrow(() -> new UserNotFoundException(username));
+
+		return assembler.toModel(user);
+	}
+
+}
