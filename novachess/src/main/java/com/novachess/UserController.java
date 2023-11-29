@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,10 +48,10 @@ class UserController {
 	// end::get-aggregate-root[]
 
 	// Single item
-	@GetMapping("/users/{username}")
-	EntityModel<User> one(@PathVariable String username) {
-		User user = repository.findByUsername(username)
-			.orElseThrow(() -> new UserNotFoundException(username));
+	@GetMapping("/users/{id}")
+	EntityModel<User> one(@PathVariable long id) {
+		User user = repository.findById(id)
+			.orElseThrow(() -> new UserNotFoundException(id));
 
 		return assembler.toModel(user);
 	}
@@ -64,11 +65,29 @@ class UserController {
             .body(userEntityModel);
     }
 
-    @Transactional
-    @DeleteMapping("/users/{username}")
-	ResponseEntity<?> deleteUser(@PathVariable String username) {
+    @PutMapping("/users/{id}")
+    ResponseEntity<?> replaceUser(@RequestBody User newUser, @PathVariable long id) {
+        User updatedUser = repository.findById(id) //
+				.map(user -> {
+					user.setUsername(newUser.getUsername());
+					user.setPassword(newUser.getPassword());
+					return repository.save(user);
+				}) //
+				.orElseGet(() -> {
+                    newUser.setId(id);
+					return repository.save(newUser);
+				});
 
-		repository.deleteByUsername(username);
+		EntityModel<User> entityModel = assembler.toModel(updatedUser);
+
+		return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()).body(entityModel);
+    }
+
+    @Transactional
+    @DeleteMapping("/users/{id}")
+	ResponseEntity<?> deleteUser(@PathVariable long id) {
+
+		repository.deleteById(id);
 
 		return ResponseEntity.noContent().build();
 	}

@@ -2,7 +2,7 @@ package com.novachess;
 
 class UserNotFoundException extends RuntimeException {
 
-	UserNotFoundException(String username) {
-		super("Could not find user " + username);
+	UserNotFoundException(long id) {
+		super("Could not find user " + id);
 	}
 }
