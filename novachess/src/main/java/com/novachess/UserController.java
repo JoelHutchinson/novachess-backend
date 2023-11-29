@@ -83,7 +83,6 @@ class UserController {
 		return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()).body(entityModel);
     }
 
-    @Transactional
     @DeleteMapping("/users/{id}")
 	ResponseEntity<?> deleteUser(@PathVariable long id) {
 
