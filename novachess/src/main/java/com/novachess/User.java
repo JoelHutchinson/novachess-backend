@@ -5,9 +5,10 @@ import java.util.Objects;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "USER_ACCOUNT")
 class User {
 
 	private @Id @GeneratedValue Long id;
@@ -33,6 +34,18 @@ class User {
 		return this.password;
 	}
 
+    public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)
@@ -51,7 +64,7 @@ class User {
 
 	@Override
 	public String toString() {
-		return "Puzzle{" + "id=" + this.id + ", username='" + this.username + '\'' + ", password='" +
+		return "User{" + "id=" + this.id + ", username='" + this.username + '\'' + ", password='" +
                 this.password + '\'' + '}';
 	}
 }

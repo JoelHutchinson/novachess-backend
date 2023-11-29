@@ -5,8 +5,11 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// tag::hateoas-imports[]
 import org.springframework.hateoas.CollectionModel;
 import org.springframework.hateoas.EntityModel;
+// end::hateoas-imports[]
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,8 +17,7 @@ import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.hateoas.IanaLinkRelations;
 
-// tag::hateoas-imports[]
-// end::hateoas-imports[]
+
 @RestController
 class UserController {
 
@@ -41,7 +43,6 @@ class UserController {
 	// end::get-aggregate-root[]
 
 	// Single item
-	
 	@GetMapping("/users/{username}")
 	EntityModel<User> one(@PathVariable String username) {
 		User user = repository.findByUsername(username)
