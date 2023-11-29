@@ -31,7 +31,7 @@ class PuzzleController {
 
 	// Aggregate root
 	// tag::get-aggregate-root[]
-	@GetMapping("/puzzles")
+	@GetMapping("/api/puzzles")
 	CollectionModel<EntityModel<Puzzle>> all() {
 		List<EntityModel<Puzzle>> puzzles = repository.findAll().stream()
 			.map(assembler::toModel)
@@ -43,7 +43,7 @@ class PuzzleController {
 
 	// Single item
 	
-	@GetMapping("/puzzles/{id}")
+	@GetMapping("/api/puzzles/{id}")
 	EntityModel<Puzzle> one(@PathVariable Long id) {
 		Puzzle puzzle = repository.findById(id)
 			.orElseThrow(() -> new PuzzleNotFoundException(id));
@@ -51,7 +51,7 @@ class PuzzleController {
 		return assembler.toModel(puzzle);
 	}
 
-	@PatchMapping("/puzzles/{id}/upvote")
+	@PatchMapping("/api/puzzles/{id}/upvote")
 	ResponseEntity<?> upvotePuzzle(@PathVariable Long id) {
 		Puzzle upvotedPuzzle = repository.findById(id)
 			.map(puzzle -> {
@@ -67,7 +67,7 @@ class PuzzleController {
 			.body(puzzleEntityModel);
 	}
 
-	@PatchMapping("/puzzles/{id}/downvote")
+	@PatchMapping("/api/puzzles/{id}/downvote")
 	ResponseEntity<EntityModel<Puzzle>> downvotePuzzle(@PathVariable Long id) {
 		Puzzle downvotedPuzzle = repository.findById(id)
 			.map(puzzle -> {

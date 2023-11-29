@@ -37,7 +37,7 @@ class UserController {
 
 	// Aggregate root
 	// tag::get-aggregate-root[]
-	@GetMapping("/users")
+	@GetMapping("/api/users")
 	CollectionModel<EntityModel<User>> all() {
 		List<EntityModel<User>> users = repository.findAll().stream()
 			.map(assembler::toModel)
@@ -48,7 +48,7 @@ class UserController {
 	// end::get-aggregate-root[]
 
 	// Single item
-	@GetMapping("/users/{id}")
+	@GetMapping("/api/users/{id}")
 	EntityModel<User> one(@PathVariable long id) {
 		User user = repository.findById(id)
 			.orElseThrow(() -> new UserNotFoundException(id));
@@ -56,7 +56,7 @@ class UserController {
 		return assembler.toModel(user);
 	}
 
-    @PostMapping("/users")
+    @PostMapping("/api/users")
     ResponseEntity<?> newUser(@RequestBody User newUser) {
         EntityModel<User> userEntityModel = assembler.toModel(repository.save(newUser));
 
@@ -65,7 +65,7 @@ class UserController {
             .body(userEntityModel);
     }
 
-    @PutMapping("/users/{id}")
+    @PutMapping("/api/users/{id}")
     ResponseEntity<?> replaceUser(@RequestBody User newUser, @PathVariable long id) {
         User updatedUser = repository.findById(id) //
 				.map(user -> {
@@ -83,7 +83,7 @@ class UserController {
 		return ResponseEntity.created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()).body(entityModel);
     }
 
-    @DeleteMapping("/users/{id}")
+    @DeleteMapping("/api/users/{id}")
 	ResponseEntity<?> deleteUser(@PathVariable long id) {
 
 		repository.deleteById(id);
