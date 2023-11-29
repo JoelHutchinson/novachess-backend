@@ -11,10 +11,14 @@ import org.springframework.hateoas.EntityModel;
 // end::hateoas-imports[]
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.hateoas.IanaLinkRelations;
 
 
@@ -49,6 +53,24 @@ class UserController {
 			.orElseThrow(() -> new UserNotFoundException(username));
 
 		return assembler.toModel(user);
+	}
+
+    @PostMapping("/users")
+    ResponseEntity<?> newUser(@RequestBody User newUser) {
+        EntityModel<User> userEntityModel = assembler.toModel(repository.save(newUser));
+
+        return ResponseEntity
+            .created(userEntityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()) //
+            .body(userEntityModel);
+    }
+
+    @Transactional
+    @DeleteMapping("/users/{username}")
+	ResponseEntity<?> deleteUser(@PathVariable String username) {
+
+		repository.deleteByUsername(username);
+
+		return ResponseEntity.noContent().build();
 	}
 
 }
