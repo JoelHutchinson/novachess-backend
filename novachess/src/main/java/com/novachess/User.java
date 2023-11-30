@@ -7,19 +7,29 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "USER_ACCOUNT")
 class User {
+	public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
 
 	private @Id @GeneratedValue Long id;
 	private String username;
-	private String password;
+	private @JsonIgnore String password;
+
+	public void setPassword(String password) {
+		this.password = PASSWORD_ENCODER.encode(password);
+	}
 
 	User() {}
 
 	User(String username, String password) {
 		this.username = username;
-		this.password = password;
+		this.setPassword(password);
 	}
 
 	public Long getId() {
@@ -40,10 +50,6 @@ class User {
 
 	public void setUsername(String username) {
 		this.username = username;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	@Override

@@ -34134,11 +34134,11 @@ var App = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, this.state.users.map(function (user) {
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, "Users"), /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, this.state.users.map(function (user) {
         return /*#__PURE__*/React.createElement("tr", {
           key: user.username
         }, /*#__PURE__*/React.createElement("td", null, user.username), /*#__PURE__*/React.createElement("td", null, user.password));
-      }))), /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, this.state.puzzles.map(function (puzzle) {
+      }))), /*#__PURE__*/React.createElement("h1", null, "Puzzles"), /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, this.state.puzzles.map(function (puzzle) {
         return /*#__PURE__*/React.createElement("tr", {
           key: puzzle.fen
         }, /*#__PURE__*/React.createElement("td", null, puzzle.fen), /*#__PURE__*/React.createElement("td", null, puzzle.moves), /*#__PURE__*/React.createElement("td", null, puzzle.popularity));
