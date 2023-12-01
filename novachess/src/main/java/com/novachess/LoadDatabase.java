@@ -12,7 +12,7 @@ class LoadDatabase {
   private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
   @Bean
-  CommandLineRunner initDatabase(PuzzleRepository puzzleRepository, UserRepository userRepository) {
+  CommandLineRunner initDatabase(PuzzleRepository puzzleRepository, OpeningVariationRepository openingVariationRepository) {
 
     return args -> {
         // Load sample puzzles.
@@ -30,15 +30,15 @@ class LoadDatabase {
 
         // Load sample users.
         
-        userRepository.save(new User(
-            "joel",
-            "abc123"
+        openingVariationRepository.save(new OpeningVariation(
+            "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+            "e4 c5 d4 cxd4 c3 dxc3 Nxc3"
             ));
-        userRepository.save(new User(
-            "timothy",
-            "cba321"
+        openingVariationRepository.save(new OpeningVariation(
+            "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+            "e5 f4 exf4 Nf3 g5 h4 g4 Ne5 Nf6 Bc4"
             ));
-        userRepository.findAll().forEach(user -> log.info("Preloaded " + user));
+        openingVariationRepository.findAll().forEach(openingVariation -> log.info("Preloaded " + openingVariation));
         
     };
   }
