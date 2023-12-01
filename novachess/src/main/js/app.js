@@ -13,30 +13,14 @@ class App extends React.Component {
 	}
 
 	componentDidMount() {
-		client({method: 'GET', path: '/api/users'}).done(response => {
-			this.setState({users: response.entity._embedded.userList});
-		});
-
         client({method: 'GET', path: '/api/puzzles'}).done(response => {
-			this.setState({puzzles: response.entity._embedded.puzzleList});
+			this.setState({puzzles: response.entity._embedded.puzzles});
 		});
 	}
 
 	render() {
 		return (
             <div>
-                <table>
-                    <tbody>
-                        {this.state.users.map(user => {
-                            return (
-                                <tr key={user.username}>
-                                    <td>{user.username}</td>
-                                    <td>{user.password}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
                 <table>
                     <tbody>                    
                         {this.state.puzzles.map(puzzle => {
