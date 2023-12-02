@@ -534,6 +534,26 @@ module.exports = Function.call.bind(Object.prototype.hasOwnProperty);
 
 /***/ }),
 
+/***/ "./node_modules/react-chessboard/dist/index.esm.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/react-chessboard/dist/index.esm.js ***!
+  \*********************************************************/
+/*! exports provided: Chessboard */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(process, global) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Chessboard", function() { return yr; });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+const m=Object(react__WEBPACK_IMPORTED_MODULE_1__["createContext"])({dragDropManager:void 0});function y(e){return"Minified Redux error #"+e+"; visit https://redux.js.org/Errors?code="+e+" for the full message or use the non-minified dev environment for full errors. "}var b="function"==typeof Symbol&&Symbol.observable||"@@observable",O=function(){return Math.random().toString(36).substring(7).split("").join(".")},w={INIT:"@@redux/INIT"+O(),REPLACE:"@@redux/REPLACE"+O(),PROBE_UNKNOWN_ACTION:function(){return"@@redux/PROBE_UNKNOWN_ACTION"+O()}};function S(e){if(void 0===e)return"undefined";if(null===e)return"null";var t=typeof e;switch(t){case"boolean":case"string":case"number":case"symbol":case"function":return t}if(Array.isArray(e))return"array";if(function(e){return e instanceof Date||"function"==typeof e.toDateString&&"function"==typeof e.getDate&&"function"==typeof e.setDate}(e))return"date";if(function(e){return e instanceof Error||"string"==typeof e.message&&e.constructor&&"number"==typeof e.constructor.stackTraceLimit}(e))return"error";var r=function(e){return"function"==typeof e.constructor?e.constructor.name:null}(e);switch(r){case"Symbol":case"Promise":case"WeakMap":case"WeakSet":case"Map":case"Set":return r}return t.slice(8,-1).toLowerCase().replace(/\s/g,"")}function D(e){var t=typeof e;return true&&(t=S(e)),t}function C(e,t,r){var n;if("function"==typeof t&&"function"==typeof r||"function"==typeof r&&"function"==typeof arguments[3])throw new Error( false?undefined:"It looks like you are passing several store enhancers to createStore(). This is not supported. Instead, compose them together to a single function. See https://redux.js.org/tutorials/fundamentals/part-4-store#creating-a-store-with-enhancers for an example.");if("function"==typeof t&&void 0===r&&(r=t,t=void 0),void 0!==r){if("function"!=typeof r)throw new Error( false?undefined:"Expected the enhancer to be a function. Instead, received: '"+D(r)+"'");return r(C)(e,t)}if("function"!=typeof e)throw new Error( false?undefined:"Expected the root reducer to be a function. Instead, received: '"+D(e)+"'");var o=e,i=t,s=[],a=s,c=!1;function l(){a===s&&(a=s.slice())}function u(){if(c)throw new Error( false?undefined:"You may not call store.getState() while the reducer is executing. The reducer has already received the state as an argument. Pass it down from the top reducer instead of reading it from the store.");return i}function d(e){if("function"!=typeof e)throw new Error( false?undefined:"Expected the listener to be a function. Instead, received: '"+D(e)+"'");if(c)throw new Error( false?undefined:"You may not call store.subscribe() while the reducer is executing. If you would like to be notified after the store has been updated, subscribe from a component and invoke store.getState() in the callback to access the latest state. See https://redux.js.org/api/store#subscribelistener for more details.");var t=!0;return l(),a.push(e),function(){if(t){if(c)throw new Error( false?undefined:"You may not unsubscribe from a store listener while the reducer is executing. See https://redux.js.org/api/store#subscribelistener for more details.");t=!1,l();var r=a.indexOf(e);a.splice(r,1),s=null}}}function h(e){if(!function(e){if("object"!=typeof e||null===e)return!1;for(var t=e;null!==Object.getPrototypeOf(t);)t=Object.getPrototypeOf(t);return Object.getPrototypeOf(e)===t}(e))throw new Error( false?undefined:"Actions must be plain objects. Instead, the actual type was: '"+D(e)+"'. You may need to add middleware to your store setup to handle dispatching other values, such as 'redux-thunk' to handle dispatching functions. See https://redux.js.org/tutorials/fundamentals/part-4-store#middleware and https://redux.js.org/tutorials/fundamentals/part-6-async-logic#using-the-redux-thunk-middleware for examples.");if(void 0===e.type)throw new Error( false?undefined:'Actions may not have an undefined "type" property. You may have misspelled an action type string constant.');if(c)throw new Error( false?undefined:"Reducers may not dispatch actions.");try{c=!0,i=o(i,e)}finally{c=!1}for(var t=s=a,r=0;r<t.length;r++){(0,t[r])()}return e}return h({type:w.INIT}),(n={dispatch:h,subscribe:d,getState:u,replaceReducer:function(e){if("function"!=typeof e)throw new Error( false?undefined:"Expected the nextReducer to be a function. Instead, received: '"+D(e));o=e,h({type:w.REPLACE})}})[b]=function(){var e,t=d;return(e={subscribe:function(e){if("object"!=typeof e||null===e)throw new Error( false?undefined:"Expected the observer to be an object. Instead, received: '"+D(e)+"'");function r(){e.next&&e.next(u())}return r(),{unsubscribe:t(r)}}})[b]=function(){return this},e},n}function T(){}function E(e,t,...r){if("undefined"!=typeof process&&"production"==="development"&&void 0===t)throw new Error("invariant requires an error message argument");if(!e){let e;if(void 0===t)e=new Error("Minified exception occurred; use the non-minified dev environment for the full error message and additional helpful warnings.");else{let n=0;e=new Error(t.replace(/%s/g,(function(){return r[n++]}))),e.name="Invariant Violation"}throw e.framesToPop=1,e}}function I(e){return"object"==typeof e} true&&"string"==typeof T.name&&"isCrushed"!==T.name&&function(e){"undefined"!=typeof console&&"function"==typeof console.error&&console.error(e);try{throw new Error(e)}catch(e){}}('You are currently using minified code outside of NODE_ENV === "production". This means that you are running a slower development build of Redux. You can use loose-envify (https://github.com/zertosh/loose-envify) for browserify or setting mode to production in webpack (https://webpack.js.org/concepts/mode/) to ensure you have the correct code for your production build.');const k="dnd-core/INIT_COORDS",L="dnd-core/BEGIN_DRAG",P="dnd-core/PUBLISH_DRAG_SOURCE",x="dnd-core/HOVER",M="dnd-core/DROP",N="dnd-core/END_DRAG";function j(e,t){return{type:k,payload:{sourceClientOffset:t||null,clientOffset:e||null}}}const R={type:k,payload:{clientOffset:null,sourceClientOffset:null}};function A(e){return function(t=[],r={publishSource:!0}){const{publishSource:n=!0,clientOffset:o,getSourceClientOffset:i}=r,s=e.getMonitor(),a=e.getRegistry();e.dispatch(j(o)),function(e,t,r){E(!t.isDragging(),"Cannot call beginDrag while dragging."),e.forEach((function(e){E(r.getSource(e),"Expected sourceIds to be registered.")}))}(t,s,a);const c=function(e,t){let r=null;for(let n=e.length-1;n>=0;n--)if(t.canDragSource(e[n])){r=e[n];break}return r}(t,s);if(null==c)return void e.dispatch(R);let l=null;if(o){if(!i)throw new Error("getSourceClientOffset must be defined");!function(e){E("function"==typeof e,"When clientOffset is provided, getSourceClientOffset must be a function.")}(i),l=i(c)}e.dispatch(j(o,l));const u=a.getSource(c).beginDrag(s,c);if(null==u)return;!function(e){E(I(e),"Item must be an object.")}(u),a.pinSource(c);const d=a.getSourceType(c);return{type:L,payload:{itemType:d,item:u,sourceId:c,clientOffset:o||null,sourceClientOffset:l||null,isSourcePublic:!!n}}}}function q(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function _(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{},n=Object.keys(r);"function"==typeof Object.getOwnPropertySymbols&&(n=n.concat(Object.getOwnPropertySymbols(r).filter((function(e){return Object.getOwnPropertyDescriptor(r,e).enumerable})))),n.forEach((function(t){q(e,t,r[t])}))}return e}function H(e){return function(t={}){const r=e.getMonitor(),n=e.getRegistry();!function(e){E(e.isDragging(),"Cannot call drop while not dragging."),E(!e.didDrop(),"Cannot call drop twice during one drag operation.")}(r);const o=function(e){const t=e.getTargetIds().filter(e.canDropOnTarget,e);return t.reverse(),t}(r);o.forEach(((o,i)=>{const s=function(e,t,r,n){const o=r.getTarget(e);let i=o?o.drop(n,e):void 0;(function(e){E(void 0===e||I(e),"Drop result must either be an object or undefined.")})(i),void 0===i&&(i=0===t?{}:n.getDropResult());return i}(o,i,n,r),a={type:M,payload:{dropResult:_({},t,s)}};e.dispatch(a)}))}}function z(e){return function(){const t=e.getMonitor(),r=e.getRegistry();!function(e){E(e.isDragging(),"Cannot call endDrag while not dragging.")}(t);const n=t.getSourceId();if(null!=n){r.getSource(n,!0).endDrag(t,n),r.unpinSource()}return{type:N}}}function B(e,t){return null===t?null===e:Array.isArray(e)?e.some((e=>e===t)):e===t}function W(e){return function(t,{clientOffset:r}={}){!function(e){E(Array.isArray(e),"Expected targetIds to be an array.")}(t);const n=t.slice(0),o=e.getMonitor(),i=e.getRegistry();return function(e,t,r){for(let n=e.length-1;n>=0;n--){const o=e[n];B(t.getTargetType(o),r)||e.splice(n,1)}}(n,i,o.getItemType()),function(e,t,r){E(t.isDragging(),"Cannot call hover while not dragging."),E(!t.didDrop(),"Cannot call hover after drop.");for(let t=0;t<e.length;t++){const n=e[t];E(e.lastIndexOf(n)===t,"Expected targetIds to be unique in the passed array.");E(r.getTarget(n),"Expected targetIds to be registered.")}}(n,o,i),function(e,t,r){e.forEach((function(e){r.getTarget(e).hover(t,e)}))}(n,o,i),{type:x,payload:{targetIds:n,clientOffset:r||null}}}}function U(e){return function(){if(e.getMonitor().isDragging())return{type:P}}}class F{receiveBackend(e){this.backend=e}getMonitor(){return this.monitor}getBackend(){return this.backend}getRegistry(){return this.monitor.registry}getActions(){const e=this,{dispatch:t}=this.store;const r=function(e){return{beginDrag:A(e),publishDragSource:U(e),hover:W(e),drop:H(e),endDrag:z(e)}}(this);return Object.keys(r).reduce(((n,o)=>{const i=r[o];var s;return n[o]=(s=i,(...r)=>{const n=s.apply(e,r);void 0!==n&&t(n)}),n}),{})}dispatch(e){this.store.dispatch(e)}constructor(e,t){this.isSetUp=!1,this.handleRefCountChange=()=>{const e=this.store.getState().refCount>0;this.backend&&(e&&!this.isSetUp?(this.backend.setup(),this.isSetUp=!0):!e&&this.isSetUp&&(this.backend.teardown(),this.isSetUp=!1))},this.store=e,this.monitor=t,e.subscribe(this.handleRefCountChange)}}function $(e,t){return{x:e.x-t.x,y:e.y-t.y}}const V=[],Y=[];V.__IS_NONE__=!0,Y.__IS_ALL__=!0;class K{subscribeToStateChange(e,t={}){const{handlerIds:r}=t;E("function"==typeof e,"listener must be a function."),E(void 0===r||Array.isArray(r),"handlerIds, when specified, must be an array of strings.");let n=this.store.getState().stateId;return this.store.subscribe((()=>{const t=this.store.getState(),o=t.stateId;try{const i=o===n||o===n+1&&!function(e,t){return e!==V&&(e===Y||void 0===t||(r=e,t.filter((e=>r.indexOf(e)>-1))).length>0);var r}(t.dirtyHandlerIds,r);i||e()}finally{n=o}}))}subscribeToOffsetChange(e){E("function"==typeof e,"listener must be a function.");let t=this.store.getState().dragOffset;return this.store.subscribe((()=>{const r=this.store.getState().dragOffset;r!==t&&(t=r,e())}))}canDragSource(e){if(!e)return!1;const t=this.registry.getSource(e);return E(t,`Expected to find a valid source. sourceId=${e}`),!this.isDragging()&&t.canDrag(this,e)}canDropOnTarget(e){if(!e)return!1;const t=this.registry.getTarget(e);if(E(t,`Expected to find a valid target. targetId=${e}`),!this.isDragging()||this.didDrop())return!1;return B(this.registry.getTargetType(e),this.getItemType())&&t.canDrop(this,e)}isDragging(){return Boolean(this.getItemType())}isDraggingSource(e){if(!e)return!1;const t=this.registry.getSource(e,!0);if(E(t,`Expected to find a valid source. sourceId=${e}`),!this.isDragging()||!this.isSourcePublic())return!1;return this.registry.getSourceType(e)===this.getItemType()&&t.isDragging(this,e)}isOverTarget(e,t={shallow:!1}){if(!e)return!1;const{shallow:r}=t;if(!this.isDragging())return!1;const n=this.registry.getTargetType(e),o=this.getItemType();if(o&&!B(n,o))return!1;const i=this.getTargetIds();if(!i.length)return!1;const s=i.indexOf(e);return r?s===i.length-1:s>-1}getItemType(){return this.store.getState().dragOperation.itemType}getItem(){return this.store.getState().dragOperation.item}getSourceId(){return this.store.getState().dragOperation.sourceId}getTargetIds(){return this.store.getState().dragOperation.targetIds}getDropResult(){return this.store.getState().dragOperation.dropResult}didDrop(){return this.store.getState().dragOperation.didDrop}isSourcePublic(){return Boolean(this.store.getState().dragOperation.isSourcePublic)}getInitialClientOffset(){return this.store.getState().dragOffset.initialClientOffset}getInitialSourceClientOffset(){return this.store.getState().dragOffset.initialSourceClientOffset}getClientOffset(){return this.store.getState().dragOffset.clientOffset}getSourceClientOffset(){return function(e){const{clientOffset:t,initialClientOffset:r,initialSourceClientOffset:n}=e;return t&&r&&n?$((i=n,{x:(o=t).x+i.x,y:o.y+i.y}),r):null;var o,i}(this.store.getState().dragOffset)}getDifferenceFromInitialOffset(){return function(e){const{clientOffset:t,initialClientOffset:r}=e;return t&&r?$(t,r):null}(this.store.getState().dragOffset)}constructor(e,t){this.store=e,this.registry=t}}const X="undefined"!=typeof global?global:self,G=X.MutationObserver||X.WebKitMutationObserver;function Q(e){return function(){const t=setTimeout(n,0),r=setInterval(n,50);function n(){clearTimeout(t),clearInterval(r),e()}}}const J="function"==typeof G?function(e){let t=1;const r=new G(e),n=document.createTextNode("");return r.observe(n,{characterData:!0}),function(){t=-t,n.data=t}}:Q;class Z{call(){try{this.task&&this.task()}catch(e){this.onError(e)}finally{this.task=null,this.release(this)}}constructor(e,t){this.onError=e,this.release=t,this.task=null}}const ee=new class{enqueueTask(e){const{queue:t,requestFlush:r}=this;t.length||(r(),this.flushing=!0),t[t.length]=e}constructor(){this.queue=[],this.pendingErrors=[],this.flushing=!1,this.index=0,this.capacity=1024,this.flush=()=>{const{queue:e}=this;for(;this.index<e.length;){const t=this.index;if(this.index++,e[t].call(),this.index>this.capacity){for(let t=0,r=e.length-this.index;t<r;t++)e[t]=e[t+this.index];e.length-=this.index,this.index=0}}e.length=0,this.index=0,this.flushing=!1},this.registerPendingError=e=>{this.pendingErrors.push(e),this.requestErrorThrow()},this.requestFlush=J(this.flush),this.requestErrorThrow=Q((()=>{if(this.pendingErrors.length)throw this.pendingErrors.shift()}))}},te=new class{create(e){const t=this.freeTasks,r=t.length?t.pop():new Z(this.onError,(e=>t[t.length]=e));return r.task=e,r}constructor(e){this.onError=e,this.freeTasks=[]}}(ee.registerPendingError);const re="dnd-core/ADD_SOURCE",ne="dnd-core/ADD_TARGET",oe="dnd-core/REMOVE_SOURCE",ie="dnd-core/REMOVE_TARGET";function se(e,t){t&&Array.isArray(e)?e.forEach((e=>se(e,!1))):E("string"==typeof e||"symbol"==typeof e,t?"Type can only be a string, a symbol, or an array of either.":"Type can only be a string or a symbol.")}var ae;!function(e){e.SOURCE="SOURCE",e.TARGET="TARGET"}(ae||(ae={}));let ce=0;function le(e){const t=(ce++).toString();switch(e){case ae.SOURCE:return`S${t}`;case ae.TARGET:return`T${t}`;default:throw new Error(`Unknown Handler Role: ${e}`)}}function ue(e){switch(e[0]){case"S":return ae.SOURCE;case"T":return ae.TARGET;default:throw new Error(`Cannot parse handler ID: ${e}`)}}function de(e,t){const r=e.entries();let n=!1;do{const{done:e,value:[,o]}=r.next();if(o===t)return!0;n=!!e}while(!n);return!1}class he{addSource(e,t){se(e),function(e){E("function"==typeof e.canDrag,"Expected canDrag to be a function."),E("function"==typeof e.beginDrag,"Expected beginDrag to be a function."),E("function"==typeof e.endDrag,"Expected endDrag to be a function.")}(t);const r=this.addHandler(ae.SOURCE,e,t);return this.store.dispatch(function(e){return{type:re,payload:{sourceId:e}}}(r)),r}addTarget(e,t){se(e,!0),function(e){E("function"==typeof e.canDrop,"Expected canDrop to be a function."),E("function"==typeof e.hover,"Expected hover to be a function."),E("function"==typeof e.drop,"Expected beginDrag to be a function.")}(t);const r=this.addHandler(ae.TARGET,e,t);return this.store.dispatch(function(e){return{type:ne,payload:{targetId:e}}}(r)),r}containsHandler(e){return de(this.dragSources,e)||de(this.dropTargets,e)}getSource(e,t=!1){E(this.isSourceId(e),"Expected a valid source ID.");return t&&e===this.pinnedSourceId?this.pinnedSource:this.dragSources.get(e)}getTarget(e){return E(this.isTargetId(e),"Expected a valid target ID."),this.dropTargets.get(e)}getSourceType(e){return E(this.isSourceId(e),"Expected a valid source ID."),this.types.get(e)}getTargetType(e){return E(this.isTargetId(e),"Expected a valid target ID."),this.types.get(e)}isSourceId(e){return ue(e)===ae.SOURCE}isTargetId(e){return ue(e)===ae.TARGET}removeSource(e){var t;E(this.getSource(e),"Expected an existing source."),this.store.dispatch(function(e){return{type:oe,payload:{sourceId:e}}}(e)),t=()=>{this.dragSources.delete(e),this.types.delete(e)},ee.enqueueTask(te.create(t))}removeTarget(e){E(this.getTarget(e),"Expected an existing target."),this.store.dispatch(function(e){return{type:ie,payload:{targetId:e}}}(e)),this.dropTargets.delete(e),this.types.delete(e)}pinSource(e){const t=this.getSource(e);E(t,"Expected an existing source."),this.pinnedSourceId=e,this.pinnedSource=t}unpinSource(){E(this.pinnedSource,"No source is pinned at the time."),this.pinnedSourceId=null,this.pinnedSource=null}addHandler(e,t,r){const n=le(e);return this.types.set(n,t),e===ae.SOURCE?this.dragSources.set(n,r):e===ae.TARGET&&this.dropTargets.set(n,r),n}constructor(e){this.types=new Map,this.dragSources=new Map,this.dropTargets=new Map,this.pinnedSourceId=null,this.pinnedSource=null,this.store=e}}const ge=(e,t)=>e===t;function fe(e=V,t){switch(t.type){case x:break;case re:case ne:case ie:case oe:return V;default:return Y}const{targetIds:r=[],prevTargetIds:n=[]}=t.payload,o=function(e,t){const r=new Map,n=e=>{r.set(e,r.has(e)?r.get(e)+1:1)};e.forEach(n),t.forEach(n);const o=[];return r.forEach(((e,t)=>{1===e&&o.push(t)})),o}(r,n);if(!(o.length>0||!function(e,t,r=ge){if(e.length!==t.length)return!1;for(let n=0;n<e.length;++n)if(!r(e[n],t[n]))return!1;return!0}(r,n)))return V;const i=n[n.length-1],s=r[r.length-1];return i!==s&&(i&&o.push(i),s&&o.push(s)),o}function pe(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}const ve={initialSourceClientOffset:null,initialClientOffset:null,clientOffset:null};function me(e=ve,t){const{payload:r}=t;switch(t.type){case k:case L:return{initialSourceClientOffset:r.sourceClientOffset,initialClientOffset:r.clientOffset,clientOffset:r.clientOffset};case x:return n=e.clientOffset,o=r.clientOffset,!n&&!o||n&&o&&n.x===o.x&&n.y===o.y?e:function(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{},n=Object.keys(r);"function"==typeof Object.getOwnPropertySymbols&&(n=n.concat(Object.getOwnPropertySymbols(r).filter((function(e){return Object.getOwnPropertyDescriptor(r,e).enumerable})))),n.forEach((function(t){pe(e,t,r[t])}))}return e}({},e,{clientOffset:r.clientOffset});case N:case M:return ve;default:return e}var n,o}function ye(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function be(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{},n=Object.keys(r);"function"==typeof Object.getOwnPropertySymbols&&(n=n.concat(Object.getOwnPropertySymbols(r).filter((function(e){return Object.getOwnPropertyDescriptor(r,e).enumerable})))),n.forEach((function(t){ye(e,t,r[t])}))}return e}const Oe={itemType:null,item:null,sourceId:null,targetIds:[],dropResult:null,didDrop:!1,isSourcePublic:null};function we(e=Oe,t){const{payload:r}=t;switch(t.type){case L:return be({},e,{itemType:r.itemType,item:r.item,sourceId:r.sourceId,isSourcePublic:r.isSourcePublic,dropResult:null,didDrop:!1});case P:return be({},e,{isSourcePublic:!0});case x:return be({},e,{targetIds:r.targetIds});case ie:return-1===e.targetIds.indexOf(r.targetId)?e:be({},e,{targetIds:(n=e.targetIds,o=r.targetId,n.filter((e=>e!==o)))});case M:return be({},e,{dropResult:r.dropResult,didDrop:!0,targetIds:[]});case N:return be({},e,{itemType:null,item:null,sourceId:null,dropResult:null,didDrop:!1,isSourcePublic:null,targetIds:[]});default:return e}var n,o}function Se(e=0,t){switch(t.type){case re:case ne:return e+1;case oe:case ie:return e-1;default:return e}}function De(e=0){return e+1}function Ce(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function Te(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{},n=Object.keys(r);"function"==typeof Object.getOwnPropertySymbols&&(n=n.concat(Object.getOwnPropertySymbols(r).filter((function(e){return Object.getOwnPropertyDescriptor(r,e).enumerable})))),n.forEach((function(t){Ce(e,t,r[t])}))}return e}function Ee(e={},t){return{dirtyHandlerIds:fe(e.dirtyHandlerIds,{type:t.type,payload:Te({},t.payload,{prevTargetIds:(r=e,n="dragOperation.targetIds",o=[],n.split(".").reduce(((e,t)=>e&&e[t]?e[t]:o||null),r))})}),dragOffset:me(e.dragOffset,t),refCount:Se(e.refCount,t),dragOperation:we(e.dragOperation,t),stateId:De(e.stateId)};var r,n,o}function Ie(e,t=void 0,r={},n=!1){const o=function(e){const t="undefined"!=typeof window&&window.__REDUX_DEVTOOLS_EXTENSION__;return C(Ee,e&&t&&t({name:"dnd-core",instanceId:"dnd-core"}))}(n),i=new K(o,new he(o)),s=new F(o,i),a=e(s,t,r);return s.receiveBackend(a),s}function ke(e,t){if(null==e)return{};var r,n,o=function(e,t){if(null==e)return{};var r,n,o={},i=Object.keys(e);for(n=0;n<i.length;n++)r=i[n],t.indexOf(r)>=0||(o[r]=e[r]);return o}(e,t);if(Object.getOwnPropertySymbols){var i=Object.getOwnPropertySymbols(e);for(n=0;n<i.length;n++)r=i[n],t.indexOf(r)>=0||Object.prototype.propertyIsEnumerable.call(e,r)&&(o[r]=e[r])}return o}let Le=0;const Pe=Symbol.for("__REACT_DND_CONTEXT_INSTANCE__");var xe=Object(react__WEBPACK_IMPORTED_MODULE_1__["memo"])((function(t){var{children:r}=t,n=ke(t,["children"]);const[o,s]=function(e){if("manager"in e){return[{dragDropManager:e.manager},!1]}const t=function(e,t=Me(),r,n){const o=t;o[Pe]||(o[Pe]={dragDropManager:Ie(e,t,r,n)});return o[Pe]}(e.backend,e.context,e.options,e.debugMode),r=!e.context;return[t,r]}(n);return Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{if(s){const e=Me();return++Le,()=>{0==--Le&&(e[Pe]=null)}}}),[]),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(m.Provider,{value:o,children:r})}));function Me(){return"undefined"!=typeof global?global:window}var Ne=function e(t,r){if(t===r)return!0;if(t&&r&&"object"==typeof t&&"object"==typeof r){if(t.constructor!==r.constructor)return!1;var n,o,i;if(Array.isArray(t)){if((n=t.length)!=r.length)return!1;for(o=n;0!=o--;)if(!e(t[o],r[o]))return!1;return!0}if(t.constructor===RegExp)return t.source===r.source&&t.flags===r.flags;if(t.valueOf!==Object.prototype.valueOf)return t.valueOf()===r.valueOf();if(t.toString!==Object.prototype.toString)return t.toString()===r.toString();if((n=(i=Object.keys(t)).length)!==Object.keys(r).length)return!1;for(o=n;0!=o--;)if(!Object.prototype.hasOwnProperty.call(r,i[o]))return!1;for(o=n;0!=o--;){var s=i[o];if(!e(t[s],r[s]))return!1}return!0}return t!=t&&r!=r};const je="undefined"!=typeof window?react__WEBPACK_IMPORTED_MODULE_1__["useLayoutEffect"]:react__WEBPACK_IMPORTED_MODULE_1__["useEffect"];function Re(e,t,r){const[n,o]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])((()=>t(e))),i=Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])((()=>{const i=t(e);Ne(n,i)||(o(i),r&&r())}),[n,e,r]);return je(i),[n,i]}function Ae(e,t,r){return function(e,t,r){const[n,o]=Re(e,t,r);return je((function(){const t=e.getHandlerId();if(null!=t)return e.subscribeToStateChange(o,{handlerIds:[t]})}),[e,o]),n}(t,e||(()=>({})),(()=>r.reconnect()))}function qe(e,t){const r=[...t||[]];return null==t&&"function"!=typeof e&&r.push(e),Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])((()=>"function"==typeof e?e():e),r)}function _e(e){return Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])((()=>e.hooks.dragSource()),[e])}function He(e){return Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])((()=>e.hooks.dragPreview()),[e])}let ze=!1,Be=!1;class We{receiveHandlerId(e){this.sourceId=e}getHandlerId(){return this.sourceId}canDrag(){E(!ze,"You may not call monitor.canDrag() inside your canDrag() implementation. Read more: http://react-dnd.github.io/react-dnd/docs/api/drag-source-monitor");try{return ze=!0,this.internalMonitor.canDragSource(this.sourceId)}finally{ze=!1}}isDragging(){if(!this.sourceId)return!1;E(!Be,"You may not call monitor.isDragging() inside your isDragging() implementation. Read more: http://react-dnd.github.io/react-dnd/docs/api/drag-source-monitor");try{return Be=!0,this.internalMonitor.isDraggingSource(this.sourceId)}finally{Be=!1}}subscribeToStateChange(e,t){return this.internalMonitor.subscribeToStateChange(e,t)}isDraggingSource(e){return this.internalMonitor.isDraggingSource(e)}isOverTarget(e,t){return this.internalMonitor.isOverTarget(e,t)}getTargetIds(){return this.internalMonitor.getTargetIds()}isSourcePublic(){return this.internalMonitor.isSourcePublic()}getSourceId(){return this.internalMonitor.getSourceId()}subscribeToOffsetChange(e){return this.internalMonitor.subscribeToOffsetChange(e)}canDragSource(e){return this.internalMonitor.canDragSource(e)}canDropOnTarget(e){return this.internalMonitor.canDropOnTarget(e)}getItemType(){return this.internalMonitor.getItemType()}getItem(){return this.internalMonitor.getItem()}getDropResult(){return this.internalMonitor.getDropResult()}didDrop(){return this.internalMonitor.didDrop()}getInitialClientOffset(){return this.internalMonitor.getInitialClientOffset()}getInitialSourceClientOffset(){return this.internalMonitor.getInitialSourceClientOffset()}getSourceClientOffset(){return this.internalMonitor.getSourceClientOffset()}getClientOffset(){return this.internalMonitor.getClientOffset()}getDifferenceFromInitialOffset(){return this.internalMonitor.getDifferenceFromInitialOffset()}constructor(e){this.sourceId=null,this.internalMonitor=e.getMonitor()}}let Ue=!1;class Fe{receiveHandlerId(e){this.targetId=e}getHandlerId(){return this.targetId}subscribeToStateChange(e,t){return this.internalMonitor.subscribeToStateChange(e,t)}canDrop(){if(!this.targetId)return!1;E(!Ue,"You may not call monitor.canDrop() inside your canDrop() implementation. Read more: http://react-dnd.github.io/react-dnd/docs/api/drop-target-monitor");try{return Ue=!0,this.internalMonitor.canDropOnTarget(this.targetId)}finally{Ue=!1}}isOver(e){return!!this.targetId&&this.internalMonitor.isOverTarget(this.targetId,e)}getItemType(){return this.internalMonitor.getItemType()}getItem(){return this.internalMonitor.getItem()}getDropResult(){return this.internalMonitor.getDropResult()}didDrop(){return this.internalMonitor.didDrop()}getInitialClientOffset(){return this.internalMonitor.getInitialClientOffset()}getInitialSourceClientOffset(){return this.internalMonitor.getInitialSourceClientOffset()}getSourceClientOffset(){return this.internalMonitor.getSourceClientOffset()}getClientOffset(){return this.internalMonitor.getClientOffset()}getDifferenceFromInitialOffset(){return this.internalMonitor.getDifferenceFromInitialOffset()}constructor(e){this.targetId=null,this.internalMonitor=e.getMonitor()}}function $e(e,t,r,n){let o=r?r.call(n,e,t):void 0;if(void 0!==o)return!!o;if(e===t)return!0;if("object"!=typeof e||!e||"object"!=typeof t||!t)return!1;const i=Object.keys(e),s=Object.keys(t);if(i.length!==s.length)return!1;const a=Object.prototype.hasOwnProperty.bind(t);for(let s=0;s<i.length;s++){const c=i[s];if(!a(c))return!1;const l=e[c],u=t[c];if(o=r?r.call(n,l,u,c):void 0,!1===o||void 0===o&&l!==u)return!1}return!0}function Ve(e){return null!==e&&"object"==typeof e&&Object.prototype.hasOwnProperty.call(e,"current")}function Ye(e){return(t=null,r=null)=>{if(!Object(react__WEBPACK_IMPORTED_MODULE_1__["isValidElement"])(t)){const n=t;return e(n,r),n}const n=t;!function(e){if("string"==typeof e.type)return;const t=e.type.displayName||e.type.name||"the component";throw new Error(`Only native element nodes can now be passed to React DnD connectors.You can either wrap ${t} into a <div>, or turn it into a drag source or a drop target itself.`)}(n);return function(e,t){const r=e.ref;return E("string"!=typeof r,"Cannot connect React DnD to an element with an existing string ref. Please convert it to use a callback ref instead, or wrap it into a <span> or <div>. Read more: https://reactjs.org/docs/refs-and-the-dom.html#callback-refs"),Object(react__WEBPACK_IMPORTED_MODULE_1__["cloneElement"])(e,r?{ref:e=>{Xe(r,e),Xe(t,e)}}:{ref:t})}(n,r?t=>e(t,r):e)}}function Ke(e){const t={};return Object.keys(e).forEach((r=>{const n=e[r];if(r.endsWith("Ref"))t[r]=e[r];else{const e=Ye(n);t[r]=()=>e}})),t}function Xe(e,t){"function"==typeof e?e(t):e.current=t}class Ge{receiveHandlerId(e){this.handlerId!==e&&(this.handlerId=e,this.reconnect())}get connectTarget(){return this.dragSource}get dragSourceOptions(){return this.dragSourceOptionsInternal}set dragSourceOptions(e){this.dragSourceOptionsInternal=e}get dragPreviewOptions(){return this.dragPreviewOptionsInternal}set dragPreviewOptions(e){this.dragPreviewOptionsInternal=e}reconnect(){const e=this.reconnectDragSource();this.reconnectDragPreview(e)}reconnectDragSource(){const e=this.dragSource,t=this.didHandlerIdChange()||this.didConnectedDragSourceChange()||this.didDragSourceOptionsChange();return t&&this.disconnectDragSource(),this.handlerId?e?(t&&(this.lastConnectedHandlerId=this.handlerId,this.lastConnectedDragSource=e,this.lastConnectedDragSourceOptions=this.dragSourceOptions,this.dragSourceUnsubscribe=this.backend.connectDragSource(this.handlerId,e,this.dragSourceOptions)),t):(this.lastConnectedDragSource=e,t):t}reconnectDragPreview(e=!1){const t=this.dragPreview,r=e||this.didHandlerIdChange()||this.didConnectedDragPreviewChange()||this.didDragPreviewOptionsChange();r&&this.disconnectDragPreview(),this.handlerId&&(t?r&&(this.lastConnectedHandlerId=this.handlerId,this.lastConnectedDragPreview=t,this.lastConnectedDragPreviewOptions=this.dragPreviewOptions,this.dragPreviewUnsubscribe=this.backend.connectDragPreview(this.handlerId,t,this.dragPreviewOptions)):this.lastConnectedDragPreview=t)}didHandlerIdChange(){return this.lastConnectedHandlerId!==this.handlerId}didConnectedDragSourceChange(){return this.lastConnectedDragSource!==this.dragSource}didConnectedDragPreviewChange(){return this.lastConnectedDragPreview!==this.dragPreview}didDragSourceOptionsChange(){return!$e(this.lastConnectedDragSourceOptions,this.dragSourceOptions)}didDragPreviewOptionsChange(){return!$e(this.lastConnectedDragPreviewOptions,this.dragPreviewOptions)}disconnectDragSource(){this.dragSourceUnsubscribe&&(this.dragSourceUnsubscribe(),this.dragSourceUnsubscribe=void 0)}disconnectDragPreview(){this.dragPreviewUnsubscribe&&(this.dragPreviewUnsubscribe(),this.dragPreviewUnsubscribe=void 0,this.dragPreviewNode=null,this.dragPreviewRef=null)}get dragSource(){return this.dragSourceNode||this.dragSourceRef&&this.dragSourceRef.current}get dragPreview(){return this.dragPreviewNode||this.dragPreviewRef&&this.dragPreviewRef.current}clearDragSource(){this.dragSourceNode=null,this.dragSourceRef=null}clearDragPreview(){this.dragPreviewNode=null,this.dragPreviewRef=null}constructor(e){this.hooks=Ke({dragSource:(e,t)=>{this.clearDragSource(),this.dragSourceOptions=t||null,Ve(e)?this.dragSourceRef=e:this.dragSourceNode=e,this.reconnectDragSource()},dragPreview:(e,t)=>{this.clearDragPreview(),this.dragPreviewOptions=t||null,Ve(e)?this.dragPreviewRef=e:this.dragPreviewNode=e,this.reconnectDragPreview()}}),this.handlerId=null,this.dragSourceRef=null,this.dragSourceOptionsInternal=null,this.dragPreviewRef=null,this.dragPreviewOptionsInternal=null,this.lastConnectedHandlerId=null,this.lastConnectedDragSource=null,this.lastConnectedDragSourceOptions=null,this.lastConnectedDragPreview=null,this.lastConnectedDragPreviewOptions=null,this.backend=e}}class Qe{get connectTarget(){return this.dropTarget}reconnect(){const e=this.didHandlerIdChange()||this.didDropTargetChange()||this.didOptionsChange();e&&this.disconnectDropTarget();const t=this.dropTarget;this.handlerId&&(t?e&&(this.lastConnectedHandlerId=this.handlerId,this.lastConnectedDropTarget=t,this.lastConnectedDropTargetOptions=this.dropTargetOptions,this.unsubscribeDropTarget=this.backend.connectDropTarget(this.handlerId,t,this.dropTargetOptions)):this.lastConnectedDropTarget=t)}receiveHandlerId(e){e!==this.handlerId&&(this.handlerId=e,this.reconnect())}get dropTargetOptions(){return this.dropTargetOptionsInternal}set dropTargetOptions(e){this.dropTargetOptionsInternal=e}didHandlerIdChange(){return this.lastConnectedHandlerId!==this.handlerId}didDropTargetChange(){return this.lastConnectedDropTarget!==this.dropTarget}didOptionsChange(){return!$e(this.lastConnectedDropTargetOptions,this.dropTargetOptions)}disconnectDropTarget(){this.unsubscribeDropTarget&&(this.unsubscribeDropTarget(),this.unsubscribeDropTarget=void 0)}get dropTarget(){return this.dropTargetNode||this.dropTargetRef&&this.dropTargetRef.current}clearDropTarget(){this.dropTargetRef=null,this.dropTargetNode=null}constructor(e){this.hooks=Ke({dropTarget:(e,t)=>{this.clearDropTarget(),this.dropTargetOptions=t,Ve(e)?this.dropTargetRef=e:this.dropTargetNode=e,this.reconnect()}}),this.handlerId=null,this.dropTargetRef=null,this.dropTargetOptionsInternal=null,this.lastConnectedHandlerId=null,this.lastConnectedDropTarget=null,this.lastConnectedDropTargetOptions=null,this.backend=e}}function Je(){const{dragDropManager:e}=Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(m);return E(null!=e,"Expected drag drop context"),e}class Ze{beginDrag(){const e=this.spec,t=this.monitor;let r=null;return r="object"==typeof e.item?e.item:"function"==typeof e.item?e.item(t):{},null!=r?r:null}canDrag(){const e=this.spec,t=this.monitor;return"boolean"==typeof e.canDrag?e.canDrag:"function"!=typeof e.canDrag||e.canDrag(t)}isDragging(e,t){const r=this.spec,n=this.monitor,{isDragging:o}=r;return o?o(n):t===e.getSourceId()}endDrag(){const e=this.spec,t=this.monitor,r=this.connector,{end:n}=e;n&&n(t.getItem(),t),r.reconnect()}constructor(e,t,r){this.spec=e,this.monitor=t,this.connector=r}}function et(e,t,r){const n=Je(),o=function(e,t,r){const n=Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])((()=>new Ze(e,t,r)),[t,r]);return Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{n.spec=e}),[e]),n}(e,t,r),s=function(e){return Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])((()=>{const t=e.type;return E(null!=t,"spec.type must be defined"),t}),[e])}(e);je((function(){if(null!=s){const[e,i]=function(e,t,r){const n=r.getRegistry(),o=n.addSource(e,t);return[o,()=>n.removeSource(o)]}(s,o,n);return t.receiveHandlerId(e),r.receiveHandlerId(e),i}}),[n,t,r,o,s])}function tt(e,t){const r=qe(e,t);E(!r.begin,"useDrag::spec.begin was deprecated in v14. Replace spec.begin() with spec.item(). (see more here - https://react-dnd.github.io/react-dnd/docs/api/use-drag)");const n=function(){const e=Je();return Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])((()=>new We(e)),[e])}(),o=function(e,t){const r=Je(),n=Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])((()=>new Ge(r.getBackend())),[r]);return je((()=>(n.dragSourceOptions=e||null,n.reconnect(),()=>n.disconnectDragSource())),[n,e]),je((()=>(n.dragPreviewOptions=t||null,n.reconnect(),()=>n.disconnectDragPreview())),[n,t]),n}(r.options,r.previewOptions);return et(r,n,o),[Ae(r.collect,n,o),_e(o),He(o)]}function rt(e){return Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])((()=>e.hooks.dropTarget()),[e])}class nt{canDrop(){const e=this.spec,t=this.monitor;return!e.canDrop||e.canDrop(t.getItem(),t)}hover(){const e=this.spec,t=this.monitor;e.hover&&e.hover(t.getItem(),t)}drop(){const e=this.spec,t=this.monitor;if(e.drop)return e.drop(t.getItem(),t)}constructor(e,t){this.spec=e,this.monitor=t}}function ot(e,t,r){const n=Je(),o=function(e,t){const r=Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])((()=>new nt(e,t)),[t]);return Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{r.spec=e}),[e]),r}(e,t),s=function(e){const{accept:t}=e;return Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])((()=>(E(null!=e.accept,"accept must be defined"),Array.isArray(t)?t:[t])),[t])}(e);je((function(){const[e,i]=function(e,t,r){const n=r.getRegistry(),o=n.addTarget(e,t);return[o,()=>n.removeTarget(o)]}(s,o,n);return t.receiveHandlerId(e),r.receiveHandlerId(e),i}),[n,t,o,r,s.map((e=>e.toString())).join("|")])}function it(e,t){const r=qe(e,t),n=function(){const e=Je();return Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])((()=>new Fe(e)),[e])}(),o=function(e){const t=Je(),r=Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])((()=>new Qe(t.getBackend())),[t]);return je((()=>(r.dropTargetOptions=e||null,r.reconnect(),()=>r.disconnectDropTarget())),[e]),r}(r.options);return ot(r,n,o),[Ae(r.collect,n,o),rt(o)]}function st(e){let t=null;return()=>(null==t&&(t=e()),t)}class at{enter(e){const t=this.entered.length;return this.entered=function(e,t){const r=new Set,n=e=>r.add(e);e.forEach(n),t.forEach(n);const o=[];return r.forEach((e=>o.push(e))),o}(this.entered.filter((t=>this.isNodeInDocument(t)&&(!t.contains||t.contains(e)))),[e]),0===t&&this.entered.length>0}leave(e){const t=this.entered.length;var r,n;return this.entered=(r=this.entered.filter(this.isNodeInDocument),n=e,r.filter((e=>e!==n))),t>0&&0===this.entered.length}reset(){this.entered=[]}constructor(e){this.entered=[],this.isNodeInDocument=e}}class ct{initializeExposedProperties(){Object.keys(this.config.exposeProperties).forEach((e=>{Object.defineProperty(this.item,e,{configurable:!0,enumerable:!0,get:()=>(console.warn(`Browser doesn't allow reading "${e}" until the drop event.`),null)})}))}loadDataTransfer(e){if(e){const t={};Object.keys(this.config.exposeProperties).forEach((r=>{const n=this.config.exposeProperties[r];null!=n&&(t[r]={value:n(e,this.config.matchesTypes),configurable:!0,enumerable:!0})})),Object.defineProperties(this.item,t)}}canDrag(){return!0}beginDrag(){return this.item}isDragging(e,t){return t===e.getSourceId()}endDrag(){}constructor(e){this.config=e,this.item={},this.initializeExposedProperties()}}const lt="__NATIVE_FILE__",ut="__NATIVE_URL__",dt="__NATIVE_TEXT__",ht="__NATIVE_HTML__";var gt=Object.freeze({__proto__:null,FILE:lt,HTML:ht,TEXT:dt,URL:ut});function ft(e,t,r){const n=t.reduce(((t,r)=>t||e.getData(r)),"");return null!=n?n:r}const pt={[lt]:{exposeProperties:{files:e=>Array.prototype.slice.call(e.files),items:e=>e.items,dataTransfer:e=>e},matchesTypes:["Files"]},[ht]:{exposeProperties:{html:(e,t)=>ft(e,t,""),dataTransfer:e=>e},matchesTypes:["Html","text/html"]},[ut]:{exposeProperties:{urls:(e,t)=>ft(e,t,"").split("\n"),dataTransfer:e=>e},matchesTypes:["Url","text/uri-list"]},[dt]:{exposeProperties:{text:(e,t)=>ft(e,t,""),dataTransfer:e=>e},matchesTypes:["Text","text/plain"]}};function vt(e){if(!e)return null;const t=Array.prototype.slice.call(e.types||[]);return Object.keys(pt).filter((e=>{const r=pt[e];return!!(null==r?void 0:r.matchesTypes)&&r.matchesTypes.some((e=>t.indexOf(e)>-1))}))[0]||null}const mt=st((()=>/firefox/i.test(navigator.userAgent))),yt=st((()=>Boolean(window.safari)));class bt{interpolate(e){const{xs:t,ys:r,c1s:n,c2s:o,c3s:i}=this;let s=t.length-1;if(e===t[s])return r[s];let a,c=0,l=i.length-1;for(;c<=l;){a=Math.floor(.5*(c+l));const n=t[a];if(n<e)c=a+1;else{if(!(n>e))return r[a];l=a-1}}s=Math.max(0,l);const u=e-t[s],d=u*u;return r[s]+n[s]*u+o[s]*d+i[s]*u*d}constructor(e,t){const{length:r}=e,n=[];for(let e=0;e<r;e++)n.push(e);n.sort(((t,r)=>e[t]<e[r]?-1:1));const o=[],i=[];let s,a;for(let n=0;n<r-1;n++)s=e[n+1]-e[n],a=t[n+1]-t[n],o.push(s),i.push(a/s);const c=[i[0]];for(let e=0;e<o.length-1;e++){const t=i[e],r=i[e+1];if(t*r<=0)c.push(0);else{s=o[e];const n=o[e+1],i=s+n;c.push(3*i/((i+n)/t+(i+s)/r))}}c.push(i[i.length-1]);const l=[],u=[];let d;for(let e=0;e<c.length-1;e++){d=i[e];const t=c[e],r=1/o[e],n=t+c[e+1]-d-d;l.push((d-t-n)*r),u.push(n*r*r)}this.xs=e,this.ys=t,this.c1s=c,this.c2s=l,this.c3s=u}}const Ot=1;function wt(e){const t=e.nodeType===Ot?e:e.parentElement;if(!t)return null;const{top:r,left:n}=t.getBoundingClientRect();return{x:n,y:r}}function St(e){return{x:e.clientX,y:e.clientY}}function Dt(e,t,r,n,o){const i="IMG"===(s=t).nodeName&&(mt()||!(null===(a=document.documentElement)||void 0===a?void 0:a.contains(s)));var s,a;const c=wt(i?e:t),l={x:r.x-c.x,y:r.y-c.y},{offsetWidth:u,offsetHeight:d}=e,{anchorX:h,anchorY:g}=n,{dragPreviewWidth:f,dragPreviewHeight:p}=function(e,t,r,n){let o=e?t.width:r,i=e?t.height:n;return yt()&&e&&(i/=window.devicePixelRatio,o/=window.devicePixelRatio),{dragPreviewWidth:o,dragPreviewHeight:i}}(i,t,u,d),{offsetX:v,offsetY:m}=o,y=0===m||m;return{x:0===v||v?v:new bt([0,.5,1],[l.x,l.x/u*f,l.x+f-u]).interpolate(h),y:y?m:(()=>{let e=new bt([0,.5,1],[l.y,l.y/d*p,l.y+p-d]).interpolate(g);return yt()&&i&&(e+=(window.devicePixelRatio-1)*p),e})()}}let Ct;function Tt(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}function Et(e){for(var t=1;t<arguments.length;t++){var r=null!=arguments[t]?arguments[t]:{},n=Object.keys(r);"function"==typeof Object.getOwnPropertySymbols&&(n=n.concat(Object.getOwnPropertySymbols(r).filter((function(e){return Object.getOwnPropertyDescriptor(r,e).enumerable})))),n.forEach((function(t){Tt(e,t,r[t])}))}return e}class It{profile(){var e,t;return{sourcePreviewNodes:this.sourcePreviewNodes.size,sourcePreviewNodeOptions:this.sourcePreviewNodeOptions.size,sourceNodeOptions:this.sourceNodeOptions.size,sourceNodes:this.sourceNodes.size,dragStartSourceIds:(null===(e=this.dragStartSourceIds)||void 0===e?void 0:e.length)||0,dropTargetIds:this.dropTargetIds.length,dragEnterTargetIds:this.dragEnterTargetIds.length,dragOverTargetIds:(null===(t=this.dragOverTargetIds)||void 0===t?void 0:t.length)||0}}get window(){return this.options.window}get document(){return this.options.document}get rootElement(){return this.options.rootElement}setup(){const e=this.rootElement;if(void 0!==e){if(e.__isReactDndBackendSetUp)throw new Error("Cannot have two HTML5 backends at the same time.");e.__isReactDndBackendSetUp=!0,this.addEventListeners(e)}}teardown(){const e=this.rootElement;var t;void 0!==e&&(e.__isReactDndBackendSetUp=!1,this.removeEventListeners(this.rootElement),this.clearCurrentDragSourceNode(),this.asyncEndDragFrameId&&(null===(t=this.window)||void 0===t||t.cancelAnimationFrame(this.asyncEndDragFrameId)))}connectDragPreview(e,t,r){return this.sourcePreviewNodeOptions.set(e,r),this.sourcePreviewNodes.set(e,t),()=>{this.sourcePreviewNodes.delete(e),this.sourcePreviewNodeOptions.delete(e)}}connectDragSource(e,t,r){this.sourceNodes.set(e,t),this.sourceNodeOptions.set(e,r);const n=t=>this.handleDragStart(t,e),o=e=>this.handleSelectStart(e);return t.setAttribute("draggable","true"),t.addEventListener("dragstart",n),t.addEventListener("selectstart",o),()=>{this.sourceNodes.delete(e),this.sourceNodeOptions.delete(e),t.removeEventListener("dragstart",n),t.removeEventListener("selectstart",o),t.setAttribute("draggable","false")}}connectDropTarget(e,t){const r=t=>this.handleDragEnter(t,e),n=t=>this.handleDragOver(t,e),o=t=>this.handleDrop(t,e);return t.addEventListener("dragenter",r),t.addEventListener("dragover",n),t.addEventListener("drop",o),()=>{t.removeEventListener("dragenter",r),t.removeEventListener("dragover",n),t.removeEventListener("drop",o)}}addEventListeners(e){e.addEventListener&&(e.addEventListener("dragstart",this.handleTopDragStart),e.addEventListener("dragstart",this.handleTopDragStartCapture,!0),e.addEventListener("dragend",this.handleTopDragEndCapture,!0),e.addEventListener("dragenter",this.handleTopDragEnter),e.addEventListener("dragenter",this.handleTopDragEnterCapture,!0),e.addEventListener("dragleave",this.handleTopDragLeaveCapture,!0),e.addEventListener("dragover",this.handleTopDragOver),e.addEventListener("dragover",this.handleTopDragOverCapture,!0),e.addEventListener("drop",this.handleTopDrop),e.addEventListener("drop",this.handleTopDropCapture,!0))}removeEventListeners(e){e.removeEventListener&&(e.removeEventListener("dragstart",this.handleTopDragStart),e.removeEventListener("dragstart",this.handleTopDragStartCapture,!0),e.removeEventListener("dragend",this.handleTopDragEndCapture,!0),e.removeEventListener("dragenter",this.handleTopDragEnter),e.removeEventListener("dragenter",this.handleTopDragEnterCapture,!0),e.removeEventListener("dragleave",this.handleTopDragLeaveCapture,!0),e.removeEventListener("dragover",this.handleTopDragOver),e.removeEventListener("dragover",this.handleTopDragOverCapture,!0),e.removeEventListener("drop",this.handleTopDrop),e.removeEventListener("drop",this.handleTopDropCapture,!0))}getCurrentSourceNodeOptions(){const e=this.monitor.getSourceId(),t=this.sourceNodeOptions.get(e);return Et({dropEffect:this.altKeyPressed?"copy":"move"},t||{})}getCurrentDropEffect(){return this.isDraggingNativeItem()?"copy":this.getCurrentSourceNodeOptions().dropEffect}getCurrentSourcePreviewNodeOptions(){const e=this.monitor.getSourceId();return Et({anchorX:.5,anchorY:.5,captureDraggingState:!1},this.sourcePreviewNodeOptions.get(e)||{})}isDraggingNativeItem(){const e=this.monitor.getItemType();return Object.keys(gt).some((t=>gt[t]===e))}beginDragNativeItem(e,t){this.clearCurrentDragSourceNode(),this.currentNativeSource=function(e,t){const r=pt[e];if(!r)throw new Error(`native type ${e} has no configuration`);const n=new ct(r);return n.loadDataTransfer(t),n}(e,t),this.currentNativeHandle=this.registry.addSource(e,this.currentNativeSource),this.actions.beginDrag([this.currentNativeHandle])}setCurrentDragSourceNode(e){this.clearCurrentDragSourceNode(),this.currentDragSourceNode=e;this.mouseMoveTimeoutTimer=setTimeout((()=>{var e;return null===(e=this.rootElement)||void 0===e?void 0:e.addEventListener("mousemove",this.endDragIfSourceWasRemovedFromDOM,!0)}),1e3)}clearCurrentDragSourceNode(){if(this.currentDragSourceNode){var e;if(this.currentDragSourceNode=null,this.rootElement)null===(e=this.window)||void 0===e||e.clearTimeout(this.mouseMoveTimeoutTimer||void 0),this.rootElement.removeEventListener("mousemove",this.endDragIfSourceWasRemovedFromDOM,!0);return this.mouseMoveTimeoutTimer=null,!0}return!1}handleDragStart(e,t){e.defaultPrevented||(this.dragStartSourceIds||(this.dragStartSourceIds=[]),this.dragStartSourceIds.unshift(t))}handleDragEnter(e,t){this.dragEnterTargetIds.unshift(t)}handleDragOver(e,t){null===this.dragOverTargetIds&&(this.dragOverTargetIds=[]),this.dragOverTargetIds.unshift(t)}handleDrop(e,t){this.dropTargetIds.unshift(t)}constructor(e,t,r){this.sourcePreviewNodes=new Map,this.sourcePreviewNodeOptions=new Map,this.sourceNodes=new Map,this.sourceNodeOptions=new Map,this.dragStartSourceIds=null,this.dropTargetIds=[],this.dragEnterTargetIds=[],this.currentNativeSource=null,this.currentNativeHandle=null,this.currentDragSourceNode=null,this.altKeyPressed=!1,this.mouseMoveTimeoutTimer=null,this.asyncEndDragFrameId=null,this.dragOverTargetIds=null,this.lastClientOffset=null,this.hoverRafId=null,this.getSourceClientOffset=e=>{const t=this.sourceNodes.get(e);return t&&wt(t)||null},this.endDragNativeItem=()=>{this.isDraggingNativeItem()&&(this.actions.endDrag(),this.currentNativeHandle&&this.registry.removeSource(this.currentNativeHandle),this.currentNativeHandle=null,this.currentNativeSource=null)},this.isNodeInDocument=e=>Boolean(e&&this.document&&this.document.body&&this.document.body.contains(e)),this.endDragIfSourceWasRemovedFromDOM=()=>{const e=this.currentDragSourceNode;null==e||this.isNodeInDocument(e)||(this.clearCurrentDragSourceNode()&&this.monitor.isDragging()&&this.actions.endDrag(),this.cancelHover())},this.scheduleHover=e=>{null===this.hoverRafId&&"undefined"!=typeof requestAnimationFrame&&(this.hoverRafId=requestAnimationFrame((()=>{this.monitor.isDragging()&&this.actions.hover(e||[],{clientOffset:this.lastClientOffset}),this.hoverRafId=null})))},this.cancelHover=()=>{null!==this.hoverRafId&&"undefined"!=typeof cancelAnimationFrame&&(cancelAnimationFrame(this.hoverRafId),this.hoverRafId=null)},this.handleTopDragStartCapture=()=>{this.clearCurrentDragSourceNode(),this.dragStartSourceIds=[]},this.handleTopDragStart=e=>{if(e.defaultPrevented)return;const{dragStartSourceIds:t}=this;this.dragStartSourceIds=null;const r=St(e);this.monitor.isDragging()&&(this.actions.endDrag(),this.cancelHover()),this.actions.beginDrag(t||[],{publishSource:!1,getSourceClientOffset:this.getSourceClientOffset,clientOffset:r});const{dataTransfer:n}=e,o=vt(n);if(this.monitor.isDragging()){if(n&&"function"==typeof n.setDragImage){const e=this.monitor.getSourceId(),t=this.sourceNodes.get(e),o=this.sourcePreviewNodes.get(e)||t;if(o){const{anchorX:e,anchorY:i,offsetX:s,offsetY:a}=this.getCurrentSourcePreviewNodeOptions(),c=Dt(t,o,r,{anchorX:e,anchorY:i},{offsetX:s,offsetY:a});n.setDragImage(o,c.x,c.y)}}try{null==n||n.setData("application/json",{})}catch(e){}this.setCurrentDragSourceNode(e.target);const{captureDraggingState:t}=this.getCurrentSourcePreviewNodeOptions();t?this.actions.publishDragSource():setTimeout((()=>this.actions.publishDragSource()),0)}else if(o)this.beginDragNativeItem(o);else{if(n&&!n.types&&(e.target&&!e.target.hasAttribute||!e.target.hasAttribute("draggable")))return;e.preventDefault()}},this.handleTopDragEndCapture=()=>{this.clearCurrentDragSourceNode()&&this.monitor.isDragging()&&this.actions.endDrag(),this.cancelHover()},this.handleTopDragEnterCapture=e=>{var t;(this.dragEnterTargetIds=[],this.isDraggingNativeItem())&&(null===(t=this.currentNativeSource)||void 0===t||t.loadDataTransfer(e.dataTransfer));if(!this.enterLeaveCounter.enter(e.target)||this.monitor.isDragging())return;const{dataTransfer:r}=e,n=vt(r);n&&this.beginDragNativeItem(n,r)},this.handleTopDragEnter=e=>{const{dragEnterTargetIds:t}=this;if(this.dragEnterTargetIds=[],!this.monitor.isDragging())return;this.altKeyPressed=e.altKey,t.length>0&&this.actions.hover(t,{clientOffset:St(e)});t.some((e=>this.monitor.canDropOnTarget(e)))&&(e.preventDefault(),e.dataTransfer&&(e.dataTransfer.dropEffect=this.getCurrentDropEffect()))},this.handleTopDragOverCapture=e=>{var t;(this.dragOverTargetIds=[],this.isDraggingNativeItem())&&(null===(t=this.currentNativeSource)||void 0===t||t.loadDataTransfer(e.dataTransfer))},this.handleTopDragOver=e=>{const{dragOverTargetIds:t}=this;if(this.dragOverTargetIds=[],!this.monitor.isDragging())return e.preventDefault(),void(e.dataTransfer&&(e.dataTransfer.dropEffect="none"));this.altKeyPressed=e.altKey,this.lastClientOffset=St(e),this.scheduleHover(t);(t||[]).some((e=>this.monitor.canDropOnTarget(e)))?(e.preventDefault(),e.dataTransfer&&(e.dataTransfer.dropEffect=this.getCurrentDropEffect())):this.isDraggingNativeItem()?e.preventDefault():(e.preventDefault(),e.dataTransfer&&(e.dataTransfer.dropEffect="none"))},this.handleTopDragLeaveCapture=e=>{this.isDraggingNativeItem()&&e.preventDefault();this.enterLeaveCounter.leave(e.target)&&(this.isDraggingNativeItem()&&setTimeout((()=>this.endDragNativeItem()),0),this.cancelHover())},this.handleTopDropCapture=e=>{var t;(this.dropTargetIds=[],this.isDraggingNativeItem())?(e.preventDefault(),null===(t=this.currentNativeSource)||void 0===t||t.loadDataTransfer(e.dataTransfer)):vt(e.dataTransfer)&&e.preventDefault();this.enterLeaveCounter.reset()},this.handleTopDrop=e=>{const{dropTargetIds:t}=this;this.dropTargetIds=[],this.actions.hover(t,{clientOffset:St(e)}),this.actions.drop({dropEffect:this.getCurrentDropEffect()}),this.isDraggingNativeItem()?this.endDragNativeItem():this.monitor.isDragging()&&this.actions.endDrag(),this.cancelHover()},this.handleSelectStart=e=>{const t=e.target;"function"==typeof t.dragDrop&&("INPUT"===t.tagName||"SELECT"===t.tagName||"TEXTAREA"===t.tagName||t.isContentEditable||(e.preventDefault(),t.dragDrop()))},this.options=new class{get window(){return this.globalContext?this.globalContext:"undefined"!=typeof window?window:void 0}get document(){var e;return(null===(e=this.globalContext)||void 0===e?void 0:e.document)?this.globalContext.document:this.window?this.window.document:void 0}get rootElement(){var e;return(null===(e=this.optionsArgs)||void 0===e?void 0:e.rootElement)||this.window}constructor(e,t){this.ownerDocument=null,this.globalContext=e,this.optionsArgs=t}}(t,r),this.actions=e.getActions(),this.monitor=e.getMonitor(),this.registry=e.getRegistry(),this.enterLeaveCounter=new at(this.isNodeInDocument)}}const kt=function(e,t,r){return new It(e,t,r)};var Lt;!function(e){e.mouse="mouse",e.touch="touch",e.keyboard="keyboard"}(Lt||(Lt={}));class Pt{get delay(){var e;return null!==(e=this.args.delay)&&void 0!==e?e:0}get scrollAngleRanges(){return this.args.scrollAngleRanges}get getDropTargetElementsAtPoint(){return this.args.getDropTargetElementsAtPoint}get ignoreContextMenu(){var e;return null!==(e=this.args.ignoreContextMenu)&&void 0!==e&&e}get enableHoverOutsideTarget(){var e;return null!==(e=this.args.enableHoverOutsideTarget)&&void 0!==e&&e}get enableKeyboardEvents(){var e;return null!==(e=this.args.enableKeyboardEvents)&&void 0!==e&&e}get enableMouseEvents(){var e;return null!==(e=this.args.enableMouseEvents)&&void 0!==e&&e}get enableTouchEvents(){var e;return null===(e=this.args.enableTouchEvents)||void 0===e||e}get touchSlop(){return this.args.touchSlop||0}get delayTouchStart(){var e,t,r,n;return null!==(n=null!==(r=null===(e=this.args)||void 0===e?void 0:e.delayTouchStart)&&void 0!==r?r:null===(t=this.args)||void 0===t?void 0:t.delay)&&void 0!==n?n:0}get delayMouseStart(){var e,t,r,n;return null!==(n=null!==(r=null===(e=this.args)||void 0===e?void 0:e.delayMouseStart)&&void 0!==r?r:null===(t=this.args)||void 0===t?void 0:t.delay)&&void 0!==n?n:0}get window(){return this.context&&this.context.window?this.context.window:"undefined"!=typeof window?window:void 0}get document(){var e;return(null===(e=this.context)||void 0===e?void 0:e.document)?this.context.document:this.window?this.window.document:void 0}get rootElement(){var e;return(null===(e=this.args)||void 0===e?void 0:e.rootElement)||this.document}constructor(e,t){this.args=e,this.context=t}}const xt=1,Mt=0;function Nt(e){return void 0===e.button||e.button===Mt}function jt(e){return!!e.targetTouches}function Rt(e,t){return jt(e)?function(e,t){return 1===e.targetTouches.length?Rt(e.targetTouches[0]):t&&1===e.touches.length&&e.touches[0].target===t.target?Rt(e.touches[0]):void 0}(e,t):{x:e.clientX,y:e.clientY}}const At=(()=>{let e=!1;try{addEventListener("test",(()=>{}),Object.defineProperty({},"passive",{get:()=>(e=!0,!0)}))}catch(e){}return e})(),qt={[Lt.mouse]:{start:"mousedown",move:"mousemove",end:"mouseup",contextmenu:"contextmenu"},[Lt.touch]:{start:"touchstart",move:"touchmove",end:"touchend"},[Lt.keyboard]:{keydown:"keydown"}};class _t{profile(){var e;return{sourceNodes:this.sourceNodes.size,sourcePreviewNodes:this.sourcePreviewNodes.size,sourcePreviewNodeOptions:this.sourcePreviewNodeOptions.size,targetNodes:this.targetNodes.size,dragOverTargetIds:(null===(e=this.dragOverTargetIds)||void 0===e?void 0:e.length)||0}}get document(){return this.options.document}setup(){const e=this.options.rootElement;e&&(E(!_t.isSetUp,"Cannot have two Touch backends at the same time."),_t.isSetUp=!0,this.addEventListener(e,"start",this.getTopMoveStartHandler()),this.addEventListener(e,"start",this.handleTopMoveStartCapture,!0),this.addEventListener(e,"move",this.handleTopMove),this.addEventListener(e,"move",this.handleTopMoveCapture,!0),this.addEventListener(e,"end",this.handleTopMoveEndCapture,!0),this.options.enableMouseEvents&&!this.options.ignoreContextMenu&&this.addEventListener(e,"contextmenu",this.handleTopMoveEndCapture),this.options.enableKeyboardEvents&&this.addEventListener(e,"keydown",this.handleCancelOnEscape,!0))}teardown(){const e=this.options.rootElement;e&&(_t.isSetUp=!1,this._mouseClientOffset={},this.removeEventListener(e,"start",this.handleTopMoveStartCapture,!0),this.removeEventListener(e,"start",this.handleTopMoveStart),this.removeEventListener(e,"move",this.handleTopMoveCapture,!0),this.removeEventListener(e,"move",this.handleTopMove),this.removeEventListener(e,"end",this.handleTopMoveEndCapture,!0),this.options.enableMouseEvents&&!this.options.ignoreContextMenu&&this.removeEventListener(e,"contextmenu",this.handleTopMoveEndCapture),this.options.enableKeyboardEvents&&this.removeEventListener(e,"keydown",this.handleCancelOnEscape,!0),this.uninstallSourceNodeRemovalObserver())}addEventListener(e,t,r,n=!1){const o=At?{capture:n,passive:!1}:n;this.listenerTypes.forEach((function(n){const i=qt[n][t];i&&e.addEventListener(i,r,o)}))}removeEventListener(e,t,r,n=!1){const o=At?{capture:n,passive:!1}:n;this.listenerTypes.forEach((function(n){const i=qt[n][t];i&&e.removeEventListener(i,r,o)}))}connectDragSource(e,t){const r=this.handleMoveStart.bind(this,e);return this.sourceNodes.set(e,t),this.addEventListener(t,"start",r),()=>{this.sourceNodes.delete(e),this.removeEventListener(t,"start",r)}}connectDragPreview(e,t,r){return this.sourcePreviewNodeOptions.set(e,r),this.sourcePreviewNodes.set(e,t),()=>{this.sourcePreviewNodes.delete(e),this.sourcePreviewNodeOptions.delete(e)}}connectDropTarget(e,t){const r=this.options.rootElement;if(!this.document||!r)return()=>{};const n=n=>{if(!this.document||!r||!this.monitor.isDragging())return;let o;switch(n.type){case qt.mouse.move:o={x:n.clientX,y:n.clientY};break;case qt.touch.move:var i,s;o={x:(null===(i=n.touches[0])||void 0===i?void 0:i.clientX)||0,y:(null===(s=n.touches[0])||void 0===s?void 0:s.clientY)||0}}const a=null!=o?this.document.elementFromPoint(o.x,o.y):void 0,c=a&&t.contains(a);return a===t||c?this.handleMove(n,e):void 0};return this.addEventListener(this.document.body,"move",n),this.targetNodes.set(e,t),()=>{this.document&&(this.targetNodes.delete(e),this.removeEventListener(this.document.body,"move",n))}}getTopMoveStartHandler(){return this.options.delayTouchStart||this.options.delayMouseStart?this.handleTopMoveStartDelay:this.handleTopMoveStart}installSourceNodeRemovalObserver(e){this.uninstallSourceNodeRemovalObserver(),this.draggedSourceNode=e,this.draggedSourceNodeRemovalObserver=new MutationObserver((()=>{e&&!e.parentElement&&(this.resurrectSourceNode(),this.uninstallSourceNodeRemovalObserver())})),e&&e.parentElement&&this.draggedSourceNodeRemovalObserver.observe(e.parentElement,{childList:!0})}resurrectSourceNode(){this.document&&this.draggedSourceNode&&(this.draggedSourceNode.style.display="none",this.draggedSourceNode.removeAttribute("data-reactid"),this.document.body.appendChild(this.draggedSourceNode))}uninstallSourceNodeRemovalObserver(){this.draggedSourceNodeRemovalObserver&&this.draggedSourceNodeRemovalObserver.disconnect(),this.draggedSourceNodeRemovalObserver=void 0,this.draggedSourceNode=void 0}constructor(e,t,r){this.getSourceClientOffset=e=>{const t=this.sourceNodes.get(e);return t&&function(e){const t=1===e.nodeType?e:e.parentElement;if(!t)return;const{top:r,left:n}=t.getBoundingClientRect();return{x:n,y:r}}(t)},this.handleTopMoveStartCapture=e=>{Nt(e)&&(this.moveStartSourceIds=[])},this.handleMoveStart=e=>{Array.isArray(this.moveStartSourceIds)&&this.moveStartSourceIds.unshift(e)},this.handleTopMoveStart=e=>{if(!Nt(e))return;const t=Rt(e);t&&(jt(e)&&(this.lastTargetTouchFallback=e.targetTouches[0]),this._mouseClientOffset=t),this.waitingForDelay=!1},this.handleTopMoveStartDelay=e=>{if(!Nt(e))return;const t=e.type===qt.touch.start?this.options.delayTouchStart:this.options.delayMouseStart;this.timeout=setTimeout(this.handleTopMoveStart.bind(this,e),t),this.waitingForDelay=!0},this.handleTopMoveCapture=()=>{this.dragOverTargetIds=[]},this.handleMove=(e,t)=>{this.dragOverTargetIds&&this.dragOverTargetIds.unshift(t)},this.handleTopMove=e=>{if(this.timeout&&clearTimeout(this.timeout),!this.document||this.waitingForDelay)return;const{moveStartSourceIds:t,dragOverTargetIds:r}=this,n=this.options.enableHoverOutsideTarget,o=Rt(e,this.lastTargetTouchFallback);if(!o)return;if(this._isScrolling||!this.monitor.isDragging()&&function(e,t,r,n,o){if(!o)return!1;const i=180*Math.atan2(n-t,r-e)/Math.PI+180;for(let e=0;e<o.length;++e){const t=o[e];if(t&&(null==t.start||i>=t.start)&&(null==t.end||i<=t.end))return!0}return!1}(this._mouseClientOffset.x||0,this._mouseClientOffset.y||0,o.x,o.y,this.options.scrollAngleRanges))return void(this._isScrolling=!0);var i,s,a,c;if(!this.monitor.isDragging()&&this._mouseClientOffset.hasOwnProperty("x")&&t&&(i=this._mouseClientOffset.x||0,s=this._mouseClientOffset.y||0,a=o.x,c=o.y,Math.sqrt(Math.pow(Math.abs(a-i),2)+Math.pow(Math.abs(c-s),2))>(this.options.touchSlop?this.options.touchSlop:0))&&(this.moveStartSourceIds=void 0,this.actions.beginDrag(t,{clientOffset:this._mouseClientOffset,getSourceClientOffset:this.getSourceClientOffset,publishSource:!1})),!this.monitor.isDragging())return;const l=this.sourceNodes.get(this.monitor.getSourceId());this.installSourceNodeRemovalObserver(l),this.actions.publishDragSource(),e.cancelable&&e.preventDefault();const u=(r||[]).map((e=>this.targetNodes.get(e))).filter((e=>!!e)),d=this.options.getDropTargetElementsAtPoint?this.options.getDropTargetElementsAtPoint(o.x,o.y,u):this.document.elementsFromPoint(o.x,o.y),h=[];for(const e in d){if(!d.hasOwnProperty(e))continue;let t=d[e];for(null!=t&&h.push(t);t;)t=t.parentElement,t&&-1===h.indexOf(t)&&h.push(t)}const g=h.filter((e=>u.indexOf(e)>-1)).map((e=>this._getDropTargetId(e))).filter((e=>!!e)).filter(((e,t,r)=>r.indexOf(e)===t));if(n)for(const e in this.targetNodes){const t=this.targetNodes.get(e);if(l&&t&&t.contains(l)&&-1===g.indexOf(e)){g.unshift(e);break}}g.reverse(),this.actions.hover(g,{clientOffset:o})},this._getDropTargetId=e=>{const t=this.targetNodes.keys();let r=t.next();for(;!1===r.done;){const n=r.value;if(e===this.targetNodes.get(n))return n;r=t.next()}},this.handleTopMoveEndCapture=e=>{this._isScrolling=!1,this.lastTargetTouchFallback=void 0,function(e){return void 0===e.buttons||0==(e.buttons&xt)}(e)&&(this.monitor.isDragging()&&!this.monitor.didDrop()?(e.cancelable&&e.preventDefault(),this._mouseClientOffset={},this.uninstallSourceNodeRemovalObserver(),this.actions.drop(),this.actions.endDrag()):this.moveStartSourceIds=void 0)},this.handleCancelOnEscape=e=>{"Escape"===e.key&&this.monitor.isDragging()&&(this._mouseClientOffset={},this.uninstallSourceNodeRemovalObserver(),this.actions.endDrag())},this.options=new Pt(r,t),this.actions=e.getActions(),this.monitor=e.getMonitor(),this.sourceNodes=new Map,this.sourcePreviewNodes=new Map,this.sourcePreviewNodeOptions=new Map,this.targetNodes=new Map,this.listenerTypes=[],this._mouseClientOffset={},this._isScrolling=!1,this.options.enableMouseEvents&&this.listenerTypes.push(Lt.mouse),this.options.enableTouchEvents&&this.listenerTypes.push(Lt.touch),this.options.enableKeyboardEvents&&this.listenerTypes.push(Lt.keyboard)}}const Ht=function(e,t={},r={}){return new _t(e,t,r)},zt="abcdefgh".split(""),Bt={a8:"bR",b8:"bN",c8:"bB",d8:"bQ",e8:"bK",f8:"bB",g8:"bN",h8:"bR",a7:"bP",b7:"bP",c7:"bP",d7:"bP",e7:"bP",f7:"bP",g7:"bP",h7:"bP",a2:"wP",b2:"wP",c2:"wP",d2:"wP",e2:"wP",f2:"wP",g2:"wP",h2:"wP",a1:"wR",b1:"wN",c1:"wB",d1:"wQ",e1:"wK",f1:"wB",g1:"wN",h1:"wR"},Wt={a:0,b:1,c:2,d:3,e:4,f:5,g:6,h:7},Ut={a:7,b:6,c:5,d:4,e:3,f:2,g:1,h:0},Ft=[7,6,5,4,3,2,1,0],$t=[0,1,2,3,4,5,6,7],Vt={wP:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",version:"1.1",width:"45",height:"45"},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"m 22.5,9 c -2.21,0 -4,1.79 -4,4 0,0.89 0.29,1.71 0.78,2.38 C 17.33,16.5 16,18.59 16,21 c 0,2.03 0.94,3.84 2.41,5.03 C 15.41,27.09 11,31.58 11,39.5 H 34 C 34,31.58 29.59,27.09 26.59,26.03 28.06,24.84 29,23.03 29,21 29,18.59 27.67,16.5 25.72,15.38 26.21,14.71 26.5,13.89 26.5,13 c 0,-2.21 -1.79,-4 -4,-4 z",style:{opacity:"1",fill:"#ffffff",fillOpacity:"1",fillRule:"nonzero",stroke:"#000000",strokeWidth:"1.5",strokeLinecap:"round",strokeLinejoin:"miter",strokeMiterlimit:"4",strokeDasharray:"none",strokeOpacity:"1"}})})),wR:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",version:"1.1",width:"45",height:"45"},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("g",Object.assign({style:{opacity:"1",fill:"#ffffff",fillOpacity:"1",fillRule:"evenodd",stroke:"#000000",strokeWidth:"1.5",strokeLinecap:"round",strokeLinejoin:"round",strokeMiterlimit:"4",strokeDasharray:"none",strokeOpacity:"1"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 9,39 L 36,39 L 36,36 L 9,36 L 9,39 z ",style:{strokeLinecap:"butt"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 12,36 L 12,32 L 33,32 L 33,36 L 12,36 z ",style:{strokeLinecap:"butt"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 11,14 L 11,9 L 15,9 L 15,11 L 20,11 L 20,9 L 25,9 L 25,11 L 30,11 L 30,9 L 34,9 L 34,14",style:{strokeLinecap:"butt"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 34,14 L 31,17 L 14,17 L 11,14"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 31,17 L 31,29.5 L 14,29.5 L 14,17",style:{strokeLinecap:"butt",strokeLinejoin:"miter"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 31,29.5 L 32.5,32 L 12.5,32 L 14,29.5"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 11,14 L 34,14",style:{fill:"none",stroke:"#000000",strokeLinejoin:"miter"}})]}))})),wN:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",version:"1.1",width:"45",height:"45"},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("g",Object.assign({style:{opacity:"1",fill:"none",fillOpacity:"1",fillRule:"evenodd",stroke:"#000000",strokeWidth:"1.5",strokeLinecap:"round",strokeLinejoin:"round",strokeMiterlimit:"4",strokeDasharray:"none",strokeOpacity:"1"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 22,10 C 32.5,11 38.5,18 38,39 L 15,39 C 15,30 25,32.5 23,18",style:{fill:"#ffffff",stroke:"#000000"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 24,18 C 24.38,20.91 18.45,25.37 16,27 C 13,29 13.18,31.34 11,31 C 9.958,30.06 12.41,27.96 11,28 C 10,28 11.19,29.23 10,30 C 9,30 5.997,31 6,26 C 6,24 12,14 12,14 C 12,14 13.89,12.1 14,10.5 C 13.27,9.506 13.5,8.5 13.5,7.5 C 14.5,6.5 16.5,10 16.5,10 L 18.5,10 C 18.5,10 19.28,8.008 21,7 C 22,7 22,10 22,10",style:{fill:"#ffffff",stroke:"#000000"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 9.5 25.5 A 0.5 0.5 0 1 1 8.5,25.5 A 0.5 0.5 0 1 1 9.5 25.5 z",style:{fill:"#000000",stroke:"#000000"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 15 15.5 A 0.5 1.5 0 1 1  14,15.5 A 0.5 1.5 0 1 1  15 15.5 z",transform:"matrix(0.866,0.5,-0.5,0.866,9.693,-5.173)",style:{fill:"#000000",stroke:"#000000"}})]}))})),wB:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",version:"1.1",width:"45",height:"45"},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("g",Object.assign({style:{opacity:"1",fill:"none",fillRule:"evenodd",fillOpacity:"1",stroke:"#000000",strokeWidth:"1.5",strokeLinecap:"round",strokeLinejoin:"round",strokeMiterlimit:"4",strokeDasharray:"none",strokeOpacity:"1"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("g",Object.assign({style:{fill:"#ffffff",stroke:"#000000",strokeLinecap:"butt"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 9,36 C 12.39,35.03 19.11,36.43 22.5,34 C 25.89,36.43 32.61,35.03 36,36 C 36,36 37.65,36.54 39,38 C 38.32,38.97 37.35,38.99 36,38.5 C 32.61,37.53 25.89,38.96 22.5,37.5 C 19.11,38.96 12.39,37.53 9,38.5 C 7.65,38.99 6.68,38.97 6,38 C 7.35,36.54 9,36 9,36 z"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 15,32 C 17.5,34.5 27.5,34.5 30,32 C 30.5,30.5 30,30 30,30 C 30,27.5 27.5,26 27.5,26 C 33,24.5 33.5,14.5 22.5,10.5 C 11.5,14.5 12,24.5 17.5,26 C 17.5,26 15,27.5 15,30 C 15,30 14.5,30.5 15,32 z"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 25 8 A 2.5 2.5 0 1 1  20,8 A 2.5 2.5 0 1 1  25 8 z"})]})),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 17.5,26 L 27.5,26 M 15,30 L 30,30 M 22.5,15.5 L 22.5,20.5 M 20,18 L 25,18",style:{fill:"none",stroke:"#000000",strokeLinejoin:"miter"}})]}))})),wQ:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",version:"1.1",width:"45",height:"45"},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("g",Object.assign({style:{fill:"#ffffff",stroke:"#000000",strokeWidth:"1.5",strokeLinejoin:"round"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 9,26 C 17.5,24.5 30,24.5 36,26 L 38.5,13.5 L 31,25 L 30.7,10.9 L 25.5,24.5 L 22.5,10 L 19.5,24.5 L 14.3,10.9 L 14,25 L 6.5,13.5 L 9,26 z"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 9,26 C 9,28 10.5,28 11.5,30 C 12.5,31.5 12.5,31 12,33.5 C 10.5,34.5 11,36 11,36 C 9.5,37.5 11,38.5 11,38.5 C 17.5,39.5 27.5,39.5 34,38.5 C 34,38.5 35.5,37.5 34,36 C 34,36 34.5,34.5 33,33.5 C 32.5,31 32.5,31.5 33.5,30 C 34.5,28 36,28 36,26 C 27.5,24.5 17.5,24.5 9,26 z"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 11.5,30 C 15,29 30,29 33.5,30",style:{fill:"none"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 12,33.5 C 18,32.5 27,32.5 33,33.5",style:{fill:"none"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("circle",{cx:"6",cy:"12",r:"2"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("circle",{cx:"14",cy:"9",r:"2"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("circle",{cx:"22.5",cy:"8",r:"2"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("circle",{cx:"31",cy:"9",r:"2"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("circle",{cx:"39",cy:"12",r:"2"})]}))})),wK:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",version:"1.1",width:"45",height:"45"},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("g",Object.assign({style:{fill:"none",fillOpacity:"1",fillRule:"evenodd",stroke:"#000000",strokeWidth:"1.5",strokeLinecap:"round",strokeLinejoin:"round",strokeMiterlimit:"4",strokeDasharray:"none",strokeOpacity:"1"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 22.5,11.63 L 22.5,6",style:{fill:"none",stroke:"#000000",strokeLinejoin:"miter"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 20,8 L 25,8",style:{fill:"none",stroke:"#000000",strokeLinejoin:"miter"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 22.5,25 C 22.5,25 27,17.5 25.5,14.5 C 25.5,14.5 24.5,12 22.5,12 C 20.5,12 19.5,14.5 19.5,14.5 C 18,17.5 22.5,25 22.5,25",style:{fill:"#ffffff",stroke:"#000000",strokeLinecap:"butt",strokeLinejoin:"miter"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 12.5,37 C 18,40.5 27,40.5 32.5,37 L 32.5,30 C 32.5,30 41.5,25.5 38.5,19.5 C 34.5,13 25,16 22.5,23.5 L 22.5,27 L 22.5,23.5 C 20,16 10.5,13 6.5,19.5 C 3.5,25.5 12.5,30 12.5,30 L 12.5,37",style:{fill:"#ffffff",stroke:"#000000"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 12.5,30 C 18,27 27,27 32.5,30",style:{fill:"none",stroke:"#000000"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 12.5,33.5 C 18,30.5 27,30.5 32.5,33.5",style:{fill:"none",stroke:"#000000"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 12.5,37 C 18,34 27,34 32.5,37",style:{fill:"none",stroke:"#000000"}})]}))})),bP:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",version:"1.1",width:"45",height:"45"},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"m 22.5,9 c -2.21,0 -4,1.79 -4,4 0,0.89 0.29,1.71 0.78,2.38 C 17.33,16.5 16,18.59 16,21 c 0,2.03 0.94,3.84 2.41,5.03 C 15.41,27.09 11,31.58 11,39.5 H 34 C 34,31.58 29.59,27.09 26.59,26.03 28.06,24.84 29,23.03 29,21 29,18.59 27.67,16.5 25.72,15.38 26.21,14.71 26.5,13.89 26.5,13 c 0,-2.21 -1.79,-4 -4,-4 z",style:{opacity:"1",fill:"#000000",fillOpacity:"1",fillRule:"nonzero",stroke:"#000000",strokeWidth:"1.5",strokeLinecap:"round",strokeLinejoin:"miter",strokeMiterlimit:"4",strokeDasharray:"none",strokeOpacity:"1"}})})),bR:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",version:"1.1",width:"45",height:"45"},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("g",Object.assign({style:{opacity:"1",fill:"#000000",fillOpacity:"1",fillRule:"evenodd",stroke:"#000000",strokeWidth:"1.5",strokeLinecap:"round",strokeLinejoin:"round",strokeMiterlimit:"4",strokeDasharray:"none",strokeOpacity:"1"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 9,39 L 36,39 L 36,36 L 9,36 L 9,39 z ",style:{strokeLinecap:"butt"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 12.5,32 L 14,29.5 L 31,29.5 L 32.5,32 L 12.5,32 z ",style:{strokeLinecap:"butt"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 12,36 L 12,32 L 33,32 L 33,36 L 12,36 z ",style:{strokeLinecap:"butt"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 14,29.5 L 14,16.5 L 31,16.5 L 31,29.5 L 14,29.5 z ",style:{strokeLinecap:"butt",strokeLinejoin:"miter"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 14,16.5 L 11,14 L 34,14 L 31,16.5 L 14,16.5 z ",style:{strokeLinecap:"butt"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 11,14 L 11,9 L 15,9 L 15,11 L 20,11 L 20,9 L 25,9 L 25,11 L 30,11 L 30,9 L 34,9 L 34,14 L 11,14 z ",style:{strokeLinecap:"butt"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 12,35.5 L 33,35.5 L 33,35.5",style:{fill:"none",stroke:"#ffffff",strokeWidth:"1",strokeLinejoin:"miter"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 13,31.5 L 32,31.5",style:{fill:"none",stroke:"#ffffff",strokeWidth:"1",strokeLinejoin:"miter"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 14,29.5 L 31,29.5",style:{fill:"none",stroke:"#ffffff",strokeWidth:"1",strokeLinejoin:"miter"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 14,16.5 L 31,16.5",style:{fill:"none",stroke:"#ffffff",strokeWidth:"1",strokeLinejoin:"miter"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 11,14 L 34,14",style:{fill:"none",stroke:"#ffffff",strokeWidth:"1",strokeLinejoin:"miter"}})]}))})),bN:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",version:"1.1",width:"45",height:"45"},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("g",Object.assign({style:{opacity:"1",fill:"none",fillOpacity:"1",fillRule:"evenodd",stroke:"#000000",strokeWidth:"1.5",strokeLinecap:"round",strokeLinejoin:"round",strokeMiterlimit:"4",strokeDasharray:"none",strokeOpacity:"1"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 22,10 C 32.5,11 38.5,18 38,39 L 15,39 C 15,30 25,32.5 23,18",style:{fill:"#000000",stroke:"#000000"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 24,18 C 24.38,20.91 18.45,25.37 16,27 C 13,29 13.18,31.34 11,31 C 9.958,30.06 12.41,27.96 11,28 C 10,28 11.19,29.23 10,30 C 9,30 5.997,31 6,26 C 6,24 12,14 12,14 C 12,14 13.89,12.1 14,10.5 C 13.27,9.506 13.5,8.5 13.5,7.5 C 14.5,6.5 16.5,10 16.5,10 L 18.5,10 C 18.5,10 19.28,8.008 21,7 C 22,7 22,10 22,10",style:{fill:"#000000",stroke:"#000000"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 9.5 25.5 A 0.5 0.5 0 1 1 8.5,25.5 A 0.5 0.5 0 1 1 9.5 25.5 z",style:{fill:"#ffffff",stroke:"#ffffff"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 15 15.5 A 0.5 1.5 0 1 1  14,15.5 A 0.5 1.5 0 1 1  15 15.5 z",transform:"matrix(0.866,0.5,-0.5,0.866,9.693,-5.173)",style:{fill:"#ffffff",stroke:"#ffffff"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 24.55,10.4 L 24.1,11.85 L 24.6,12 C 27.75,13 30.25,14.49 32.5,18.75 C 34.75,23.01 35.75,29.06 35.25,39 L 35.2,39.5 L 37.45,39.5 L 37.5,39 C 38,28.94 36.62,22.15 34.25,17.66 C 31.88,13.17 28.46,11.02 25.06,10.5 L 24.55,10.4 z ",style:{fill:"#ffffff",stroke:"none"}})]}))})),bB:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",version:"1.1",width:"45",height:"45"},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("g",Object.assign({style:{opacity:"1",fill:"none",fillRule:"evenodd",fillOpacity:"1",stroke:"#000000",strokeWidth:"1.5",strokeLinecap:"round",strokeLinejoin:"round",strokeMiterlimit:"4",strokeDasharray:"none",strokeOpacity:"1"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("g",Object.assign({style:{fill:"#000000",stroke:"#000000",strokeLinecap:"butt"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 9,36 C 12.39,35.03 19.11,36.43 22.5,34 C 25.89,36.43 32.61,35.03 36,36 C 36,36 37.65,36.54 39,38 C 38.32,38.97 37.35,38.99 36,38.5 C 32.61,37.53 25.89,38.96 22.5,37.5 C 19.11,38.96 12.39,37.53 9,38.5 C 7.65,38.99 6.68,38.97 6,38 C 7.35,36.54 9,36 9,36 z"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 15,32 C 17.5,34.5 27.5,34.5 30,32 C 30.5,30.5 30,30 30,30 C 30,27.5 27.5,26 27.5,26 C 33,24.5 33.5,14.5 22.5,10.5 C 11.5,14.5 12,24.5 17.5,26 C 17.5,26 15,27.5 15,30 C 15,30 14.5,30.5 15,32 z"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 25 8 A 2.5 2.5 0 1 1  20,8 A 2.5 2.5 0 1 1  25 8 z"})]})),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 17.5,26 L 27.5,26 M 15,30 L 30,30 M 22.5,15.5 L 22.5,20.5 M 20,18 L 25,18",style:{fill:"none",stroke:"#ffffff",strokeLinejoin:"miter"}})]}))})),bQ:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",version:"1.1",width:"45",height:"45"},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("g",Object.assign({style:{fill:"#000000",stroke:"#000000",strokeWidth:"1.5",strokeLinecap:"round",strokeLinejoin:"round"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 9,26 C 17.5,24.5 30,24.5 36,26 L 38.5,13.5 L 31,25 L 30.7,10.9 L 25.5,24.5 L 22.5,10 L 19.5,24.5 L 14.3,10.9 L 14,25 L 6.5,13.5 L 9,26 z",style:{strokeLinecap:"butt",fill:"#000000"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"m 9,26 c 0,2 1.5,2 2.5,4 1,1.5 1,1 0.5,3.5 -1.5,1 -1,2.5 -1,2.5 -1.5,1.5 0,2.5 0,2.5 6.5,1 16.5,1 23,0 0,0 1.5,-1 0,-2.5 0,0 0.5,-1.5 -1,-2.5 -0.5,-2.5 -0.5,-2 0.5,-3.5 1,-2 2.5,-2 2.5,-4 -8.5,-1.5 -18.5,-1.5 -27,0 z"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 11.5,30 C 15,29 30,29 33.5,30"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"m 12,33.5 c 6,-1 15,-1 21,0"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("circle",{cx:"6",cy:"12",r:"2"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("circle",{cx:"14",cy:"9",r:"2"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("circle",{cx:"22.5",cy:"8",r:"2"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("circle",{cx:"31",cy:"9",r:"2"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("circle",{cx:"39",cy:"12",r:"2"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 11,38.5 A 35,35 1 0 0 34,38.5",style:{fill:"none",stroke:"#000000",strokeLinecap:"butt"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("g",Object.assign({style:{fill:"none",stroke:"#ffffff"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 11,29 A 35,35 1 0 1 34,29"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 12.5,31.5 L 32.5,31.5"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 11.5,34.5 A 35,35 1 0 0 33.5,34.5"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 10.5,37.5 A 35,35 1 0 0 34.5,37.5"})]}))]}))})),bK:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",version:"1.1",width:"45",height:"45"},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("g",Object.assign({style:{fill:"none",fillOpacity:"1",fillRule:"evenodd",stroke:"#000000",strokeWidth:"1.5",strokeLinecap:"round",strokeLinejoin:"round",strokeMiterlimit:"4",strokeDasharray:"none",strokeOpacity:"1"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 22.5,11.63 L 22.5,6",style:{fill:"none",stroke:"#000000",strokeLinejoin:"miter"},id:"path6570"}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 22.5,25 C 22.5,25 27,17.5 25.5,14.5 C 25.5,14.5 24.5,12 22.5,12 C 20.5,12 19.5,14.5 19.5,14.5 C 18,17.5 22.5,25 22.5,25",style:{fill:"#000000",fillOpacity:"1",strokeLinecap:"butt",strokeLinejoin:"miter"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 12.5,37 C 18,40.5 27,40.5 32.5,37 L 32.5,30 C 32.5,30 41.5,25.5 38.5,19.5 C 34.5,13 25,16 22.5,23.5 L 22.5,27 L 22.5,23.5 C 20,16 10.5,13 6.5,19.5 C 3.5,25.5 12.5,30 12.5,30 L 12.5,37",style:{fill:"#000000",stroke:"#000000"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 20,8 L 25,8",style:{fill:"none",stroke:"#000000",strokeLinejoin:"miter"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 32,29.5 C 32,29.5 40.5,25.5 38.03,19.85 C 34.15,14 25,18 22.5,24.5 L 22.5,26.6 L 22.5,24.5 C 20,18 10.85,14 6.97,19.85 C 4.5,25.5 13,29.5 13,29.5",style:{fill:"none",stroke:"#ffffff"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{d:"M 12.5,30 C 18,27 27,27 32.5,30 M 12.5,33.5 C 18,30.5 27,30.5 32.5,33.5 M 12.5,37 C 18,34 27,34 32.5,37",style:{fill:"none",stroke:"#ffffff"}})]}))}))};function Yt(e,t,r){const n=t/8,o="white"===e?Ft:$t;return{x:("white"===e?Wt:Ut)[r[0]]*n+n/2,y:o[parseInt(r[1],10)-1]*n+n/2}}function Kt(e){let t=!1;return Object.keys(Bt).forEach((r=>{e[r]!==Bt[r]&&(t=!0)})),Object.keys(e).forEach((r=>{Bt[r]!==e[r]&&(t=!0)})),t}function Xt(e){return"start"===e?Bt:"string"==typeof e?function(e){if(!function(e){e=e.replace(/ .+$/,""),e=function(e){return e.replace(/8/g,"11111111").replace(/7/g,"1111111").replace(/6/g,"111111").replace(/5/g,"11111").replace(/4/g,"1111").replace(/3/g,"111").replace(/2/g,"11")}(e);const t=e.split("/");if(8!==t.length)return!1;for(let e=0;e<8;e++)if(8!==t[e].length||-1!==t[e].search(/[^kqrnbpKQRNBP1]/))return!1;return!0}(e))return{};const t=(e=e.replace(/ .+$/,"")).split("/"),r={};let n=8;for(let e=0;e<8;e++){const o=t[e].split("");let i=0;for(let e=0;e<o.length;e++)if(-1!==o[e].search(/[1-8]/)){i+=parseInt(o[e],10)}else{r[zt[i]+n]=Gt(o[e]),i+=1}n-=1}return r}(e):e}function Gt(e){return e.toLowerCase()===e?"b"+e.toUpperCase():"w"+e.toUpperCase()}const Qt=Object(react__WEBPACK_IMPORTED_MODULE_1__["createContext"])({}),Jt=()=>Object(react__WEBPACK_IMPORTED_MODULE_1__["useContext"])(Qt),Zt=Object(react__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])((({allowDragOutsideBoard:t=!0,animationDuration:r=300,areArrowsAllowed:n=!0,arePiecesDraggable:o=!0,arePremovesAllowed:s=!1,autoPromoteToQueen:c=!1,boardOrientation:l="white",boardWidth:u,children:d,clearPremovesOnRightClick:h=!0,customArrows:g,customArrowColor:v="rgb(255,170,0)",customBoardStyle:m,customDarkSquareStyle:y={backgroundColor:"#B58863"},customDropSquareStyle:b={boxShadow:"inset 0 0 1px 6px rgba(255,255,255,0.75)"},customLightSquareStyle:O={backgroundColor:"#F0D9B5"},customPieces:w,customPremoveDarkSquareStyle:S={backgroundColor:"#A42323"},customPremoveLightSquareStyle:D={backgroundColor:"#BD2828"},customSquare:C="div",customSquareStyles:T,dropOffBoardAction:E="snapback",id:I=0,isDraggablePiece:k=(()=>!0),getPositionObject:L=(()=>{}),onArrowsChange:P=(()=>{}),onDragOverSquare:x=(()=>{}),onMouseOutSquare:M=(()=>{}),onMouseOverSquare:N=(()=>{}),onPieceClick:j=(()=>{}),onPieceDragBegin:R=(()=>{}),onPieceDragEnd:A=(()=>{}),onPieceDrop:q=(()=>!0),onPromotionCheck:_=((e,t,r)=>("wP"===r&&"7"===e[1]&&"8"===t[1]||"bP"===r&&"2"===e[1]&&"1"===t[1])&&Math.abs(e.charCodeAt(0)-t.charCodeAt(0))<=1),onPromotionPieceSelect:H,onSquareClick:z=(()=>{}),onSquareRightClick:B=(()=>{}),position:W="start",promotionDialogVariant:U="default",promotionToSquare:F=null,showBoardNotation:$=!0,showPromotionDialog:V=!1,snapToCursor:Y=!0},K)=>{const[X,G]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(Xt(W)),[Q,J]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({removed:{},added:{}}),[Z,ee]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(void 0),[te,re]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(V&&!c),[ne,oe]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(null),[ie,se]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(F),[ae,ce]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),le=Object(react__WEBPACK_IMPORTED_MODULE_1__["useRef"])(ae),[ue,de]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(),[he,ge]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(Object.assign(Object.assign({},Vt),w)),[fe,pe]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(!1),[ve,me]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(),[ye,be]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(!1);Object(react__WEBPACK_IMPORTED_MODULE_1__["useImperativeHandle"])(K,(()=>({clearPremoves(e=!0){Ee(e)}}))),Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{ge(Object.assign(Object.assign({},Vt),w))}),[w]),Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{re(V),se(F)}),[F,V]),Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{var e,t,n;Ie();const o=Xt(W),i=function(e,t){const r={removed:{},added:{}};return Object.keys(e).forEach((n=>{t[n]!==e[n]&&(r.removed[n]=e[n])})),Object.keys(t).forEach((n=>{e[n]!==t[n]&&(r.added[n]=t[n])})),r}(X,o),a=(null===(e=Object.keys(i.added))||void 0===e?void 0:e.length)<=2?null===(n=null===(t=Object.entries(i.added))||void 0===t?void 0:t[0])||void 0===n?void 0:n[1][0]:void 0;if(ye)G(o),be(!1),s&&Te(a),ve&&clearTimeout(ve);else if(fe)G(o),be(!1),s&&Te(a);else{Kt(o)&&void 0!==Z?ee(a):Kt(o)?ee(void 0):ee("b"),J(i),be(!0);const e=setTimeout((()=>{G(o),be(!1),s&&Te(a)}),r);me(e)}return pe(!1),L(o),Se(),()=>{clearTimeout(ve)}}),[W]);const{arrows:Oe,newArrow:we,clearArrows:Se,drawNewArrow:De,onArrowDrawEnd:Ce}=((e,t=!0,r,n)=>{const[o,s]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),[c,l]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),[u,d]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])();Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{Array.isArray(e)&&s(null==e?void 0:e.filter((e=>e[0]!==e[1])))}),[e]),Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{null==r||r(c)}),[c]);const h=[...c,...o];return{arrows:h,newArrow:u,clearArrows:function(){l([]),d(void 0)},drawNewArrow:(e,r)=>{t&&d([e,r,n])},setArrows:l,onArrowDrawEnd:(e,r)=>{if(e===r||!t)return;let o;const i=[e,r,n];o=h.every((([t,n])=>!(t===e&&n===r)))?[...c,i]:c.filter((([t,n])=>!(t===e&&n===r))),d(void 0),l(o)}}})(g,n,P,v);function Te(e){if(0===le.current.length)return;const t=le.current[0];if(void 0!==t.piece[0]&&t.piece[0]!==e&&q.length){ee(t.piece[0]),pe(!0);if(q(t.sourceSq,t.targetSq,t.piece)){const e=[...le.current];e.shift(),le.current=e,ce([...e])}else Ee()}}function Ee(e=!0){e&&ee(void 0),le.current=[],ce([])}function Ie(){oe(null),se(null),re(!1)}const ke={animationDuration:r,arePiecesDraggable:o,arePremovesAllowed:s,boardOrientation:l,boardWidth:u,customArrowColor:v,customBoardStyle:m,customDarkSquareStyle:y,customDropSquareStyle:b,customLightSquareStyle:O,customPremoveDarkSquareStyle:S,customPremoveLightSquareStyle:D,customSquare:C,customSquareStyles:T,id:I,isDraggablePiece:k,onDragOverSquare:x,onMouseOutSquare:M,onMouseOverSquare:N,onPieceClick:j,onPieceDragBegin:R,onPieceDragEnd:A,onPieceDrop:q,onPromotionCheck:_,onPromotionPieceSelect:H,onSquareClick:z,showBoardNotation:$,snapToCursor:Y,promotionDialogVariant:U,allowDragOutsideBoard:t,arrows:Oe,newArrow:we,onArrowDrawEnd:Ce,chessPieces:he,clearArrows:Se,drawNewArrow:De,clearCurrentRightClickDown:function(){de(void 0)},currentPosition:X,handleSetPosition:function(e,t,r,n){if(e===t)return;if(Se(),s&&ye||s&&(Z===r[0]||le.current.filter((e=>e.piece[0]===r[0])).length>0)){const n=[...le.current];return n.push({sourceSq:e,targetSq:t,piece:r}),le.current=n,ce([...n]),void Ie()}if(!s&&ye)return;const o=Object.assign({},X);if(pe(!!n),ee(r[0]),q.length){q(e,t,r)||(Ee(),pe(!1))}else"trash"!==E||t||delete o[e],delete o[e],o[t]=r,G(o);Ie(),L(o)},isWaitingForAnimation:ye,lastPieceColour:Z,onRightClickDown:function(e){de(e)},onRightClickUp:function(e){if(ue){if(ue===e)return de(void 0),h&&Ee(!1),void B(e)}else de(void 0)},positionDifferences:Q,promoteFromSquare:ne,promoteToSquare:ie,premoves:ae,setPromoteFromSquare:oe,setPromoteToSquare:se,setShowPromoteDialog:re,showPromoteDialog:te,autoPromoteToQueen:c,currentRightClickDown:ue};return Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(Qt.Provider,Object.assign({value:ke},{children:d}))}));function er({row:n,col:o}){const{boardOrientation:i,boardWidth:s,customDarkSquareStyle:a,customLightSquareStyle:c}=Jt(),l=c.backgroundColor,u=a.backgroundColor,d=0===o,h=7===n;function g(){return"white"===i?8-n:n+1}function f(){return"black"===i?zt[7-o]:zt[o]}return d&&h?Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["Fragment"],{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({style:Object.assign(Object.assign({zIndex:3,position:"absolute"},{color:l}),rr(s))},{children:g()})),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({style:Object.assign(Object.assign({zIndex:3,position:"absolute"},{color:l}),tr(s))},{children:f()}))]}):h?Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({style:Object.assign(Object.assign({userSelect:"none",zIndex:3,position:"absolute"},{color:o%2!=0?u:l}),tr(s))},{children:f()})):d?Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({style:Object.assign(Object.assign({userSelect:"none",zIndex:3,position:"absolute"},{color:n%2==0?u:l}),rr(s))},{children:g()})):null}const tr=e=>({alignSelf:"flex-end",paddingLeft:e/8-e/48,fontSize:e/48}),rr=e=>({alignSelf:"flex-start",paddingRight:e/8-e/48,fontSize:e/48});function nr({isPremovedPiece:t=!1,piece:r,square:n,squares:o}){const{animationDuration:s,arePiecesDraggable:c,arePremovesAllowed:l,boardWidth:u,boardOrientation:d,chessPieces:h,currentPosition:g,id:f,isDraggablePiece:p,isWaitingForAnimation:v,onPieceClick:m,onPieceDragBegin:y,onPieceDragEnd:b,positionDifferences:O,premoves:w,onPromotionCheck:S}=Jt(),[D,C]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({opacity:1,zIndex:5,touchAction:"none",cursor:c&&p({piece:r,sourceSquare:n})?"-webkit-grab":"default"}),[{canDrag:T,isDragging:E},I,k]=tt((()=>({type:"piece",item:()=>(y(r,n),{piece:r,square:n,id:f}),end:()=>b(r,n),collect:e=>({canDrag:p({piece:r,sourceSquare:n}),isDragging:!!e.isDragging()})})),[r,n,g,f]);return k((Ct||(Ct=new Image,Ct.src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="),Ct),{captureDraggingState:!0}),Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{C((e=>Object.assign(Object.assign({},e),{opacity:E?0:1})))}),[E]),Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{if(!l)return;let e=!1;!t&&w.find((e=>e.targetSq===n))&&(e=!0),w.find((e=>e.sourceSq===n&&e.piece===r))&&(e=!0),C((t=>Object.assign(Object.assign({},t),{display:e?"none":"unset"})))}),[g,w]),Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{var e;const r=null===(e=O.removed)||void 0===e?void 0:e[n];if(!O.added||!r)return;const o=Object.entries(O.added).find((([e,t])=>t===r||S(n,e,r)));if(v&&r&&o&&!t){const e=n,t=o[0];if(e&&t){const r=u/8;C((n=>Object.assign(Object.assign({},n),{transform:`translate(${("black"===d?-1:1)*(t.charCodeAt(0)-e.charCodeAt(0))*r}px, ${("black"===d?-1:1)*(Number(e[1])-Number(t[1]))*r}px)`,transition:`transform ${s}ms`,zIndex:6})))}}}),[O]),Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{const{sourceSq:e}={sourceSq:o[n]};e&&C((e=>Object.assign(Object.assign({},e),{transform:"translate(0px, 0px)",transition:"transform 0ms"})))}),[g]),Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{C((e=>Object.assign(Object.assign({},e),{cursor:c&&p({piece:r,sourceSquare:n})?"-webkit-grab":"default"})))}),[n,g,c]),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({ref:c&&T?I:null,onClick:()=>m(r),"data-piece":r,style:D},{children:"function"==typeof h[r]?h[r]({squareWidth:u/8,isDragging:E,square:n}):Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({viewBox:"1 1 43 43",width:u/8,height:u/8},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("g",{children:h[r]})}))}))}function or({square:t,squareColor:r,setSquares:n,squareHasPremove:o,children:s}){const a=Object(react__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null),{autoPromoteToQueen:c,boardWidth:l,boardOrientation:u,clearArrows:d,currentPosition:h,currentRightClickDown:g,customBoardStyle:p,customDarkSquareStyle:v,customDropSquareStyle:m,customLightSquareStyle:y,customPremoveDarkSquareStyle:b,customPremoveLightSquareStyle:O,customSquare:w,customSquareStyles:S,drawNewArrow:D,handleSetPosition:C,isWaitingForAnimation:T,lastPieceColour:E,onArrowDrawEnd:I,onDragOverSquare:k,onMouseOutSquare:L,onMouseOverSquare:P,onPieceDrop:x,onPromotionCheck:M,onRightClickDown:N,onRightClickUp:j,onSquareClick:R,setPromoteFromSquare:A,setPromoteToSquare:q,setShowPromoteDialog:_}=Jt(),[{isOver:H},z]=it((()=>({accept:"piece",drop:B,collect:e=>({isOver:!!e.isOver()})})),[t,h,x,T,E]);function B(e){M(e.square,t,e.piece)?c?C(e.square,t,"w"===e.piece[0]?"wQ":"bQ"):(A(e.square),q(t),_(!0)):C(e.square,t,e.piece,!0)}Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{if(a.current){const{x:e,y:r}=a.current.getBoundingClientRect();n((n=>Object.assign(Object.assign({},n),{[t]:{x:e,y:r}})))}}),[l,u]);const W=Object.assign(Object.assign(Object.assign(Object.assign({},ar(t,u,p)),"black"===r?v:y),o&&("black"===r?b:O)),H&&m);return Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({ref:z,style:W,"data-square-color":r,"data-square":t,onMouseOver:e=>{2===e.buttons&&g&&D(g,t),e.relatedTarget&&e.currentTarget.contains(e.relatedTarget)||P(t)},onMouseOut:e=>{e.relatedTarget&&e.currentTarget.contains(e.relatedTarget)||L(t)},onMouseDown:e=>{2===e.button&&N(t)},onMouseUp:e=>{2===e.button&&(g&&I(g,t),j(t))},onDragEnter:()=>k(t),onClick:()=>{R(t),d()},onContextMenu:e=>{e.preventDefault()}},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(w,"string"==typeof w?Object.assign({ref:a,style:Object.assign(Object.assign(Object.assign({},sr(l)),ir),!o&&(null==S?void 0:S[t]))},{children:s}):Object.assign({ref:a,square:t,squareColor:r,style:Object.assign(Object.assign(Object.assign({},sr(l)),ir),!o&&(null==S?void 0:S[t]))},{children:s}))}))}const ir={display:"flex",justifyContent:"center"},sr=e=>({width:e/8,height:e/8}),ar=(e,t,r)=>(null==r?void 0:r.borderRadius)?"a1"===e?"white"===t?{borderBottomLeftRadius:r.borderRadius}:{borderTopRightRadius:r.borderRadius}:"a8"===e?"white"===t?{borderTopLeftRadius:r.borderRadius}:{borderBottomRightRadius:r.borderRadius}:"h1"===e?"white"===t?{borderBottomRightRadius:r.borderRadius}:{borderTopLeftRadius:r.borderRadius}:"h8"===e?"white"===t?{borderTopRightRadius:r.borderRadius}:{borderBottomLeftRadius:r.borderRadius}:{}:{};function cr(){const[r,n]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({}),{boardOrientation:o,boardWidth:i,currentPosition:s,id:c,premoves:l,showBoardNotation:u}=Jt();return Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({"data-boardid":c},{children:[...Array(8)].map(((a,c)=>Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({style:{display:"flex",flexWrap:"nowrap",width:i}},{children:[...Array(8)].map(((i,a)=>{const d="black"===o?zt[7-a]+(c+1):zt[a]+(8-c),h=a%2==c%2?"white":"black",g=l.find((e=>e.sourceSq===d||e.targetSq===d)),f=l.find((e=>e.targetSq===d));return Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])(or,Object.assign({square:d,squareColor:h,setSquares:n,squareHasPremove:!!g},{children:[s[d]&&Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(nr,{piece:s[d],square:d,squares:r}),f&&Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(nr,{isPremovedPiece:!0,piece:f.piece,square:d,squares:r}),u&&Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(er,{row:c,col:a})]}),`${a}${c}`)}))}),c.toString())))}))}const lr=()=>{const{arrows:r,newArrow:n,boardOrientation:o,boardWidth:i,customArrowColor:s}=Jt(),a=[...r,n].filter(Boolean);return Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({width:i,height:i,style:{position:"absolute",top:"0",left:"0",pointerEvents:"none",zIndex:"10"}},{children:a.map(((n,a)=>{const[c,l,u]=n;if(c===l)return null;const d=Yt(o,i,c),h=Yt(o,i,l);let g=i/32;const f=a===r.length;r.some((e=>e[0]!==c&&e[1]===l))&&!f&&(g=i/16);const p=h.x-d.x,m=h.y-d.y,y=Math.hypot(m,p),b={x:d.x+p*(y-g)/y,y:d.y+m*(y-g)/y};return Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])(react__WEBPACK_IMPORTED_MODULE_1__["Fragment"],{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("marker",Object.assign({id:`arrowhead-${a}`,markerWidth:"2",markerHeight:"2.5",refX:"1.25",refY:"1.25",orient:"auto"},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("polygon",{points:"0.3 0, 2 1.25, 0.3 2.5",fill:null!=u?u:s})})),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("line",{x1:d.x,y1:d.y,x2:b.x,y2:b.y,opacity:f?"0.5":"0.65",stroke:null!=u?u:s,strokeWidth:f?.9*i/40:i/40,markerEnd:`url(#arrowhead-${a})`})]},`${c}-${l}${f?"-active":""}`)}))}))};function ur({option:t}){const[r,n]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(!1),{boardWidth:o,chessPieces:i,customDarkSquareStyle:s,customLightSquareStyle:c,handleSetPosition:l,onPromotionPieceSelect:u,promoteFromSquare:d,promoteToSquare:h,promotionDialogVariant:g}=Jt(),f=()=>{switch(t[1]){case"Q":return s.backgroundColor;case"R":return c.backgroundColor;case"N":return"default"===g?c.backgroundColor:s.backgroundColor;case"B":return"default"===g?s.backgroundColor:c.backgroundColor}};return Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({onClick:()=>{(null==u?void 0:u.length)?u(t):l(d,h,t,!0)},onMouseOver:()=>n(!0),onMouseOut:()=>n(!1),"data-piece":t,style:{cursor:"pointer",backgroundColor:r?f():`${f()}aa`,borderRadius:"4px",transition:"all 0.1s ease-out"}},{children:"function"==typeof i[t]?Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({style:{transition:"all 0.1s ease-out",transform:r?"scale(1)":"scale(0.85)"}},{children:i[t]({squareWidth:o/8,isDragging:!1})})):Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({viewBox:"1 1 43 43",width:o/8,height:o/8,style:{transition:"all 0.1s ease-out",transform:r?"scale(1)":"scale(0.85)"}},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("g",{children:i[t]})}))}))}function dr(){const{boardOrientation:t,boardWidth:r,promotionDialogVariant:n,promoteToSquare:o}=Jt(),i="1"===(null==o?void 0:o[1])?"b":"w",s=[`${null!=i?i:"w"}Q`,`${null!=i?i:"w"}R`,`${null!=i?i:"w"}N`,`${null!=i?i:"w"}B`],a={default:{display:"grid",gridTemplateColumns:"1fr 1fr",transform:`translate(${-r/8}px, ${-r/8}px)`},vertical:{transform:`translate(${-r/16}px, ${-r/16}px)`},modal:{display:"flex",justifyContent:"center",alignItems:"center",transform:`translate(0px, ${3*r/8}px)`,width:"100%",height:r/4+"px",top:0,backgroundColor:"white",left:0}},c=Yt(t,r,o||"a8");return Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({style:Object.assign({position:"absolute",top:`${null==c?void 0:c.y}px`,left:`${null==c?void 0:c.x}px`,zIndex:1e3},a[n]),title:"Choose promotion piece"},{children:s.map((t=>Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(ur,{option:t},t)))}))}const hr={whiteKing:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({xmlns:"http://www.w3.org/2000/svg",version:"1.1",style:{shapeRendering:"geometricPrecision",textRendering:"geometricPrecision",imageRendering:"crisp-edges"},viewBox:"0 0 4210 12970",x:"0px",y:"0px",fillRule:"evenodd",clipRule:"evenodd",width:"250",height:"250"},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("g",{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("path",{style:{fill:"black",fillRule:"nonzero"},d:"M2105 0c169,0 286,160 249,315l200 0c-172,266 -231,479 -256,792 315,-24 530,-86 792,-255l0 897c-265,-171 -479,-231 -792,-256 18,234 75,495 185,682l339 0c233,0 369,269 225,456l545 0 -595 1916c130,94 158,275 59,402 465,0 416,568 51,568l-334 0 465 2867 332 0c250,0 381,306 199,485 162,63 273,220 273,399l0 633 168 0 0 475c-1403,0 -2807,0 -4210,0l0 -475 167 0 0 -633c0,-179 112,-336 274,-399 -181,-178 -52,-485 199,-485l332 0 465 -2867 -335 0c-353,0 -418,-568 51,-568 -98,-127 -70,-308 59,-402l-594 -1916c181,0 363,0 545,0 -144,-187 -9,-456 225,-456l339 0c110,-187 167,-448 185,-682 -315,25 -530,87 -793,256l0 -897c266,171 480,231 793,255 -25,-315 -87,-529 -256,-792l199 0c-36,-155 81,-315 250,-315zm-1994 10012l0 253 3988 0 0 -253c-1330,0 -2659,0 -3988,0zm484 -1060c-174,0 -316,142 -316,316l0 633 3652 0 0 -633c0,-174 -142,-316 -316,-316 -1007,0 -2013,0 -3020,0zm45 -457c-230,0 -225,345 0,345l2930 0c230,0 225,-345 0,-345 -977,0 -1953,0 -2930,0zm2020 -2978l-1111 0 -465 2867 2041 0 -465 -2867zm-1558 -456c-229,0 -224,345 0,345 669,0 1337,0 2005,0 230,0 225,-345 0,-345 -668,0 -1336,0 -2005,0zm1730 -457l-1454 0c-229,0 -224,345 0,345l1454 0c229,0 224,-345 0,-345zm-2064 -1862l544 1751c529,0 1057,0 1586,0l544 -1751c-892,0 -1783,0 -2674,0zm1085 -567l504 0c-126,-247 -163,-526 -177,-800 273,15 553,52 800,177l0 -504c-247,126 -527,163 -800,177 14,-273 51,-552 177,-799 -168,0 -336,0 -504,0 125,247 162,526 177,799 -274,-14 -553,-51 -800,-177l0 504c247,-125 527,-162 800,-177 -15,274 -52,553 -177,800zm969 111l-1434 0c-230,0 -225,345 0,345l1434 0c230,0 225,-345 0,-345zm-717 -2175c-105,0 -175,109 -133,204l266 0c42,-96 -30,-205 -133,-204z"})})}))};function gr({children:t}){try{return Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["Fragment"],{children:t})}catch(t){return console.log(t),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(fr,{showError:!0})}}function fr({showError:r=!1}){return Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("div",Object.assign({style:{display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({style:{width:250,height:250,transform:"rotate(90deg)"}},{children:hr.whiteKing})),r&&Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("h1",{children:"Something went wrong"})]}))}function pr(){const n=Object(react__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null),{boardWidth:o,clearCurrentRightClickDown:s,onPromotionPieceSelect:a,setShowPromoteDialog:c,showPromoteDialog:l,customBoardStyle:u}=Jt();return Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{function e(e){n.current&&!n.current.contains(e.target)&&s()}return document.addEventListener("mouseup",e),()=>{document.removeEventListener("mouseup",e)}}),[]),o?Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({style:{perspective:"1000px"}},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("div",Object.assign({ref:n,style:Object.assign(Object.assign({position:"relative"},vr(o)),u)},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(cr,{}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(lr,{}),l&&Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["Fragment"],{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",{onClick:()=>{c(!1),null==a||a()},style:{position:"absolute",top:"0",left:"0",zIndex:"100",backgroundColor:"rgba(22,21,18,.7)",width:o,height:o}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(dr,{})]})]}))})):Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(fr,{})}const vr=e=>({cursor:"default",height:e,width:e});function mr({boardContainer:t}){const{boardWidth:r,chessPieces:n,id:o,snapToCursor:s,allowDragOutsideBoard:a}=Jt(),l=function(e){const t=Je().getMonitor(),[r,n]=Re(t,e);return Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>t.subscribeToOffsetChange(n))),Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>t.subscribeToStateChange(n))),r}((e=>({item:e.getItem(),clientOffset:e.getClientOffset(),sourceClientOffset:e.getSourceClientOffset(),isDragging:e.isDragging()}))),{isDragging:u,item:d,clientOffset:h,sourceClientOffset:g}=l,f=Object(react__WEBPACK_IMPORTED_MODULE_1__["useCallback"])(((e,n)=>{if(!e||!n)return{display:"none"};let{x:o,y:i}=s?e:n;const c=r/8/2;if(s&&(o-=c,i-=c),!a){const{left:e,top:n}=t,s=e-c,a=n-c,l=e+r-c,u=n+r-c;o=Math.max(s,Math.min(o,l)),i=Math.max(a,Math.min(i,u))}const l=`translate(${o}px, ${i}px)`;return{transform:l,WebkitTransform:l,touchAction:"none"}}),[r,a,s,t]);return u&&d.id===o?Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({style:{position:"fixed",pointerEvents:"none",zIndex:10,left:0,top:0}},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",Object.assign({style:f(h,g)},{children:"function"==typeof n[d.piece]?n[d.piece]({squareWidth:r/8,isDragging:!0}):Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("svg",Object.assign({viewBox:"1 1 43 43",width:r/8,height:r/8},{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("g",{children:n[d.piece]})}))}))})):null}const yr=Object(react__WEBPACK_IMPORTED_MODULE_1__["forwardRef"])(((r,n)=>{const{customDndBackend:o,customDndBackendOptions:s}=r,c=function(e,t){var r={};for(var n in e)Object.prototype.hasOwnProperty.call(e,n)&&t.indexOf(n)<0&&(r[n]=e[n]);if(null!=e&&"function"==typeof Object.getOwnPropertySymbols){var o=0;for(n=Object.getOwnPropertySymbols(e);o<n.length;o++)t.indexOf(n[o])<0&&Object.prototype.propertyIsEnumerable.call(e,n[o])&&(r[n[o]]=e[n[o]])}return r}(r,["customDndBackend","customDndBackendOptions"]),[u,d]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(),[h,g]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(!1),[p,v]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(!1),[m,y]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(r.boardWidth),b=Object(react__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null),O=Object(react__WEBPACK_IMPORTED_MODULE_1__["useRef"])(null),[w,S]=Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({left:0,top:0}),D=Object(react__WEBPACK_IMPORTED_MODULE_1__["useMemo"])((()=>{var e;return null===(e=b.current)||void 0===e?void 0:e.getBoundingClientRect()}),[b.current]);Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{S({left:(null==D?void 0:D.left)?null==D?void 0:D.left:0,top:(null==D?void 0:D.top)?null==D?void 0:D.top:0})}),[D]),Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{v("ontouchstart"in window),g(!0),d(window)}),[]),Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])((()=>{var e;if(void 0===r.boardWidth&&(null===(e=b.current)||void 0===e?void 0:e.offsetWidth)){const e=new ResizeObserver((()=>{var e;y(null===(e=b.current)||void 0===e?void 0:e.offsetWidth)}));return e.observe(b.current),()=>{e.disconnect()}}}),[b.current,u]);const C=o||(p?Ht:kt);return h&&u?Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(gr,{children:Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])("div",Object.assign({ref:O,style:{display:"flex",flexDirection:"column",width:"100%"}},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])("div",{ref:b,style:{width:"100%"}}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(xe,Object.assign({backend:C,context:u,options:o?s:void 0},{children:m&&Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsxs"])(Zt,Object.assign({boardWidth:m},c,{ref:n},{children:[Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(mr,{boardContainer:w}),Object(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__["jsx"])(pr,{})]}))}))]}))}):null}));
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../process/browser.js */ "./node_modules/process/browser.js"), __webpack_require__(/*! ./../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
+
+/***/ }),
+
 /***/ "./node_modules/react-dom/cjs/react-dom.development.js":
 /*!*************************************************************!*\
   !*** ./node_modules/react-dom/cjs/react-dom.development.js ***!
@@ -25603,6 +25623,929 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./node_modules/react/cjs/react-jsx-runtime.development.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/react/cjs/react-jsx-runtime.development.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/** @license React v16.14.0
+ * react-jsx-runtime.development.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+if (true) {
+  (function() {
+'use strict';
+
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+// ATTENTION
+// When adding new symbols to this file,
+// Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
+// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+// nor polyfill, then a plain number is used for performance.
+var REACT_ELEMENT_TYPE = 0xeac7;
+var REACT_PORTAL_TYPE = 0xeaca;
+exports.Fragment = 0xeacb;
+var REACT_STRICT_MODE_TYPE = 0xeacc;
+var REACT_PROFILER_TYPE = 0xead2;
+var REACT_PROVIDER_TYPE = 0xeacd;
+var REACT_CONTEXT_TYPE = 0xeace;
+var REACT_FORWARD_REF_TYPE = 0xead0;
+var REACT_SUSPENSE_TYPE = 0xead1;
+var REACT_SUSPENSE_LIST_TYPE = 0xead8;
+var REACT_MEMO_TYPE = 0xead3;
+var REACT_LAZY_TYPE = 0xead4;
+var REACT_BLOCK_TYPE = 0xead9;
+var REACT_SERVER_BLOCK_TYPE = 0xeada;
+var REACT_FUNDAMENTAL_TYPE = 0xead5;
+var REACT_SCOPE_TYPE = 0xead7;
+var REACT_OPAQUE_ID_TYPE = 0xeae0;
+var REACT_DEBUG_TRACING_MODE_TYPE = 0xeae1;
+var REACT_OFFSCREEN_TYPE = 0xeae2;
+var REACT_LEGACY_HIDDEN_TYPE = 0xeae3;
+
+if (typeof Symbol === 'function' && Symbol.for) {
+  var symbolFor = Symbol.for;
+  REACT_ELEMENT_TYPE = symbolFor('react.element');
+  REACT_PORTAL_TYPE = symbolFor('react.portal');
+  exports.Fragment = symbolFor('react.fragment');
+  REACT_STRICT_MODE_TYPE = symbolFor('react.strict_mode');
+  REACT_PROFILER_TYPE = symbolFor('react.profiler');
+  REACT_PROVIDER_TYPE = symbolFor('react.provider');
+  REACT_CONTEXT_TYPE = symbolFor('react.context');
+  REACT_FORWARD_REF_TYPE = symbolFor('react.forward_ref');
+  REACT_SUSPENSE_TYPE = symbolFor('react.suspense');
+  REACT_SUSPENSE_LIST_TYPE = symbolFor('react.suspense_list');
+  REACT_MEMO_TYPE = symbolFor('react.memo');
+  REACT_LAZY_TYPE = symbolFor('react.lazy');
+  REACT_BLOCK_TYPE = symbolFor('react.block');
+  REACT_SERVER_BLOCK_TYPE = symbolFor('react.server.block');
+  REACT_FUNDAMENTAL_TYPE = symbolFor('react.fundamental');
+  REACT_SCOPE_TYPE = symbolFor('react.scope');
+  REACT_OPAQUE_ID_TYPE = symbolFor('react.opaque.id');
+  REACT_DEBUG_TRACING_MODE_TYPE = symbolFor('react.debug_trace_mode');
+  REACT_OFFSCREEN_TYPE = symbolFor('react.offscreen');
+  REACT_LEGACY_HIDDEN_TYPE = symbolFor('react.legacy_hidden');
+}
+
+var MAYBE_ITERATOR_SYMBOL = typeof Symbol === 'function' && Symbol.iterator;
+var FAUX_ITERATOR_SYMBOL = '@@iterator';
+function getIteratorFn(maybeIterable) {
+  if (maybeIterable === null || typeof maybeIterable !== 'object') {
+    return null;
+  }
+
+  var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
+
+  if (typeof maybeIterator === 'function') {
+    return maybeIterator;
+  }
+
+  return null;
+}
+
+var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+
+function error(format) {
+  {
+    for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+      args[_key2 - 1] = arguments[_key2];
+    }
+
+    printWarning('error', format, args);
+  }
+}
+
+function printWarning(level, format, args) {
+  // When changing this logic, you might want to also
+  // update consoleWithStackDev.www.js as well.
+  {
+    var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+    var stack = '';
+
+    if (currentlyValidatingElement) {
+      var name = getComponentName(currentlyValidatingElement.type);
+      var owner = currentlyValidatingElement._owner;
+      stack += describeComponentFrame(name, currentlyValidatingElement._source, owner && getComponentName(owner.type));
+    }
+
+    stack += ReactDebugCurrentFrame.getStackAddendum();
+
+    if (stack !== '') {
+      format += '%s';
+      args = args.concat([stack]);
+    }
+
+    var argsWithFormat = args.map(function (item) {
+      return '' + item;
+    }); // Careful: RN currently depends on this prefix
+
+    argsWithFormat.unshift('Warning: ' + format); // We intentionally don't use spread (or .apply) directly because it
+    // breaks IE9: https://github.com/facebook/react/issues/13610
+    // eslint-disable-next-line react-internal/no-production-logging
+
+    Function.prototype.apply.call(console[level], console, argsWithFormat);
+  }
+}
+
+// Filter certain DOM attributes (e.g. src, href) if their values are empty strings.
+
+var enableScopeAPI = false; // Experimental Create Event Handle API.
+
+function isValidElementType(type) {
+  if (typeof type === 'string' || typeof type === 'function') {
+    return true;
+  } // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
+
+
+  if (type === exports.Fragment || type === REACT_PROFILER_TYPE || type === REACT_DEBUG_TRACING_MODE_TYPE || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || type === REACT_LEGACY_HIDDEN_TYPE || enableScopeAPI ) {
+    return true;
+  }
+
+  if (typeof type === 'object' && type !== null) {
+    if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || type.$$typeof === REACT_FUNDAMENTAL_TYPE || type.$$typeof === REACT_BLOCK_TYPE || type[0] === REACT_SERVER_BLOCK_TYPE) {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+
+var BEFORE_SLASH_RE = /^(.*)[\\\/]/;
+function describeComponentFrame (name, source, ownerName) {
+  var sourceInfo = '';
+
+  if (source) {
+    var path = source.fileName;
+    var fileName = path.replace(BEFORE_SLASH_RE, '');
+
+    {
+      // In DEV, include code for a common special case:
+      // prefer "folder/index.js" instead of just "index.js".
+      if (/^index\./.test(fileName)) {
+        var match = path.match(BEFORE_SLASH_RE);
+
+        if (match) {
+          var pathBeforeSlash = match[1];
+
+          if (pathBeforeSlash) {
+            var folderName = pathBeforeSlash.replace(BEFORE_SLASH_RE, '');
+            fileName = folderName + '/' + fileName;
+          }
+        }
+      }
+    }
+
+    sourceInfo = ' (at ' + fileName + ':' + source.lineNumber + ')';
+  } else if (ownerName) {
+    sourceInfo = ' (created by ' + ownerName + ')';
+  }
+
+  return '\n    in ' + (name || 'Unknown') + sourceInfo;
+}
+
+var Resolved = 1;
+function refineResolvedLazyComponent(lazyComponent) {
+  return lazyComponent._status === Resolved ? lazyComponent._result : null;
+}
+
+function getWrappedName(outerType, innerType, wrapperName) {
+  var functionName = innerType.displayName || innerType.name || '';
+  return outerType.displayName || (functionName !== '' ? wrapperName + "(" + functionName + ")" : wrapperName);
+}
+
+function getComponentName(type) {
+  if (type == null) {
+    // Host root, text node or just invalid type.
+    return null;
+  }
+
+  {
+    if (typeof type.tag === 'number') {
+      error('Received an unexpected object in getComponentName(). ' + 'This is likely a bug in React. Please file an issue.');
+    }
+  }
+
+  if (typeof type === 'function') {
+    return type.displayName || type.name || null;
+  }
+
+  if (typeof type === 'string') {
+    return type;
+  }
+
+  switch (type) {
+    case exports.Fragment:
+      return 'Fragment';
+
+    case REACT_PORTAL_TYPE:
+      return 'Portal';
+
+    case REACT_PROFILER_TYPE:
+      return "Profiler";
+
+    case REACT_STRICT_MODE_TYPE:
+      return 'StrictMode';
+
+    case REACT_SUSPENSE_TYPE:
+      return 'Suspense';
+
+    case REACT_SUSPENSE_LIST_TYPE:
+      return 'SuspenseList';
+  }
+
+  if (typeof type === 'object') {
+    switch (type.$$typeof) {
+      case REACT_CONTEXT_TYPE:
+        return 'Context.Consumer';
+
+      case REACT_PROVIDER_TYPE:
+        return 'Context.Provider';
+
+      case REACT_FORWARD_REF_TYPE:
+        return getWrappedName(type, type.render, 'ForwardRef');
+
+      case REACT_MEMO_TYPE:
+        return getComponentName(type.type);
+
+      case REACT_BLOCK_TYPE:
+        return getComponentName(type.render);
+
+      case REACT_LAZY_TYPE:
+        {
+          var thenable = type;
+          var resolvedThenable = refineResolvedLazyComponent(thenable);
+
+          if (resolvedThenable) {
+            return getComponentName(resolvedThenable);
+          }
+
+          break;
+        }
+    }
+  }
+
+  return null;
+}
+
+var loggedTypeFailures = {};
+var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
+var currentlyValidatingElement = null;
+
+function setCurrentlyValidatingElement(element) {
+  {
+    currentlyValidatingElement = element;
+  }
+}
+
+function checkPropTypes(typeSpecs, values, location, componentName, element) {
+  {
+    // $FlowFixMe This is okay but Flow doesn't know it.
+    var has = Function.call.bind(Object.prototype.hasOwnProperty);
+
+    for (var typeSpecName in typeSpecs) {
+      if (has(typeSpecs, typeSpecName)) {
+        var error$1 = void 0; // Prop type validation may throw. In case they do, we don't want to
+        // fail the render phase where it didn't fail before. So we log it.
+        // After these have been cleaned up, we'll let them throw.
+
+        try {
+          // This is intentionally an invariant that gets caught. It's the same
+          // behavior as without this statement except with a better message.
+          if (typeof typeSpecs[typeSpecName] !== 'function') {
+            var err = Error((componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' + 'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.' + 'This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.');
+            err.name = 'Invariant Violation';
+            throw err;
+          }
+
+          error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
+        } catch (ex) {
+          error$1 = ex;
+        }
+
+        if (error$1 && !(error$1 instanceof Error)) {
+          setCurrentlyValidatingElement(element);
+
+          error('%s: type specification of %s' + ' `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error$1);
+
+          setCurrentlyValidatingElement(null);
+        }
+
+        if (error$1 instanceof Error && !(error$1.message in loggedTypeFailures)) {
+          // Only monitor this failure once because there tends to be a lot of the
+          // same error.
+          loggedTypeFailures[error$1.message] = true;
+          setCurrentlyValidatingElement(element);
+
+          error('Failed %s type: %s', location, error$1.message);
+
+          setCurrentlyValidatingElement(null);
+        }
+      }
+    }
+  }
+}
+
+var ReactCurrentOwner = ReactSharedInternals.ReactCurrentOwner;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var RESERVED_PROPS = {
+  key: true,
+  ref: true,
+  __self: true,
+  __source: true
+};
+var specialPropKeyWarningShown;
+var specialPropRefWarningShown;
+var didWarnAboutStringRefs;
+
+{
+  didWarnAboutStringRefs = {};
+}
+
+function hasValidRef(config) {
+  {
+    if (hasOwnProperty.call(config, 'ref')) {
+      var getter = Object.getOwnPropertyDescriptor(config, 'ref').get;
+
+      if (getter && getter.isReactWarning) {
+        return false;
+      }
+    }
+  }
+
+  return config.ref !== undefined;
+}
+
+function hasValidKey(config) {
+  {
+    if (hasOwnProperty.call(config, 'key')) {
+      var getter = Object.getOwnPropertyDescriptor(config, 'key').get;
+
+      if (getter && getter.isReactWarning) {
+        return false;
+      }
+    }
+  }
+
+  return config.key !== undefined;
+}
+
+function warnIfStringRefCannotBeAutoConverted(config, self) {
+  {
+    if (typeof config.ref === 'string' && ReactCurrentOwner.current && self && ReactCurrentOwner.current.stateNode !== self) {
+      var componentName = getComponentName(ReactCurrentOwner.current.type);
+
+      if (!didWarnAboutStringRefs[componentName]) {
+        error('Component "%s" contains the string ref "%s". ' + 'Support for string refs will be removed in a future major release. ' + 'This case cannot be automatically converted to an arrow function. ' + 'We ask you to manually fix this case by using useRef() or createRef() instead. ' + 'Learn more about using refs safely here: ' + 'https://reactjs.org/link/strict-mode-string-ref', getComponentName(ReactCurrentOwner.current.type), config.ref);
+
+        didWarnAboutStringRefs[componentName] = true;
+      }
+    }
+  }
+}
+
+function defineKeyPropWarningGetter(props, displayName) {
+  {
+    var warnAboutAccessingKey = function () {
+      if (!specialPropKeyWarningShown) {
+        specialPropKeyWarningShown = true;
+
+        error('%s: `key` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
+      }
+    };
+
+    warnAboutAccessingKey.isReactWarning = true;
+    Object.defineProperty(props, 'key', {
+      get: warnAboutAccessingKey,
+      configurable: true
+    });
+  }
+}
+
+function defineRefPropWarningGetter(props, displayName) {
+  {
+    var warnAboutAccessingRef = function () {
+      if (!specialPropRefWarningShown) {
+        specialPropRefWarningShown = true;
+
+        error('%s: `ref` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
+      }
+    };
+
+    warnAboutAccessingRef.isReactWarning = true;
+    Object.defineProperty(props, 'ref', {
+      get: warnAboutAccessingRef,
+      configurable: true
+    });
+  }
+}
+/**
+ * Factory method to create a new React element. This no longer adheres to
+ * the class pattern, so do not use new to call it. Also, instanceof check
+ * will not work. Instead test $$typeof field against Symbol.for('react.element') to check
+ * if something is a React Element.
+ *
+ * @param {*} type
+ * @param {*} props
+ * @param {*} key
+ * @param {string|object} ref
+ * @param {*} owner
+ * @param {*} self A *temporary* helper to detect places where `this` is
+ * different from the `owner` when React.createElement is called, so that we
+ * can warn. We want to get rid of owner and replace string `ref`s with arrow
+ * functions, and as long as `this` and owner are the same, there will be no
+ * change in behavior.
+ * @param {*} source An annotation object (added by a transpiler or otherwise)
+ * indicating filename, line number, and/or other information.
+ * @internal
+ */
+
+
+var ReactElement = function (type, key, ref, self, source, owner, props) {
+  var element = {
+    // This tag allows us to uniquely identify this as a React Element
+    $$typeof: REACT_ELEMENT_TYPE,
+    // Built-in properties that belong on the element
+    type: type,
+    key: key,
+    ref: ref,
+    props: props,
+    // Record the component responsible for creating this element.
+    _owner: owner
+  };
+
+  {
+    // The validation flag is currently mutative. We put it on
+    // an external backing store so that we can freeze the whole object.
+    // This can be replaced with a WeakMap once they are implemented in
+    // commonly used development environments.
+    element._store = {}; // To make comparing ReactElements easier for testing purposes, we make
+    // the validation flag non-enumerable (where possible, which should
+    // include every environment we run tests in), so the test framework
+    // ignores it.
+
+    Object.defineProperty(element._store, 'validated', {
+      configurable: false,
+      enumerable: false,
+      writable: true,
+      value: false
+    }); // self and source are DEV only properties.
+
+    Object.defineProperty(element, '_self', {
+      configurable: false,
+      enumerable: false,
+      writable: false,
+      value: self
+    }); // Two elements created in two different places should be considered
+    // equal for testing purposes and therefore we hide it from enumeration.
+
+    Object.defineProperty(element, '_source', {
+      configurable: false,
+      enumerable: false,
+      writable: false,
+      value: source
+    });
+
+    if (Object.freeze) {
+      Object.freeze(element.props);
+      Object.freeze(element);
+    }
+  }
+
+  return element;
+};
+/**
+ * https://github.com/reactjs/rfcs/pull/107
+ * @param {*} type
+ * @param {object} props
+ * @param {string} key
+ */
+
+function jsxDEV(type, config, maybeKey, source, self) {
+  {
+    var propName; // Reserved names are extracted
+
+    var props = {};
+    var key = null;
+    var ref = null; // Currently, key can be spread in as a prop. This causes a potential
+    // issue if key is also explicitly declared (ie. <div {...props} key="Hi" />
+    // or <div key="Hi" {...props} /> ). We want to deprecate key spread,
+    // but as an intermediary step, we will use jsxDEV for everything except
+    // <div {...props} key="Hi" />, because we aren't currently able to tell if
+    // key is explicitly declared to be undefined or not.
+
+    if (maybeKey !== undefined) {
+      key = '' + maybeKey;
+    }
+
+    if (hasValidKey(config)) {
+      key = '' + config.key;
+    }
+
+    if (hasValidRef(config)) {
+      ref = config.ref;
+      warnIfStringRefCannotBeAutoConverted(config, self);
+    } // Remaining properties are added to a new props object
+
+
+    for (propName in config) {
+      if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
+        props[propName] = config[propName];
+      }
+    } // Resolve default props
+
+
+    if (type && type.defaultProps) {
+      var defaultProps = type.defaultProps;
+
+      for (propName in defaultProps) {
+        if (props[propName] === undefined) {
+          props[propName] = defaultProps[propName];
+        }
+      }
+    }
+
+    if (key || ref) {
+      var displayName = typeof type === 'function' ? type.displayName || type.name || 'Unknown' : type;
+
+      if (key) {
+        defineKeyPropWarningGetter(props, displayName);
+      }
+
+      if (ref) {
+        defineRefPropWarningGetter(props, displayName);
+      }
+    }
+
+    return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
+  }
+}
+
+var ReactCurrentOwner$1 = ReactSharedInternals.ReactCurrentOwner;
+var ReactDebugCurrentFrame$1 = ReactSharedInternals.ReactDebugCurrentFrame;
+
+function setCurrentlyValidatingElement$1(element) {
+  currentlyValidatingElement = element;
+}
+
+var propTypesMisspellWarningShown;
+
+{
+  propTypesMisspellWarningShown = false;
+}
+/**
+ * Verifies the object is a ReactElement.
+ * See https://reactjs.org/docs/react-api.html#isvalidelement
+ * @param {?object} object
+ * @return {boolean} True if `object` is a ReactElement.
+ * @final
+ */
+
+function isValidElement(object) {
+  {
+    return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
+  }
+}
+
+function getDeclarationErrorAddendum() {
+  {
+    if (ReactCurrentOwner$1.current) {
+      var name = getComponentName(ReactCurrentOwner$1.current.type);
+
+      if (name) {
+        return '\n\nCheck the render method of `' + name + '`.';
+      }
+    }
+
+    return '';
+  }
+}
+
+function getSourceInfoErrorAddendum(source) {
+  {
+    if (source !== undefined) {
+      var fileName = source.fileName.replace(/^.*[\\\/]/, '');
+      var lineNumber = source.lineNumber;
+      return '\n\nCheck your code at ' + fileName + ':' + lineNumber + '.';
+    }
+
+    return '';
+  }
+}
+/**
+ * Warn if there's no key explicitly set on dynamic arrays of children or
+ * object keys are not valid. This allows us to keep track of children between
+ * updates.
+ */
+
+
+var ownerHasKeyUseWarning = {};
+
+function getCurrentComponentErrorInfo(parentType) {
+  {
+    var info = getDeclarationErrorAddendum();
+
+    if (!info) {
+      var parentName = typeof parentType === 'string' ? parentType : parentType.displayName || parentType.name;
+
+      if (parentName) {
+        info = "\n\nCheck the top-level render call using <" + parentName + ">.";
+      }
+    }
+
+    return info;
+  }
+}
+/**
+ * Warn if the element doesn't have an explicit key assigned to it.
+ * This element is in an array. The array could grow and shrink or be
+ * reordered. All children that haven't already been validated are required to
+ * have a "key" property assigned to it. Error statuses are cached so a warning
+ * will only be shown once.
+ *
+ * @internal
+ * @param {ReactElement} element Element that requires a key.
+ * @param {*} parentType element's parent's type.
+ */
+
+
+function validateExplicitKey(element, parentType) {
+  {
+    if (!element._store || element._store.validated || element.key != null) {
+      return;
+    }
+
+    element._store.validated = true;
+    var currentComponentErrorInfo = getCurrentComponentErrorInfo(parentType);
+
+    if (ownerHasKeyUseWarning[currentComponentErrorInfo]) {
+      return;
+    }
+
+    ownerHasKeyUseWarning[currentComponentErrorInfo] = true; // Usually the current owner is the offender, but if it accepts children as a
+    // property, it may be the creator of the child that's responsible for
+    // assigning it a key.
+
+    var childOwner = '';
+
+    if (element && element._owner && element._owner !== ReactCurrentOwner$1.current) {
+      // Give the component that originally created this child.
+      childOwner = " It was passed a child from " + getComponentName(element._owner.type) + ".";
+    }
+
+    setCurrentlyValidatingElement$1(element);
+
+    error('Each child in a list should have a unique "key" prop.' + '%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
+
+    setCurrentlyValidatingElement$1(null);
+  }
+}
+/**
+ * Ensure that every element either is passed in a static location, in an
+ * array with an explicit keys property defined, or in an object literal
+ * with valid key property.
+ *
+ * @internal
+ * @param {ReactNode} node Statically passed child of any type.
+ * @param {*} parentType node's parent's type.
+ */
+
+
+function validateChildKeys(node, parentType) {
+  {
+    if (typeof node !== 'object') {
+      return;
+    }
+
+    if (Array.isArray(node)) {
+      for (var i = 0; i < node.length; i++) {
+        var child = node[i];
+
+        if (isValidElement(child)) {
+          validateExplicitKey(child, parentType);
+        }
+      }
+    } else if (isValidElement(node)) {
+      // This element was passed in a valid location.
+      if (node._store) {
+        node._store.validated = true;
+      }
+    } else if (node) {
+      var iteratorFn = getIteratorFn(node);
+
+      if (typeof iteratorFn === 'function') {
+        // Entry iterators used to provide implicit keys,
+        // but now we print a separate warning for them later.
+        if (iteratorFn !== node.entries) {
+          var iterator = iteratorFn.call(node);
+          var step;
+
+          while (!(step = iterator.next()).done) {
+            if (isValidElement(step.value)) {
+              validateExplicitKey(step.value, parentType);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/**
+ * Given an element, validate that its props follow the propTypes definition,
+ * provided by the type.
+ *
+ * @param {ReactElement} element
+ */
+
+
+function validatePropTypes(element) {
+  {
+    var type = element.type;
+
+    if (type === null || type === undefined || typeof type === 'string') {
+      return;
+    }
+
+    var propTypes;
+
+    if (typeof type === 'function') {
+      propTypes = type.propTypes;
+    } else if (typeof type === 'object' && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Note: Memo only checks outer props here.
+    // Inner props are checked in the reconciler.
+    type.$$typeof === REACT_MEMO_TYPE)) {
+      propTypes = type.propTypes;
+    } else {
+      return;
+    }
+
+    if (propTypes) {
+      // Intentionally inside to avoid triggering lazy initializers:
+      var name = getComponentName(type);
+      checkPropTypes(propTypes, element.props, 'prop', name, element);
+    } else if (type.PropTypes !== undefined && !propTypesMisspellWarningShown) {
+      propTypesMisspellWarningShown = true; // Intentionally inside to avoid triggering lazy initializers:
+
+      var _name = getComponentName(type);
+
+      error('Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?', _name || 'Unknown');
+    }
+
+    if (typeof type.getDefaultProps === 'function' && !type.getDefaultProps.isReactClassApproved) {
+      error('getDefaultProps is only used on classic React.createClass ' + 'definitions. Use a static property named `defaultProps` instead.');
+    }
+  }
+}
+/**
+ * Given a fragment, validate that it can only be provided with fragment props
+ * @param {ReactElement} fragment
+ */
+
+
+function validateFragmentProps(fragment) {
+  {
+    var keys = Object.keys(fragment.props);
+
+    for (var i = 0; i < keys.length; i++) {
+      var key = keys[i];
+
+      if (key !== 'children' && key !== 'key') {
+        setCurrentlyValidatingElement$1(fragment);
+
+        error('Invalid prop `%s` supplied to `React.Fragment`. ' + 'React.Fragment can only have `key` and `children` props.', key);
+
+        setCurrentlyValidatingElement$1(null);
+        break;
+      }
+    }
+
+    if (fragment.ref !== null) {
+      setCurrentlyValidatingElement$1(fragment);
+
+      error('Invalid attribute `ref` supplied to `React.Fragment`.');
+
+      setCurrentlyValidatingElement$1(null);
+    }
+  }
+}
+
+function jsxWithValidation(type, props, key, isStaticChildren, source, self) {
+  {
+    var validType = isValidElementType(type); // We warn in this case but don't throw. We expect the element creation to
+    // succeed and there will likely be errors in render.
+
+    if (!validType) {
+      var info = '';
+
+      if (type === undefined || typeof type === 'object' && type !== null && Object.keys(type).length === 0) {
+        info += ' You likely forgot to export your component from the file ' + "it's defined in, or you might have mixed up default and named imports.";
+      }
+
+      var sourceInfo = getSourceInfoErrorAddendum(source);
+
+      if (sourceInfo) {
+        info += sourceInfo;
+      } else {
+        info += getDeclarationErrorAddendum();
+      }
+
+      var typeString;
+
+      if (type === null) {
+        typeString = 'null';
+      } else if (Array.isArray(type)) {
+        typeString = 'array';
+      } else if (type !== undefined && type.$$typeof === REACT_ELEMENT_TYPE) {
+        typeString = "<" + (getComponentName(type.type) || 'Unknown') + " />";
+        info = ' Did you accidentally export a JSX literal instead of a component?';
+      } else {
+        typeString = typeof type;
+      }
+
+      error('React.jsx: type is invalid -- expected a string (for ' + 'built-in components) or a class/function (for composite ' + 'components) but got: %s.%s', typeString, info);
+    }
+
+    var element = jsxDEV(type, props, key, source, self); // The result can be nullish if a mock or a custom function is used.
+    // TODO: Drop this when these are no longer allowed as the type argument.
+
+    if (element == null) {
+      return element;
+    } // Skip key warning if the type isn't valid since our key validation logic
+    // doesn't expect a non-string/function type and can throw confusing errors.
+    // We don't want exception behavior to differ between dev and prod.
+    // (Rendering will throw with a helpful message and as soon as the type is
+    // fixed, the key warnings will appear.)
+
+
+    if (validType) {
+      var children = props.children;
+
+      if (children !== undefined) {
+        if (isStaticChildren) {
+          if (Array.isArray(children)) {
+            for (var i = 0; i < children.length; i++) {
+              validateChildKeys(children[i], type);
+            }
+
+            if (Object.freeze) {
+              Object.freeze(children);
+            }
+          } else {
+            error('React.jsx: Static children should always be an array. ' + 'You are likely explicitly calling React.jsxs or React.jsxDEV. ' + 'Use the Babel transform instead.');
+          }
+        } else {
+          validateChildKeys(children, type);
+        }
+      }
+    }
+
+    if (type === exports.Fragment) {
+      validateFragmentProps(element);
+    } else {
+      validatePropTypes(element);
+    }
+
+    return element;
+  }
+} // These two functions exist to still get child warnings in dev
+// even with the prod transform. This means that jsxDEV is purely
+// opt-in behavior for better messages but that we won't stop
+// giving you warnings if you use production apis.
+
+function jsxWithValidationStatic(type, props, key) {
+  {
+    return jsxWithValidation(type, props, key, true);
+  }
+}
+function jsxWithValidationDynamic(type, props, key) {
+  {
+    return jsxWithValidation(type, props, key, false);
+  }
+}
+
+var jsx =  jsxWithValidationDynamic ; // we may want to special case jsxs internally to take advantage of static children.
+// for now we can ship identical prod functions
+
+var jsxs =  jsxWithValidationStatic ;
+
+exports.jsx = jsx;
+exports.jsxs = jsxs;
+  })();
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/react/cjs/react.development.js":
 /*!*****************************************************!*\
   !*** ./node_modules/react/cjs/react.development.js ***!
@@ -27539,6 +28482,23 @@ exports.version = ReactVersion;
 
 if (false) {} else {
   module.exports = __webpack_require__(/*! ./cjs/react.development.js */ "./node_modules/react/cjs/react.development.js");
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/react/jsx-runtime.js":
+/*!*******************************************!*\
+  !*** ./node_modules/react/jsx-runtime.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+if (false) {} else {
+  module.exports = __webpack_require__(/*! ./cjs/react-jsx-runtime.development.js */ "./node_modules/react/cjs/react-jsx-runtime.development.js");
 }
 
 
@@ -31475,6 +32435,37 @@ module.exports = function() {
 
 /***/ }),
 
+/***/ "./node_modules/webpack/buildin/global.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/global.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || new Function("return this")();
+} catch (e) {
+	// This works if the window reference is available
+	if (typeof window === "object") g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+
 /***/ "./node_modules/when/lib/Promise.js":
 /*!******************************************!*\
   !*** ./node_modules/when/lib/Promise.js ***!
@@ -34078,9 +35069,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function (r
 /*!****************************!*\
   !*** ./src/main/js/app.js ***!
   \****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_ChessboardWrapper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/ChessboardWrapper */ "./src/main/js/components/ChessboardWrapper.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -34097,6 +35091,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 var client = __webpack_require__(/*! ./client */ "./src/main/js/client.js");
+
 var App = /*#__PURE__*/function (_React$Component) {
   _inherits(App, _React$Component);
   var _super = _createSuper(App);
@@ -34130,7 +35125,7 @@ var App = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/React.createElement("tr", {
           key: puzzle.fen
         }, /*#__PURE__*/React.createElement("td", null, puzzle.fen), /*#__PURE__*/React.createElement("td", null, puzzle.moves), /*#__PURE__*/React.createElement("td", null, puzzle.popularity));
-      }))));
+      }))), /*#__PURE__*/React.createElement(_components_ChessboardWrapper__WEBPACK_IMPORTED_MODULE_0__["default"], null));
     }
   }]);
   return App;
@@ -34166,6 +35161,29 @@ module.exports = rest.wrap(mime, {
     'Accept': 'application/hal+json'
   }
 });
+
+/***/ }),
+
+/***/ "./src/main/js/components/ChessboardWrapper.js":
+/*!*****************************************************!*\
+  !*** ./src/main/js/components/ChessboardWrapper.js ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ChessboardWrapper; });
+/* harmony import */ var react_chessboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-chessboard */ "./node_modules/react-chessboard/dist/index.esm.js");
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+
+function ChessboardWrapper() {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(react_chessboard__WEBPACK_IMPORTED_MODULE_0__["Chessboard"], {
+    id: "BasicBoard",
+    boardWidth: "400"
+  }));
+}
 
 /***/ }),
 

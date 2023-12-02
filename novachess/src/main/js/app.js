@@ -2,6 +2,8 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const client = require('./client');
 
+import ChessboardWrapper from './components/ChessboardWrapper';
+
 class App extends React.Component {
 
 	constructor(props) {
@@ -34,6 +36,7 @@ class App extends React.Component {
                         })}
                     </tbody>
                 </table>
+                <ChessboardWrapper />
             </div>
 			
 		)
