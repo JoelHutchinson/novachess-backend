@@ -58,7 +58,12 @@ export default function PuzzleBoard(props) {
     }
 
     function handleNextMoveClick() {
-        makeAMove(uciToMove(props.solutionUciMoves.split(" ")[moveIndex]));
+        if (moveIndex >= props.solutionUciMoves.split(" ").length) {
+            props.loadNextPuzzle();
+        }
+        else {
+            makeAMove(uciToMove(props.solutionUciMoves.split(" ")[moveIndex]));
+        }
     }
 
   return (

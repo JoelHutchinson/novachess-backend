@@ -37191,7 +37191,8 @@ var App = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/React.createElement("td", null, puzzle.fen), /*#__PURE__*/React.createElement("td", null, puzzle.moves), /*#__PURE__*/React.createElement("td", null, puzzle.popularity));
       }))), /*#__PURE__*/React.createElement(_components_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__["default"], {
         puzzleFen: this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].fen : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-        solutionUciMoves: this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].moves : ""
+        solutionUciMoves: this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].moves : "",
+        loadNextPuzzle: this.handleNextPuzzleClick
       }), /*#__PURE__*/React.createElement("button", {
         onClick: this.handleNextPuzzleClick
       }, "Next Puzzle"));
@@ -37271,6 +37272,7 @@ function PuzzleBoard(props) {
     if (props.puzzleFen) {
       // Initialize puzzle when props.puzzleFen changes.
       setGame(new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"](props.puzzleFen));
+      setMoveIndex(0);
     }
   }, [props.puzzleFen]);
   function makeAMove(move) {
@@ -37310,14 +37312,19 @@ function PuzzleBoard(props) {
       promotion: "q" // always promote to a queen for example simplicity
     };
   }
+  function handleNextMoveClick() {
+    if (moveIndex >= props.solutionUciMoves.split(" ").length) {
+      props.loadNextPuzzle();
+    } else {
+      makeAMove(uciToMove(props.solutionUciMoves.split(" ")[moveIndex]));
+    }
+  }
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(react_chessboard__WEBPACK_IMPORTED_MODULE_2__["Chessboard"], {
     boardWidth: "400",
     position: game.fen(),
     onPieceDrop: onDrop
   }), /*#__PURE__*/React.createElement("p", null, "Solution: ", props.solutionUciMoves.split(" ")), /*#__PURE__*/React.createElement("button", {
-    onClick: function onClick() {
-      return makeAMove(uciToMove(props.solutionUciMoves.split(" ")[moveIndex]));
-    }
+    onClick: handleNextMoveClick
   }, "Next Move"));
 }
 
