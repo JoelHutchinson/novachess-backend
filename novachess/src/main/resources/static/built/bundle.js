@@ -37171,6 +37171,13 @@ var App = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "handleNextPuzzleClick",
+    value: function handleNextPuzzleClick() {
+      this.setState(function (state) {
+        currentPuzzleIndex: state.currentPuzzleIndex + 1;
+      });
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Puzzles"), /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "FEN"), /*#__PURE__*/React.createElement("th", null, "Moves"), /*#__PURE__*/React.createElement("th", null, "Popularity Score"))), /*#__PURE__*/React.createElement("tbody", null, this.state.puzzles.map(function (puzzle) {
@@ -37180,7 +37187,9 @@ var App = /*#__PURE__*/function (_React$Component) {
       }))), /*#__PURE__*/React.createElement(_components_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__["default"], {
         puzzleFen: this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].fen : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
         solutionUciMoves: this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].moves : ""
-      }));
+      }), /*#__PURE__*/React.createElement("button", {
+        onClick: this.handleNextPuzzleClick.bind(this)
+      }, "Next Puzzle"));
     }
   }]);
   return App;
@@ -37253,6 +37262,7 @@ function PuzzleBoard(props) {
     moveIndex = _useState4[0],
     setMoveIndex = _useState4[1];
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    console.log("PUZZLE FEN CHANGED. LOADING NEW PUZZLE.");
     if (props.puzzleFen) {
       // Initialize puzzle when props.puzzleFen changes.
       setGame(new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"](props.puzzleFen));

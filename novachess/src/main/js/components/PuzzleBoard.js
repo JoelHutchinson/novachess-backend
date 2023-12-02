@@ -8,6 +8,7 @@ export default function PuzzleBoard(props) {
     const [moveIndex, setMoveIndex] = useState(0);
 
     useEffect(() => {
+        console.log("PUZZLE FEN CHANGED. LOADING NEW PUZZLE.");
         if (props.puzzleFen) {
             // Initialize puzzle when props.puzzleFen changes.
             setGame(new Chess(props.puzzleFen));
