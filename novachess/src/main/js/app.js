@@ -10,7 +10,8 @@ class App extends React.Component {
 		super(props);
 		this.state = {
             users: [],
-            puzzles: []
+            puzzles: [],
+            currentPuzzleIndex: 0
         };
 	}
 
@@ -44,7 +45,10 @@ class App extends React.Component {
                         })}
                     </tbody>
                 </table>
-                <PuzzleBoard />
+                <PuzzleBoard
+                puzzleFen={this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].fen : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"}
+                solutionSanMoves={this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].moves : ""}
+                />
             </div>
 			
 		)

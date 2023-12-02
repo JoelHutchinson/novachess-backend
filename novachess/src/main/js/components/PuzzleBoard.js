@@ -1,16 +1,34 @@
 const React = require('react');
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Chess } from "chess.js";
 import { Chessboard } from "react-chessboard";
 
-export default function PuzzleBoard() {
-    const [game, setGame] = useState(new Chess());
+export default function PuzzleBoard(props) {
+    const [game, setGame] = useState(new Chess(props.puzzleFen));
+    const [moveIndex, setMoveIndex] = useState(0);
+
+    useEffect(() => {
+        if (props.puzzleFen) {
+            // Initialize game when props.puzzleFen changes
+            setGame(new Chess(props.puzzleFen));
+        }
+    }, [props.puzzleFen]);
 
     function makeAMove(move) {
         const gameCopy = new Chess(game.fen());
         const result = gameCopy.move(move);
         setGame(gameCopy);
-        return result; // null if the move was illegal, the move object if the move was legal
+
+        console.log("Move: " + move.from + move.to);
+        console.log("Expected: " + props.solutionSanMoves.split(" ")[moveIndex]);
+        const moveCorrect = (move.from + move.to) === props.solutionSanMoves.split(" ")[moveIndex];
+        console.log("Move correctness: " + moveCorrect);
+
+        if (moveCorrect) {
+            setMoveIndex(moveIndex + 1);
+            return result;
+        }
+        return null;
     }
 
 

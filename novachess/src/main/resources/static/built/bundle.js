@@ -37152,7 +37152,8 @@ var App = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       users: [],
-      puzzles: []
+      puzzles: [],
+      currentPuzzleIndex: 0
     };
     return _this;
   }
@@ -37176,7 +37177,10 @@ var App = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/React.createElement("tr", {
           key: puzzle.fen
         }, /*#__PURE__*/React.createElement("td", null, puzzle.fen), /*#__PURE__*/React.createElement("td", null, puzzle.moves), /*#__PURE__*/React.createElement("td", null, puzzle.popularity));
-      }))), /*#__PURE__*/React.createElement(_components_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__["default"], null));
+      }))), /*#__PURE__*/React.createElement(_components_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        puzzleFen: this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].fen : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
+        solutionSanMoves: this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].moves : ""
+      }));
     }
   }]);
   return App;
@@ -37239,16 +37243,34 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 
 
-function PuzzleBoard() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"]()),
+function PuzzleBoard(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"](props.puzzleFen)),
     _useState2 = _slicedToArray(_useState, 2),
     game = _useState2[0],
     setGame = _useState2[1];
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
+    _useState4 = _slicedToArray(_useState3, 2),
+    moveIndex = _useState4[0],
+    setMoveIndex = _useState4[1];
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (props.puzzleFen) {
+      // Initialize game when props.puzzleFen changes
+      setGame(new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"](props.puzzleFen));
+    }
+  }, [props.puzzleFen]);
   function makeAMove(move) {
     var gameCopy = new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"](game.fen());
     var result = gameCopy.move(move);
     setGame(gameCopy);
-    return result; // null if the move was illegal, the move object if the move was legal
+    console.log("Move: " + move.from + move.to);
+    console.log("Expected: " + props.solutionSanMoves.split(" ")[moveIndex]);
+    var moveCorrect = move.from + move.to === props.solutionSanMoves.split(" ")[moveIndex];
+    console.log("Move correctness: " + moveCorrect);
+    if (moveCorrect) {
+      setMoveIndex(moveIndex + 1);
+      return result;
+    }
+    return null;
   }
   function onDrop(sourceSquare, targetSquare) {
     console.log("Source: " + sourceSquare);
