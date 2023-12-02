@@ -86,6 +86,2057 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./node_modules/chess.js/dist/esm/chess.js":
+/*!*************************************************!*\
+  !*** ./node_modules/chess.js/dist/esm/chess.js ***!
+  \*************************************************/
+/*! exports provided: WHITE, BLACK, PAWN, KNIGHT, BISHOP, ROOK, QUEEN, KING, DEFAULT_POSITION, SQUARES, validateFen, Chess */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WHITE", function() { return WHITE; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BLACK", function() { return BLACK; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PAWN", function() { return PAWN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KNIGHT", function() { return KNIGHT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BISHOP", function() { return BISHOP; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROOK", function() { return ROOK; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "QUEEN", function() { return QUEEN; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KING", function() { return KING; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DEFAULT_POSITION", function() { return DEFAULT_POSITION; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SQUARES", function() { return SQUARES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "validateFen", function() { return validateFen; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Chess", function() { return Chess; });
+function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+/**
+ * @license
+ * Copyright (c) 2023, Jeff Hlywa (jhlywa@gmail.com)
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+ * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+ * POSSIBILITY OF SUCH DAMAGE.
+ */
+var WHITE = 'w';
+var BLACK = 'b';
+var PAWN = 'p';
+var KNIGHT = 'n';
+var BISHOP = 'b';
+var ROOK = 'r';
+var QUEEN = 'q';
+var KING = 'k';
+var DEFAULT_POSITION = 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1';
+var EMPTY = -1;
+var FLAGS = {
+  NORMAL: 'n',
+  CAPTURE: 'c',
+  BIG_PAWN: 'b',
+  EP_CAPTURE: 'e',
+  PROMOTION: 'p',
+  KSIDE_CASTLE: 'k',
+  QSIDE_CASTLE: 'q'
+};
+// prettier-ignore
+var SQUARES = ['a8', 'b8', 'c8', 'd8', 'e8', 'f8', 'g8', 'h8', 'a7', 'b7', 'c7', 'd7', 'e7', 'f7', 'g7', 'h7', 'a6', 'b6', 'c6', 'd6', 'e6', 'f6', 'g6', 'h6', 'a5', 'b5', 'c5', 'd5', 'e5', 'f5', 'g5', 'h5', 'a4', 'b4', 'c4', 'd4', 'e4', 'f4', 'g4', 'h4', 'a3', 'b3', 'c3', 'd3', 'e3', 'f3', 'g3', 'h3', 'a2', 'b2', 'c2', 'd2', 'e2', 'f2', 'g2', 'h2', 'a1', 'b1', 'c1', 'd1', 'e1', 'f1', 'g1', 'h1'];
+var BITS = {
+  NORMAL: 1,
+  CAPTURE: 2,
+  BIG_PAWN: 4,
+  EP_CAPTURE: 8,
+  PROMOTION: 16,
+  KSIDE_CASTLE: 32,
+  QSIDE_CASTLE: 64
+};
+/*
+ * NOTES ABOUT 0x88 MOVE GENERATION ALGORITHM
+ * ----------------------------------------------------------------------------
+ * From https://github.com/jhlywa/chess.js/issues/230
+ *
+ * A lot of people are confused when they first see the internal representation
+ * of chess.js. It uses the 0x88 Move Generation Algorithm which internally
+ * stores the board as an 8x16 array. This is purely for efficiency but has a
+ * couple of interesting benefits:
+ *
+ * 1. 0x88 offers a very inexpensive "off the board" check. Bitwise AND (&) any
+ *    square with 0x88, if the result is non-zero then the square is off the
+ *    board. For example, assuming a knight square A8 (0 in 0x88 notation),
+ *    there are 8 possible directions in which the knight can move. These
+ *    directions are relative to the 8x16 board and are stored in the
+ *    PIECE_OFFSETS map. One possible move is A8 - 18 (up one square, and two
+ *    squares to the left - which is off the board). 0 - 18 = -18 & 0x88 = 0x88
+ *    (because of two-complement representation of -18). The non-zero result
+ *    means the square is off the board and the move is illegal. Take the
+ *    opposite move (from A8 to C7), 0 + 18 = 18 & 0x88 = 0. A result of zero
+ *    means the square is on the board.
+ *
+ * 2. The relative distance (or difference) between two squares on a 8x16 board
+ *    is unique and can be used to inexpensively determine if a piece on a
+ *    square can attack any other arbitrary square. For example, let's see if a
+ *    pawn on E7 can attack E2. The difference between E7 (20) - E2 (100) is
+ *    -80. We add 119 to make the ATTACKS array index non-negative (because the
+ *    worst case difference is A8 - H1 = -119). The ATTACKS array contains a
+ *    bitmask of pieces that can attack from that distance and direction.
+ *    ATTACKS[-80 + 119=39] gives us 24 or 0b11000 in binary. Look at the
+ *    PIECE_MASKS map to determine the mask for a given piece type. In our pawn
+ *    example, we would check to see if 24 & 0x1 is non-zero, which it is
+ *    not. So, naturally, a pawn on E7 can't attack a piece on E2. However, a
+ *    rook can since 24 & 0x8 is non-zero. The only thing left to check is that
+ *    there are no blocking pieces between E7 and E2. That's where the RAYS
+ *    array comes in. It provides an offset (in this case 16) to add to E7 (20)
+ *    to check for blocking pieces. E7 (20) + 16 = E6 (36) + 16 = E5 (52) etc.
+ */
+// prettier-ignore
+// eslint-disable-next-line
+var Ox88 = {
+  a8: 0,
+  b8: 1,
+  c8: 2,
+  d8: 3,
+  e8: 4,
+  f8: 5,
+  g8: 6,
+  h8: 7,
+  a7: 16,
+  b7: 17,
+  c7: 18,
+  d7: 19,
+  e7: 20,
+  f7: 21,
+  g7: 22,
+  h7: 23,
+  a6: 32,
+  b6: 33,
+  c6: 34,
+  d6: 35,
+  e6: 36,
+  f6: 37,
+  g6: 38,
+  h6: 39,
+  a5: 48,
+  b5: 49,
+  c5: 50,
+  d5: 51,
+  e5: 52,
+  f5: 53,
+  g5: 54,
+  h5: 55,
+  a4: 64,
+  b4: 65,
+  c4: 66,
+  d4: 67,
+  e4: 68,
+  f4: 69,
+  g4: 70,
+  h4: 71,
+  a3: 80,
+  b3: 81,
+  c3: 82,
+  d3: 83,
+  e3: 84,
+  f3: 85,
+  g3: 86,
+  h3: 87,
+  a2: 96,
+  b2: 97,
+  c2: 98,
+  d2: 99,
+  e2: 100,
+  f2: 101,
+  g2: 102,
+  h2: 103,
+  a1: 112,
+  b1: 113,
+  c1: 114,
+  d1: 115,
+  e1: 116,
+  f1: 117,
+  g1: 118,
+  h1: 119
+};
+var PAWN_OFFSETS = {
+  b: [16, 32, 17, 15],
+  w: [-16, -32, -17, -15]
+};
+var PIECE_OFFSETS = {
+  n: [-18, -33, -31, -14, 18, 33, 31, 14],
+  b: [-17, -15, 17, 15],
+  r: [-16, 1, 16, -1],
+  q: [-17, -16, -15, 1, 17, 16, 15, -1],
+  k: [-17, -16, -15, 1, 17, 16, 15, -1]
+};
+// prettier-ignore
+var ATTACKS = [20, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 20, 0, 0, 20, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 20, 0, 0, 0, 0, 24, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 24, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 24, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 2, 24, 2, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 53, 56, 53, 2, 0, 0, 0, 0, 0, 0, 24, 24, 24, 24, 24, 24, 56, 0, 56, 24, 24, 24, 24, 24, 24, 0, 0, 0, 0, 0, 0, 2, 53, 56, 53, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 2, 24, 2, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 24, 0, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 24, 0, 0, 0, 20, 0, 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 24, 0, 0, 0, 0, 20, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 20, 0, 0, 20, 0, 0, 0, 0, 0, 0, 24, 0, 0, 0, 0, 0, 0, 20];
+// prettier-ignore
+var RAYS = [17, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 0, 15, 0, 0, 17, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0, 15, 0, 0, 0, 0, 17, 0, 0, 0, 0, 16, 0, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 16, 0, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 16, 0, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 0, 16, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 16, 15, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, -15, -16, -17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -15, 0, -16, 0, -17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -15, 0, 0, -16, 0, 0, -17, 0, 0, 0, 0, 0, 0, 0, 0, -15, 0, 0, 0, -16, 0, 0, 0, -17, 0, 0, 0, 0, 0, 0, -15, 0, 0, 0, 0, -16, 0, 0, 0, 0, -17, 0, 0, 0, 0, -15, 0, 0, 0, 0, 0, -16, 0, 0, 0, 0, 0, -17, 0, 0, -15, 0, 0, 0, 0, 0, 0, -16, 0, 0, 0, 0, 0, 0, -17];
+var PIECE_MASKS = {
+  p: 0x1,
+  n: 0x2,
+  b: 0x4,
+  r: 0x8,
+  q: 0x10,
+  k: 0x20
+};
+var SYMBOLS = 'pnbrqkPNBRQK';
+var PROMOTIONS = [KNIGHT, BISHOP, ROOK, QUEEN];
+var RANK_1 = 7;
+var RANK_2 = 6;
+/*
+ * const RANK_3 = 5
+ * const RANK_4 = 4
+ * const RANK_5 = 3
+ * const RANK_6 = 2
+ */
+var RANK_7 = 1;
+var RANK_8 = 0;
+var SIDES = _defineProperty(_defineProperty({}, KING, BITS.KSIDE_CASTLE), QUEEN, BITS.QSIDE_CASTLE);
+var ROOKS = {
+  w: [{
+    square: Ox88.a1,
+    flag: BITS.QSIDE_CASTLE
+  }, {
+    square: Ox88.h1,
+    flag: BITS.KSIDE_CASTLE
+  }],
+  b: [{
+    square: Ox88.a8,
+    flag: BITS.QSIDE_CASTLE
+  }, {
+    square: Ox88.h8,
+    flag: BITS.KSIDE_CASTLE
+  }]
+};
+var SECOND_RANK = {
+  b: RANK_7,
+  w: RANK_2
+};
+var TERMINATION_MARKERS = ['1-0', '0-1', '1/2-1/2', '*'];
+// Extracts the zero-based rank of an 0x88 square.
+function rank(square) {
+  return square >> 4;
+}
+// Extracts the zero-based file of an 0x88 square.
+function file(square) {
+  return square & 0xf;
+}
+function isDigit(c) {
+  return '0123456789'.indexOf(c) !== -1;
+}
+// Converts a 0x88 square to algebraic notation.
+function algebraic(square) {
+  var f = file(square);
+  var r = rank(square);
+  return 'abcdefgh'.substring(f, f + 1) + '87654321'.substring(r, r + 1);
+}
+function swapColor(color) {
+  return color === WHITE ? BLACK : WHITE;
+}
+function validateFen(fen) {
+  // 1st criterion: 6 space-seperated fields?
+  var tokens = fen.split(/\s+/);
+  if (tokens.length !== 6) {
+    return {
+      ok: false,
+      error: 'Invalid FEN: must contain six space-delimited fields'
+    };
+  }
+  // 2nd criterion: move number field is a integer value > 0?
+  var moveNumber = parseInt(tokens[5], 10);
+  if (isNaN(moveNumber) || moveNumber <= 0) {
+    return {
+      ok: false,
+      error: 'Invalid FEN: move number must be a positive integer'
+    };
+  }
+  // 3rd criterion: half move counter is an integer >= 0?
+  var halfMoves = parseInt(tokens[4], 10);
+  if (isNaN(halfMoves) || halfMoves < 0) {
+    return {
+      ok: false,
+      error: 'Invalid FEN: half move counter number must be a non-negative integer'
+    };
+  }
+  // 4th criterion: 4th field is a valid e.p.-string?
+  if (!/^(-|[abcdefgh][36])$/.test(tokens[3])) {
+    return {
+      ok: false,
+      error: 'Invalid FEN: en-passant square is invalid'
+    };
+  }
+  // 5th criterion: 3th field is a valid castle-string?
+  if (/[^kKqQ-]/.test(tokens[2])) {
+    return {
+      ok: false,
+      error: 'Invalid FEN: castling availability is invalid'
+    };
+  }
+  // 6th criterion: 2nd field is "w" (white) or "b" (black)?
+  if (!/^(w|b)$/.test(tokens[1])) {
+    return {
+      ok: false,
+      error: 'Invalid FEN: side-to-move is invalid'
+    };
+  }
+  // 7th criterion: 1st field contains 8 rows?
+  var rows = tokens[0].split('/');
+  if (rows.length !== 8) {
+    return {
+      ok: false,
+      error: "Invalid FEN: piece data does not contain 8 '/'-delimited rows"
+    };
+  }
+  // 8th criterion: every row is valid?
+  for (var i = 0; i < rows.length; i++) {
+    // check for right sum of fields AND not two numbers in succession
+    var sumFields = 0;
+    var previousWasNumber = false;
+    for (var k = 0; k < rows[i].length; k++) {
+      if (isDigit(rows[i][k])) {
+        if (previousWasNumber) {
+          return {
+            ok: false,
+            error: 'Invalid FEN: piece data is invalid (consecutive number)'
+          };
+        }
+        sumFields += parseInt(rows[i][k], 10);
+        previousWasNumber = true;
+      } else {
+        if (!/^[prnbqkPRNBQK]$/.test(rows[i][k])) {
+          return {
+            ok: false,
+            error: 'Invalid FEN: piece data is invalid (invalid piece)'
+          };
+        }
+        sumFields += 1;
+        previousWasNumber = false;
+      }
+    }
+    if (sumFields !== 8) {
+      return {
+        ok: false,
+        error: 'Invalid FEN: piece data is invalid (too many squares in rank)'
+      };
+    }
+  }
+  if (tokens[3][1] == '3' && tokens[1] == 'w' || tokens[3][1] == '6' && tokens[1] == 'b') {
+    return {
+      ok: false,
+      error: 'Invalid FEN: illegal en-passant square'
+    };
+  }
+  var kings = [{
+    color: 'white',
+    regex: /K/g
+  }, {
+    color: 'black',
+    regex: /k/g
+  }];
+  for (var _i = 0, _kings = kings; _i < _kings.length; _i++) {
+    var _kings$_i = _kings[_i],
+      color = _kings$_i.color,
+      regex = _kings$_i.regex;
+    if (!regex.test(tokens[0])) {
+      return {
+        ok: false,
+        error: "Invalid FEN: missing ".concat(color, " king")
+      };
+    }
+    if ((tokens[0].match(regex) || []).length > 1) {
+      return {
+        ok: false,
+        error: "Invalid FEN: too many ".concat(color, " kings")
+      };
+    }
+  }
+  return {
+    ok: true
+  };
+}
+// this function is used to uniquely identify ambiguous moves
+function getDisambiguator(move, moves) {
+  var from = move.from;
+  var to = move.to;
+  var piece = move.piece;
+  var ambiguities = 0;
+  var sameRank = 0;
+  var sameFile = 0;
+  for (var i = 0, len = moves.length; i < len; i++) {
+    var ambigFrom = moves[i].from;
+    var ambigTo = moves[i].to;
+    var ambigPiece = moves[i].piece;
+    /*
+     * if a move of the same piece type ends on the same to square, we'll need
+     * to add a disambiguator to the algebraic notation
+     */
+    if (piece === ambigPiece && from !== ambigFrom && to === ambigTo) {
+      ambiguities++;
+      if (rank(from) === rank(ambigFrom)) {
+        sameRank++;
+      }
+      if (file(from) === file(ambigFrom)) {
+        sameFile++;
+      }
+    }
+  }
+  if (ambiguities > 0) {
+    if (sameRank > 0 && sameFile > 0) {
+      /*
+       * if there exists a similar moving piece on the same rank and file as
+       * the move in question, use the square as the disambiguator
+       */
+      return algebraic(from);
+    } else if (sameFile > 0) {
+      /*
+       * if the moving piece rests on the same file, use the rank symbol as the
+       * disambiguator
+       */
+      return algebraic(from).charAt(1);
+    } else {
+      // else use the file symbol
+      return algebraic(from).charAt(0);
+    }
+  }
+  return '';
+}
+function addMove(moves, color, from, to, piece) {
+  var captured = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : undefined;
+  var flags = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : BITS.NORMAL;
+  var r = rank(to);
+  if (piece === PAWN && (r === RANK_1 || r === RANK_8)) {
+    for (var i = 0; i < PROMOTIONS.length; i++) {
+      var promotion = PROMOTIONS[i];
+      moves.push({
+        color: color,
+        from: from,
+        to: to,
+        piece: piece,
+        captured: captured,
+        promotion: promotion,
+        flags: flags | BITS.PROMOTION
+      });
+    }
+  } else {
+    moves.push({
+      color: color,
+      from: from,
+      to: to,
+      piece: piece,
+      captured: captured,
+      flags: flags
+    });
+  }
+}
+function inferPieceType(san) {
+  var pieceType = san.charAt(0);
+  if (pieceType >= 'a' && pieceType <= 'h') {
+    var matches = san.match(/[a-h]\d.*[a-h]\d/);
+    if (matches) {
+      return undefined;
+    }
+    return PAWN;
+  }
+  pieceType = pieceType.toLowerCase();
+  if (pieceType === 'o') {
+    return KING;
+  }
+  return pieceType;
+}
+// parses all of the decorators out of a SAN string
+function strippedSan(move) {
+  return move.replace(/=/, '').replace(/[+#]?[?!]*$/, '');
+}
+var Chess = /*#__PURE__*/function () {
+  function Chess() {
+    var fen = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : DEFAULT_POSITION;
+    _classCallCheck(this, Chess);
+    _defineProperty(this, "_board", new Array(128));
+    _defineProperty(this, "_turn", WHITE);
+    _defineProperty(this, "_header", {});
+    _defineProperty(this, "_kings", {
+      w: EMPTY,
+      b: EMPTY
+    });
+    _defineProperty(this, "_epSquare", -1);
+    _defineProperty(this, "_halfMoves", 0);
+    _defineProperty(this, "_moveNumber", 0);
+    _defineProperty(this, "_history", []);
+    _defineProperty(this, "_comments", {});
+    _defineProperty(this, "_castling", {
+      w: 0,
+      b: 0
+    });
+    this.load(fen);
+  }
+  _createClass(Chess, [{
+    key: "clear",
+    value: function clear() {
+      var keepHeaders = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      this._board = new Array(128);
+      this._kings = {
+        w: EMPTY,
+        b: EMPTY
+      };
+      this._turn = WHITE;
+      this._castling = {
+        w: 0,
+        b: 0
+      };
+      this._epSquare = EMPTY;
+      this._halfMoves = 0;
+      this._moveNumber = 1;
+      this._history = [];
+      this._comments = {};
+      this._header = keepHeaders ? this._header : {};
+      this._updateSetup(this.fen());
+    }
+  }, {
+    key: "removeHeader",
+    value: function removeHeader(key) {
+      if (key in this._header) {
+        delete this._header[key];
+      }
+    }
+  }, {
+    key: "load",
+    value: function load(fen) {
+      var keepHeaders = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      var tokens = fen.split(/\s+/);
+      // append commonly omitted fen tokens
+      if (tokens.length >= 2 && tokens.length < 6) {
+        var adjustments = ['-', '-', '0', '1'];
+        fen = tokens.concat(adjustments.slice(-(6 - tokens.length))).join(' ');
+      }
+      tokens = fen.split(/\s+/);
+      var _validateFen = validateFen(fen),
+        ok = _validateFen.ok,
+        error = _validateFen.error;
+      if (!ok) {
+        throw new Error(error);
+      }
+      var position = tokens[0];
+      var square = 0;
+      this.clear(keepHeaders);
+      for (var i = 0; i < position.length; i++) {
+        var piece = position.charAt(i);
+        if (piece === '/') {
+          square += 8;
+        } else if (isDigit(piece)) {
+          square += parseInt(piece, 10);
+        } else {
+          var color = piece < 'a' ? WHITE : BLACK;
+          this.put({
+            type: piece.toLowerCase(),
+            color: color
+          }, algebraic(square));
+          square++;
+        }
+      }
+      this._turn = tokens[1];
+      if (tokens[2].indexOf('K') > -1) {
+        this._castling.w |= BITS.KSIDE_CASTLE;
+      }
+      if (tokens[2].indexOf('Q') > -1) {
+        this._castling.w |= BITS.QSIDE_CASTLE;
+      }
+      if (tokens[2].indexOf('k') > -1) {
+        this._castling.b |= BITS.KSIDE_CASTLE;
+      }
+      if (tokens[2].indexOf('q') > -1) {
+        this._castling.b |= BITS.QSIDE_CASTLE;
+      }
+      this._epSquare = tokens[3] === '-' ? EMPTY : Ox88[tokens[3]];
+      this._halfMoves = parseInt(tokens[4], 10);
+      this._moveNumber = parseInt(tokens[5], 10);
+      this._updateSetup(this.fen());
+    }
+  }, {
+    key: "fen",
+    value: function fen() {
+      var empty = 0;
+      var fen = '';
+      for (var i = Ox88.a8; i <= Ox88.h1; i++) {
+        if (this._board[i]) {
+          if (empty > 0) {
+            fen += empty;
+            empty = 0;
+          }
+          var _this$_board$i = this._board[i],
+            color = _this$_board$i.color,
+            piece = _this$_board$i.type;
+          fen += color === WHITE ? piece.toUpperCase() : piece.toLowerCase();
+        } else {
+          empty++;
+        }
+        if (i + 1 & 0x88) {
+          if (empty > 0) {
+            fen += empty;
+          }
+          if (i !== Ox88.h1) {
+            fen += '/';
+          }
+          empty = 0;
+          i += 8;
+        }
+      }
+      var castling = '';
+      if (this._castling[WHITE] & BITS.KSIDE_CASTLE) {
+        castling += 'K';
+      }
+      if (this._castling[WHITE] & BITS.QSIDE_CASTLE) {
+        castling += 'Q';
+      }
+      if (this._castling[BLACK] & BITS.KSIDE_CASTLE) {
+        castling += 'k';
+      }
+      if (this._castling[BLACK] & BITS.QSIDE_CASTLE) {
+        castling += 'q';
+      }
+      // do we have an empty castling flag?
+      castling = castling || '-';
+      var epSquare = '-';
+      /*
+       * only print the ep square if en passant is a valid move (pawn is present
+       * and ep capture is not pinned)
+       */
+      if (this._epSquare !== EMPTY) {
+        var bigPawnSquare = this._epSquare + (this._turn === WHITE ? 16 : -16);
+        var squares = [bigPawnSquare + 1, bigPawnSquare - 1];
+        for (var _i2 = 0, _squares = squares; _i2 < _squares.length; _i2++) {
+          var _this$_board$square, _this$_board$square2;
+          var square = _squares[_i2];
+          // is the square off the board?
+          if (square & 0x88) {
+            continue;
+          }
+          var _color = this._turn;
+          // is there a pawn that can capture the epSquare?
+          if (((_this$_board$square = this._board[square]) === null || _this$_board$square === void 0 ? void 0 : _this$_board$square.color) === _color && ((_this$_board$square2 = this._board[square]) === null || _this$_board$square2 === void 0 ? void 0 : _this$_board$square2.type) === PAWN) {
+            // if the pawn makes an ep capture, does it leave it's king in check?
+            this._makeMove({
+              color: _color,
+              from: square,
+              to: this._epSquare,
+              piece: PAWN,
+              captured: PAWN,
+              flags: BITS.EP_CAPTURE
+            });
+            var isLegal = !this._isKingAttacked(_color);
+            this._undoMove();
+            // if ep is legal, break and set the ep square in the FEN output
+            if (isLegal) {
+              epSquare = algebraic(this._epSquare);
+              break;
+            }
+          }
+        }
+      }
+      return [fen, this._turn, castling, epSquare, this._halfMoves, this._moveNumber].join(' ');
+    }
+    /*
+     * Called when the initial board setup is changed with put() or remove().
+     * modifies the SetUp and FEN properties of the header object. If the FEN
+     * is equal to the default position, the SetUp and FEN are deleted the setup
+     * is only updated if history.length is zero, ie moves haven't been made.
+     */
+  }, {
+    key: "_updateSetup",
+    value: function _updateSetup(fen) {
+      if (this._history.length > 0) return;
+      if (fen !== DEFAULT_POSITION) {
+        this._header['SetUp'] = '1';
+        this._header['FEN'] = fen;
+      } else {
+        delete this._header['SetUp'];
+        delete this._header['FEN'];
+      }
+    }
+  }, {
+    key: "reset",
+    value: function reset() {
+      this.load(DEFAULT_POSITION);
+    }
+  }, {
+    key: "get",
+    value: function get(square) {
+      return this._board[Ox88[square]] || false;
+    }
+  }, {
+    key: "put",
+    value: function put(_ref, square) {
+      var type = _ref.type,
+        color = _ref.color;
+      // check for piece
+      if (SYMBOLS.indexOf(type.toLowerCase()) === -1) {
+        return false;
+      }
+      // check for valid square
+      if (!(square in Ox88)) {
+        return false;
+      }
+      var sq = Ox88[square];
+      // don't let the user place more than one king
+      if (type == KING && !(this._kings[color] == EMPTY || this._kings[color] == sq)) {
+        return false;
+      }
+      this._board[sq] = {
+        type: type,
+        color: color
+      };
+      if (type === KING) {
+        this._kings[color] = sq;
+      }
+      this._updateCastlingRights();
+      this._updateEnPassantSquare();
+      this._updateSetup(this.fen());
+      return true;
+    }
+  }, {
+    key: "remove",
+    value: function remove(square) {
+      var piece = this.get(square);
+      delete this._board[Ox88[square]];
+      if (piece && piece.type === KING) {
+        this._kings[piece.color] = EMPTY;
+      }
+      this._updateCastlingRights();
+      this._updateEnPassantSquare();
+      this._updateSetup(this.fen());
+      return piece;
+    }
+  }, {
+    key: "_updateCastlingRights",
+    value: function _updateCastlingRights() {
+      var _this$_board$Ox88$e, _this$_board$Ox88$e2, _this$_board$Ox88$e3, _this$_board$Ox88$e4, _this$_board$Ox88$a, _this$_board$Ox88$a2, _this$_board$Ox88$h, _this$_board$Ox88$h2, _this$_board$Ox88$a3, _this$_board$Ox88$a4, _this$_board$Ox88$h3, _this$_board$Ox88$h4;
+      var whiteKingInPlace = ((_this$_board$Ox88$e = this._board[Ox88.e1]) === null || _this$_board$Ox88$e === void 0 ? void 0 : _this$_board$Ox88$e.type) === KING && ((_this$_board$Ox88$e2 = this._board[Ox88.e1]) === null || _this$_board$Ox88$e2 === void 0 ? void 0 : _this$_board$Ox88$e2.color) === WHITE;
+      var blackKingInPlace = ((_this$_board$Ox88$e3 = this._board[Ox88.e8]) === null || _this$_board$Ox88$e3 === void 0 ? void 0 : _this$_board$Ox88$e3.type) === KING && ((_this$_board$Ox88$e4 = this._board[Ox88.e8]) === null || _this$_board$Ox88$e4 === void 0 ? void 0 : _this$_board$Ox88$e4.color) === BLACK;
+      if (!whiteKingInPlace || ((_this$_board$Ox88$a = this._board[Ox88.a1]) === null || _this$_board$Ox88$a === void 0 ? void 0 : _this$_board$Ox88$a.type) !== ROOK || ((_this$_board$Ox88$a2 = this._board[Ox88.a1]) === null || _this$_board$Ox88$a2 === void 0 ? void 0 : _this$_board$Ox88$a2.color) !== WHITE) {
+        this._castling.w &= ~BITS.QSIDE_CASTLE;
+      }
+      if (!whiteKingInPlace || ((_this$_board$Ox88$h = this._board[Ox88.h1]) === null || _this$_board$Ox88$h === void 0 ? void 0 : _this$_board$Ox88$h.type) !== ROOK || ((_this$_board$Ox88$h2 = this._board[Ox88.h1]) === null || _this$_board$Ox88$h2 === void 0 ? void 0 : _this$_board$Ox88$h2.color) !== WHITE) {
+        this._castling.w &= ~BITS.KSIDE_CASTLE;
+      }
+      if (!blackKingInPlace || ((_this$_board$Ox88$a3 = this._board[Ox88.a8]) === null || _this$_board$Ox88$a3 === void 0 ? void 0 : _this$_board$Ox88$a3.type) !== ROOK || ((_this$_board$Ox88$a4 = this._board[Ox88.a8]) === null || _this$_board$Ox88$a4 === void 0 ? void 0 : _this$_board$Ox88$a4.color) !== BLACK) {
+        this._castling.b &= ~BITS.QSIDE_CASTLE;
+      }
+      if (!blackKingInPlace || ((_this$_board$Ox88$h3 = this._board[Ox88.h8]) === null || _this$_board$Ox88$h3 === void 0 ? void 0 : _this$_board$Ox88$h3.type) !== ROOK || ((_this$_board$Ox88$h4 = this._board[Ox88.h8]) === null || _this$_board$Ox88$h4 === void 0 ? void 0 : _this$_board$Ox88$h4.color) !== BLACK) {
+        this._castling.b &= ~BITS.KSIDE_CASTLE;
+      }
+    }
+  }, {
+    key: "_updateEnPassantSquare",
+    value: function _updateEnPassantSquare() {
+      var _this$_board$currentS,
+        _this$_board$currentS2,
+        _this = this;
+      if (this._epSquare === EMPTY) {
+        return;
+      }
+      var startSquare = this._epSquare + (this._turn === WHITE ? -16 : 16);
+      var currentSquare = this._epSquare + (this._turn === WHITE ? 16 : -16);
+      var attackers = [currentSquare + 1, currentSquare - 1];
+      if (this._board[startSquare] !== null || this._board[this._epSquare] !== null || ((_this$_board$currentS = this._board[currentSquare]) === null || _this$_board$currentS === void 0 ? void 0 : _this$_board$currentS.color) !== swapColor(this._turn) || ((_this$_board$currentS2 = this._board[currentSquare]) === null || _this$_board$currentS2 === void 0 ? void 0 : _this$_board$currentS2.type) !== PAWN) {
+        this._epSquare = EMPTY;
+        return;
+      }
+      var canCapture = function canCapture(square) {
+        var _this$_board$square3, _this$_board$square4;
+        return !(square & 0x88) && ((_this$_board$square3 = _this._board[square]) === null || _this$_board$square3 === void 0 ? void 0 : _this$_board$square3.color) === _this._turn && ((_this$_board$square4 = _this._board[square]) === null || _this$_board$square4 === void 0 ? void 0 : _this$_board$square4.type) === PAWN;
+      };
+      if (!attackers.some(canCapture)) {
+        this._epSquare = EMPTY;
+      }
+    }
+  }, {
+    key: "_attacked",
+    value: function _attacked(color, square) {
+      for (var i = Ox88.a8; i <= Ox88.h1; i++) {
+        // did we run off the end of the board
+        if (i & 0x88) {
+          i += 7;
+          continue;
+        }
+        // if empty square or wrong color
+        if (this._board[i] === undefined || this._board[i].color !== color) {
+          continue;
+        }
+        var piece = this._board[i];
+        var difference = i - square;
+        // skip - to/from square are the same
+        if (difference === 0) {
+          continue;
+        }
+        var index = difference + 119;
+        if (ATTACKS[index] & PIECE_MASKS[piece.type]) {
+          if (piece.type === PAWN) {
+            if (difference > 0) {
+              if (piece.color === WHITE) return true;
+            } else {
+              if (piece.color === BLACK) return true;
+            }
+            continue;
+          }
+          // if the piece is a knight or a king
+          if (piece.type === 'n' || piece.type === 'k') return true;
+          var offset = RAYS[index];
+          var j = i + offset;
+          var blocked = false;
+          while (j !== square) {
+            if (this._board[j] != null) {
+              blocked = true;
+              break;
+            }
+            j += offset;
+          }
+          if (!blocked) return true;
+        }
+      }
+      return false;
+    }
+  }, {
+    key: "_isKingAttacked",
+    value: function _isKingAttacked(color) {
+      var square = this._kings[color];
+      return square === -1 ? false : this._attacked(swapColor(color), square);
+    }
+  }, {
+    key: "isAttacked",
+    value: function isAttacked(square, attackedBy) {
+      return this._attacked(attackedBy, Ox88[square]);
+    }
+  }, {
+    key: "isCheck",
+    value: function isCheck() {
+      return this._isKingAttacked(this._turn);
+    }
+  }, {
+    key: "inCheck",
+    value: function inCheck() {
+      return this.isCheck();
+    }
+  }, {
+    key: "isCheckmate",
+    value: function isCheckmate() {
+      return this.isCheck() && this._moves().length === 0;
+    }
+  }, {
+    key: "isStalemate",
+    value: function isStalemate() {
+      return !this.isCheck() && this._moves().length === 0;
+    }
+  }, {
+    key: "isInsufficientMaterial",
+    value: function isInsufficientMaterial() {
+      /*
+       * k.b. vs k.b. (of opposite colors) with mate in 1:
+       * 8/8/8/8/1b6/8/B1k5/K7 b - - 0 1
+       *
+       * k.b. vs k.n. with mate in 1:
+       * 8/8/8/8/1n6/8/B7/K1k5 b - - 2 1
+       */
+      var pieces = {
+        b: 0,
+        n: 0,
+        r: 0,
+        q: 0,
+        k: 0,
+        p: 0
+      };
+      var bishops = [];
+      var numPieces = 0;
+      var squareColor = 0;
+      for (var i = Ox88.a8; i <= Ox88.h1; i++) {
+        squareColor = (squareColor + 1) % 2;
+        if (i & 0x88) {
+          i += 7;
+          continue;
+        }
+        var piece = this._board[i];
+        if (piece) {
+          pieces[piece.type] = piece.type in pieces ? pieces[piece.type] + 1 : 1;
+          if (piece.type === BISHOP) {
+            bishops.push(squareColor);
+          }
+          numPieces++;
+        }
+      }
+      // k vs. k
+      if (numPieces === 2) {
+        return true;
+      } else if (
+      // k vs. kn .... or .... k vs. kb
+      numPieces === 3 && (pieces[BISHOP] === 1 || pieces[KNIGHT] === 1)) {
+        return true;
+      } else if (numPieces === pieces[BISHOP] + 2) {
+        // kb vs. kb where any number of bishops are all on the same color
+        var sum = 0;
+        var len = bishops.length;
+        for (var _i3 = 0; _i3 < len; _i3++) {
+          sum += bishops[_i3];
+        }
+        if (sum === 0 || sum === len) {
+          return true;
+        }
+      }
+      return false;
+    }
+  }, {
+    key: "isThreefoldRepetition",
+    value: function isThreefoldRepetition() {
+      var moves = [];
+      var positions = {};
+      var repetition = false;
+      while (true) {
+        var move = this._undoMove();
+        if (!move) break;
+        moves.push(move);
+      }
+      while (true) {
+        /*
+         * remove the last two fields in the FEN string, they're not needed when
+         * checking for draw by rep
+         */
+        var fen = this.fen().split(' ').slice(0, 4).join(' ');
+        // has the position occurred three or move times
+        positions[fen] = fen in positions ? positions[fen] + 1 : 1;
+        if (positions[fen] >= 3) {
+          repetition = true;
+        }
+        var _move2 = moves.pop();
+        if (!_move2) {
+          break;
+        } else {
+          this._makeMove(_move2);
+        }
+      }
+      return repetition;
+    }
+  }, {
+    key: "isDraw",
+    value: function isDraw() {
+      return this._halfMoves >= 100 ||
+      // 50 moves per side = 100 half moves
+      this.isStalemate() || this.isInsufficientMaterial() || this.isThreefoldRepetition();
+    }
+  }, {
+    key: "isGameOver",
+    value: function isGameOver() {
+      return this.isCheckmate() || this.isStalemate() || this.isDraw();
+    }
+  }, {
+    key: "moves",
+    value: function moves() {
+      var _this2 = this;
+      var _ref2 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        _ref2$verbose = _ref2.verbose,
+        verbose = _ref2$verbose === void 0 ? false : _ref2$verbose,
+        _ref2$square = _ref2.square,
+        square = _ref2$square === void 0 ? undefined : _ref2$square,
+        _ref2$piece = _ref2.piece,
+        piece = _ref2$piece === void 0 ? undefined : _ref2$piece;
+      var moves = this._moves({
+        square: square,
+        piece: piece
+      });
+      if (verbose) {
+        return moves.map(function (move) {
+          return _this2._makePretty(move);
+        });
+      } else {
+        return moves.map(function (move) {
+          return _this2._moveToSan(move, moves);
+        });
+      }
+    }
+  }, {
+    key: "_moves",
+    value: function _moves() {
+      var _ref3 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        _ref3$legal = _ref3.legal,
+        legal = _ref3$legal === void 0 ? true : _ref3$legal,
+        _ref3$piece = _ref3.piece,
+        piece = _ref3$piece === void 0 ? undefined : _ref3$piece,
+        _ref3$square = _ref3.square,
+        square = _ref3$square === void 0 ? undefined : _ref3$square;
+      var forSquare = square ? square.toLowerCase() : undefined;
+      var forPiece = piece === null || piece === void 0 ? void 0 : piece.toLowerCase();
+      var moves = [];
+      var us = this._turn;
+      var them = swapColor(us);
+      var firstSquare = Ox88.a8;
+      var lastSquare = Ox88.h1;
+      var singleSquare = false;
+      // are we generating moves for a single square?
+      if (forSquare) {
+        // illegal square, return empty moves
+        if (!(forSquare in Ox88)) {
+          return [];
+        } else {
+          firstSquare = lastSquare = Ox88[forSquare];
+          singleSquare = true;
+        }
+      }
+      for (var from = firstSquare; from <= lastSquare; from++) {
+        // did we run off the end of the board
+        if (from & 0x88) {
+          from += 7;
+          continue;
+        }
+        // empty square or opponent, skip
+        if (!this._board[from] || this._board[from].color === them) {
+          continue;
+        }
+        var type = this._board[from].type;
+        var to = void 0;
+        if (type === PAWN) {
+          if (forPiece && forPiece !== type) continue;
+          // single square, non-capturing
+          to = from + PAWN_OFFSETS[us][0];
+          if (!this._board[to]) {
+            addMove(moves, us, from, to, PAWN);
+            // double square
+            to = from + PAWN_OFFSETS[us][1];
+            if (SECOND_RANK[us] === rank(from) && !this._board[to]) {
+              addMove(moves, us, from, to, PAWN, undefined, BITS.BIG_PAWN);
+            }
+          }
+          // pawn captures
+          for (var j = 2; j < 4; j++) {
+            var _this$_board$to;
+            to = from + PAWN_OFFSETS[us][j];
+            if (to & 0x88) continue;
+            if (((_this$_board$to = this._board[to]) === null || _this$_board$to === void 0 ? void 0 : _this$_board$to.color) === them) {
+              addMove(moves, us, from, to, PAWN, this._board[to].type, BITS.CAPTURE);
+            } else if (to === this._epSquare) {
+              addMove(moves, us, from, to, PAWN, PAWN, BITS.EP_CAPTURE);
+            }
+          }
+        } else {
+          if (forPiece && forPiece !== type) continue;
+          for (var _j = 0, len = PIECE_OFFSETS[type].length; _j < len; _j++) {
+            var offset = PIECE_OFFSETS[type][_j];
+            to = from;
+            while (true) {
+              to += offset;
+              if (to & 0x88) break;
+              if (!this._board[to]) {
+                addMove(moves, us, from, to, type);
+              } else {
+                // own color, stop loop
+                if (this._board[to].color === us) break;
+                addMove(moves, us, from, to, type, this._board[to].type, BITS.CAPTURE);
+                break;
+              }
+              /* break, if knight or king */
+              if (type === KNIGHT || type === KING) break;
+            }
+          }
+        }
+      }
+      /*
+       * check for castling if we're:
+       *   a) generating all moves, or
+       *   b) doing single square move generation on the king's square
+       */
+      if (forPiece === undefined || forPiece === KING) {
+        if (!singleSquare || lastSquare === this._kings[us]) {
+          // king-side castling
+          if (this._castling[us] & BITS.KSIDE_CASTLE) {
+            var castlingFrom = this._kings[us];
+            var castlingTo = castlingFrom + 2;
+            if (!this._board[castlingFrom + 1] && !this._board[castlingTo] && !this._attacked(them, this._kings[us]) && !this._attacked(them, castlingFrom + 1) && !this._attacked(them, castlingTo)) {
+              addMove(moves, us, this._kings[us], castlingTo, KING, undefined, BITS.KSIDE_CASTLE);
+            }
+          }
+          // queen-side castling
+          if (this._castling[us] & BITS.QSIDE_CASTLE) {
+            var _castlingFrom = this._kings[us];
+            var _castlingTo = _castlingFrom - 2;
+            if (!this._board[_castlingFrom - 1] && !this._board[_castlingFrom - 2] && !this._board[_castlingFrom - 3] && !this._attacked(them, this._kings[us]) && !this._attacked(them, _castlingFrom - 1) && !this._attacked(them, _castlingTo)) {
+              addMove(moves, us, this._kings[us], _castlingTo, KING, undefined, BITS.QSIDE_CASTLE);
+            }
+          }
+        }
+      }
+      /*
+       * return all pseudo-legal moves (this includes moves that allow the king
+       * to be captured)
+       */
+      if (!legal || this._kings[us] === -1) {
+        return moves;
+      }
+      // filter out illegal moves
+      var legalMoves = [];
+      for (var i = 0, _len = moves.length; i < _len; i++) {
+        this._makeMove(moves[i]);
+        if (!this._isKingAttacked(us)) {
+          legalMoves.push(moves[i]);
+        }
+        this._undoMove();
+      }
+      return legalMoves;
+    }
+  }, {
+    key: "move",
+    value: function move(_move) {
+      var _ref4 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+        _ref4$strict = _ref4.strict,
+        strict = _ref4$strict === void 0 ? false : _ref4$strict;
+      /*
+       * The move function can be called with in the following parameters:
+       *
+       * .move('Nxb7')       <- argument is a case-sensitive SAN string
+       *
+       * .move({ from: 'h7', <- argument is a move object
+       *         to :'h8',
+       *         promotion: 'q' })
+       *
+       *
+       * An optional strict argument may be supplied to tell chess.js to
+       * strictly follow the SAN specification.
+       */
+      var moveObj = null;
+      if (typeof _move === 'string') {
+        moveObj = this._moveFromSan(_move, strict);
+      } else if (_typeof(_move) === 'object') {
+        var moves = this._moves();
+        // convert the pretty move object to an ugly move object
+        for (var i = 0, len = moves.length; i < len; i++) {
+          if (_move.from === algebraic(moves[i].from) && _move.to === algebraic(moves[i].to) && (!('promotion' in moves[i]) || _move.promotion === moves[i].promotion)) {
+            moveObj = moves[i];
+            break;
+          }
+        }
+      }
+      // failed to find move
+      if (!moveObj) {
+        if (typeof _move === 'string') {
+          throw new Error("Invalid move: ".concat(_move));
+        } else {
+          throw new Error("Invalid move: ".concat(JSON.stringify(_move)));
+        }
+      }
+      /*
+       * need to make a copy of move because we can't generate SAN after the move
+       * is made
+       */
+      var prettyMove = this._makePretty(moveObj);
+      this._makeMove(moveObj);
+      return prettyMove;
+    }
+  }, {
+    key: "_push",
+    value: function _push(move) {
+      this._history.push({
+        move: move,
+        kings: {
+          b: this._kings.b,
+          w: this._kings.w
+        },
+        turn: this._turn,
+        castling: {
+          b: this._castling.b,
+          w: this._castling.w
+        },
+        epSquare: this._epSquare,
+        halfMoves: this._halfMoves,
+        moveNumber: this._moveNumber
+      });
+    }
+  }, {
+    key: "_makeMove",
+    value: function _makeMove(move) {
+      var us = this._turn;
+      var them = swapColor(us);
+      this._push(move);
+      this._board[move.to] = this._board[move.from];
+      delete this._board[move.from];
+      // if ep capture, remove the captured pawn
+      if (move.flags & BITS.EP_CAPTURE) {
+        if (this._turn === BLACK) {
+          delete this._board[move.to - 16];
+        } else {
+          delete this._board[move.to + 16];
+        }
+      }
+      // if pawn promotion, replace with new piece
+      if (move.promotion) {
+        this._board[move.to] = {
+          type: move.promotion,
+          color: us
+        };
+      }
+      // if we moved the king
+      if (this._board[move.to].type === KING) {
+        this._kings[us] = move.to;
+        // if we castled, move the rook next to the king
+        if (move.flags & BITS.KSIDE_CASTLE) {
+          var castlingTo = move.to - 1;
+          var castlingFrom = move.to + 1;
+          this._board[castlingTo] = this._board[castlingFrom];
+          delete this._board[castlingFrom];
+        } else if (move.flags & BITS.QSIDE_CASTLE) {
+          var _castlingTo2 = move.to + 1;
+          var _castlingFrom2 = move.to - 2;
+          this._board[_castlingTo2] = this._board[_castlingFrom2];
+          delete this._board[_castlingFrom2];
+        }
+        // turn off castling
+        this._castling[us] = 0;
+      }
+      // turn off castling if we move a rook
+      if (this._castling[us]) {
+        for (var i = 0, len = ROOKS[us].length; i < len; i++) {
+          if (move.from === ROOKS[us][i].square && this._castling[us] & ROOKS[us][i].flag) {
+            this._castling[us] ^= ROOKS[us][i].flag;
+            break;
+          }
+        }
+      }
+      // turn off castling if we capture a rook
+      if (this._castling[them]) {
+        for (var _i4 = 0, _len2 = ROOKS[them].length; _i4 < _len2; _i4++) {
+          if (move.to === ROOKS[them][_i4].square && this._castling[them] & ROOKS[them][_i4].flag) {
+            this._castling[them] ^= ROOKS[them][_i4].flag;
+            break;
+          }
+        }
+      }
+      // if big pawn move, update the en passant square
+      if (move.flags & BITS.BIG_PAWN) {
+        if (us === BLACK) {
+          this._epSquare = move.to - 16;
+        } else {
+          this._epSquare = move.to + 16;
+        }
+      } else {
+        this._epSquare = EMPTY;
+      }
+      // reset the 50 move counter if a pawn is moved or a piece is captured
+      if (move.piece === PAWN) {
+        this._halfMoves = 0;
+      } else if (move.flags & (BITS.CAPTURE | BITS.EP_CAPTURE)) {
+        this._halfMoves = 0;
+      } else {
+        this._halfMoves++;
+      }
+      if (us === BLACK) {
+        this._moveNumber++;
+      }
+      this._turn = them;
+    }
+  }, {
+    key: "undo",
+    value: function undo() {
+      var move = this._undoMove();
+      return move ? this._makePretty(move) : null;
+    }
+  }, {
+    key: "_undoMove",
+    value: function _undoMove() {
+      var old = this._history.pop();
+      if (old === undefined) {
+        return null;
+      }
+      var move = old.move;
+      this._kings = old.kings;
+      this._turn = old.turn;
+      this._castling = old.castling;
+      this._epSquare = old.epSquare;
+      this._halfMoves = old.halfMoves;
+      this._moveNumber = old.moveNumber;
+      var us = this._turn;
+      var them = swapColor(us);
+      this._board[move.from] = this._board[move.to];
+      this._board[move.from].type = move.piece; // to undo any promotions
+      delete this._board[move.to];
+      if (move.captured) {
+        if (move.flags & BITS.EP_CAPTURE) {
+          // en passant capture
+          var index;
+          if (us === BLACK) {
+            index = move.to - 16;
+          } else {
+            index = move.to + 16;
+          }
+          this._board[index] = {
+            type: PAWN,
+            color: them
+          };
+        } else {
+          // regular capture
+          this._board[move.to] = {
+            type: move.captured,
+            color: them
+          };
+        }
+      }
+      if (move.flags & (BITS.KSIDE_CASTLE | BITS.QSIDE_CASTLE)) {
+        var castlingTo, castlingFrom;
+        if (move.flags & BITS.KSIDE_CASTLE) {
+          castlingTo = move.to + 1;
+          castlingFrom = move.to - 1;
+        } else {
+          castlingTo = move.to - 2;
+          castlingFrom = move.to + 1;
+        }
+        this._board[castlingTo] = this._board[castlingFrom];
+        delete this._board[castlingFrom];
+      }
+      return move;
+    }
+  }, {
+    key: "pgn",
+    value: function pgn() {
+      var _this3 = this;
+      var _ref5 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        _ref5$newline = _ref5.newline,
+        newline = _ref5$newline === void 0 ? '\n' : _ref5$newline,
+        _ref5$maxWidth = _ref5.maxWidth,
+        maxWidth = _ref5$maxWidth === void 0 ? 0 : _ref5$maxWidth;
+      /*
+       * using the specification from http://www.chessclub.com/help/PGN-spec
+       * example for html usage: .pgn({ max_width: 72, newline_char: "<br />" })
+       */
+      var result = [];
+      var headerExists = false;
+      /* add the PGN header information */
+      for (var i in this._header) {
+        /*
+         * TODO: order of enumerated properties in header object is not
+         * guaranteed, see ECMA-262 spec (section 12.6.4)
+         */
+        result.push('[' + i + ' "' + this._header[i] + '"]' + newline);
+        headerExists = true;
+      }
+      if (headerExists && this._history.length) {
+        result.push(newline);
+      }
+      var appendComment = function appendComment(moveString) {
+        var comment = _this3._comments[_this3.fen()];
+        if (typeof comment !== 'undefined') {
+          var delimiter = moveString.length > 0 ? ' ' : '';
+          moveString = "".concat(moveString).concat(delimiter, "{").concat(comment, "}");
+        }
+        return moveString;
+      };
+      // pop all of history onto reversed_history
+      var reversedHistory = [];
+      while (this._history.length > 0) {
+        reversedHistory.push(this._undoMove());
+      }
+      var moves = [];
+      var moveString = '';
+      // special case of a commented starting position with no moves
+      if (reversedHistory.length === 0) {
+        moves.push(appendComment(''));
+      }
+      // build the list of moves.  a move_string looks like: "3. e3 e6"
+      while (reversedHistory.length > 0) {
+        moveString = appendComment(moveString);
+        var move = reversedHistory.pop();
+        // make TypeScript stop complaining about move being undefined
+        if (!move) {
+          break;
+        }
+        // if the position started with black to move, start PGN with #. ...
+        if (!this._history.length && move.color === 'b') {
+          var prefix = "".concat(this._moveNumber, ". ...");
+          // is there a comment preceding the first move?
+          moveString = moveString ? "".concat(moveString, " ").concat(prefix) : prefix;
+        } else if (move.color === 'w') {
+          // store the previous generated move_string if we have one
+          if (moveString.length) {
+            moves.push(moveString);
+          }
+          moveString = this._moveNumber + '.';
+        }
+        moveString = moveString + ' ' + this._moveToSan(move, this._moves({
+          legal: true
+        }));
+        this._makeMove(move);
+      }
+      // are there any other leftover moves?
+      if (moveString.length) {
+        moves.push(appendComment(moveString));
+      }
+      // is there a result?
+      if (typeof this._header.Result !== 'undefined') {
+        moves.push(this._header.Result);
+      }
+      /*
+       * history should be back to what it was before we started generating PGN,
+       * so join together moves
+       */
+      if (maxWidth === 0) {
+        return result.join('') + moves.join(' ');
+      }
+      // TODO (jah): huh?
+      var strip = function strip() {
+        if (result.length > 0 && result[result.length - 1] === ' ') {
+          result.pop();
+          return true;
+        }
+        return false;
+      };
+      // NB: this does not preserve comment whitespace.
+      var wrapComment = function wrapComment(width, move) {
+        var _iterator = _createForOfIteratorHelper(move.split(' ')),
+          _step;
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var token = _step.value;
+            if (!token) {
+              continue;
+            }
+            if (width + token.length > maxWidth) {
+              while (strip()) {
+                width--;
+              }
+              result.push(newline);
+              width = 0;
+            }
+            result.push(token);
+            width += token.length;
+            result.push(' ');
+            width++;
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+        if (strip()) {
+          width--;
+        }
+        return width;
+      };
+      // wrap the PGN output at max_width
+      var currentWidth = 0;
+      for (var _i5 = 0; _i5 < moves.length; _i5++) {
+        if (currentWidth + moves[_i5].length > maxWidth) {
+          if (moves[_i5].includes('{')) {
+            currentWidth = wrapComment(currentWidth, moves[_i5]);
+            continue;
+          }
+        }
+        // if the current move will push past max_width
+        if (currentWidth + moves[_i5].length > maxWidth && _i5 !== 0) {
+          // don't end the line with whitespace
+          if (result[result.length - 1] === ' ') {
+            result.pop();
+          }
+          result.push(newline);
+          currentWidth = 0;
+        } else if (_i5 !== 0) {
+          result.push(' ');
+          currentWidth++;
+        }
+        result.push(moves[_i5]);
+        currentWidth += moves[_i5].length;
+      }
+      return result.join('');
+    }
+  }, {
+    key: "header",
+    value: function header() {
+      for (var _len3 = arguments.length, args = new Array(_len3), _key = 0; _key < _len3; _key++) {
+        args[_key] = arguments[_key];
+      }
+      for (var i = 0; i < args.length; i += 2) {
+        if (typeof args[i] === 'string' && typeof args[i + 1] === 'string') {
+          this._header[args[i]] = args[i + 1];
+        }
+      }
+      return this._header;
+    }
+  }, {
+    key: "loadPgn",
+    value: function loadPgn(pgn) {
+      var _ref6 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+        _ref6$strict = _ref6.strict,
+        strict = _ref6$strict === void 0 ? false : _ref6$strict,
+        _ref6$newlineChar = _ref6.newlineChar,
+        newlineChar = _ref6$newlineChar === void 0 ? '\r?\n' : _ref6$newlineChar;
+      function mask(str) {
+        return str.replace(/\\/g, '\\');
+      }
+      function parsePgnHeader(header) {
+        var headerObj = {};
+        var headers = header.split(new RegExp(mask(newlineChar)));
+        var key = '';
+        var value = '';
+        for (var i = 0; i < headers.length; i++) {
+          var regex = /^\s*\[\s*([A-Za-z]+)\s*"(.*)"\s*\]\s*$/;
+          key = headers[i].replace(regex, '$1');
+          value = headers[i].replace(regex, '$2');
+          if (key.trim().length > 0) {
+            headerObj[key] = value;
+          }
+        }
+        return headerObj;
+      }
+      // strip whitespace from head/tail of PGN block
+      pgn = pgn.trim();
+      /*
+       * RegExp to split header. Takes advantage of the fact that header and movetext
+       * will always have a blank line between them (ie, two newline_char's). Handles
+       * case where movetext is empty by matching newlineChar until end of string is
+       * matched - effectively trimming from the end extra newlineChar.
+       *
+       * With default newline_char, will equal:
+       * /^(\[((?:\r?\n)|.)*\])((?:\s*\r?\n){2}|(?:\s*\r?\n)*$)/
+       */
+      var headerRegex = new RegExp('^(\\[((?:' + mask(newlineChar) + ')|.)*\\])' + '((?:\\s*' + mask(newlineChar) + '){2}|(?:\\s*' + mask(newlineChar) + ')*$)');
+      // If no header given, begin with moves.
+      var headerRegexResults = headerRegex.exec(pgn);
+      var headerString = headerRegexResults ? headerRegexResults.length >= 2 ? headerRegexResults[1] : '' : '';
+      // Put the board in the starting position
+      this.reset();
+      // parse PGN header
+      var headers = parsePgnHeader(headerString);
+      var fen = '';
+      for (var key in headers) {
+        // check to see user is including fen (possibly with wrong tag case)
+        if (key.toLowerCase() === 'fen') {
+          fen = headers[key];
+        }
+        this.header(key, headers[key]);
+      }
+      /*
+       * the permissive parser should attempt to load a fen tag, even if it's the
+       * wrong case and doesn't include a corresponding [SetUp "1"] tag
+       */
+      if (!strict) {
+        if (fen) {
+          this.load(fen, true);
+        }
+      } else {
+        /*
+         * strict parser - load the starting position indicated by [Setup '1']
+         * and [FEN position]
+         */
+        if (headers['SetUp'] === '1') {
+          if (!('FEN' in headers)) {
+            throw new Error('Invalid PGN: FEN tag must be supplied with SetUp tag');
+          }
+          // second argument to load: don't clear the headers
+          this.load(headers['FEN'], true);
+        }
+      }
+      /*
+       * NB: the regexes below that delete move numbers, recursive annotations,
+       * and numeric annotation glyphs may also match text in comments. To
+       * prevent this, we transform comments by hex-encoding them in place and
+       * decoding them again after the other tokens have been deleted.
+       *
+       * While the spec states that PGN files should be ASCII encoded, we use
+       * {en,de}codeURIComponent here to support arbitrary UTF8 as a convenience
+       * for modern users
+       */
+      function toHex(s) {
+        return Array.from(s).map(function (c) {
+          /*
+           * encodeURI doesn't transform most ASCII characters, so we handle
+           * these ourselves
+           */
+          return c.charCodeAt(0) < 128 ? c.charCodeAt(0).toString(16) : encodeURIComponent(c).replace(/%/g, '').toLowerCase();
+        }).join('');
+      }
+      function fromHex(s) {
+        return s.length == 0 ? '' : decodeURIComponent('%' + (s.match(/.{1,2}/g) || []).join('%'));
+      }
+      var encodeComment = function encodeComment(s) {
+        s = s.replace(new RegExp(mask(newlineChar), 'g'), ' ');
+        return "{".concat(toHex(s.slice(1, s.length - 1)), "}");
+      };
+      var decodeComment = function decodeComment(s) {
+        if (s.startsWith('{') && s.endsWith('}')) {
+          return fromHex(s.slice(1, s.length - 1));
+        }
+      };
+      // delete header to get the moves
+      var ms = pgn.replace(headerString, '').replace(
+      // encode comments so they don't get deleted below
+      new RegExp("({[^}]*})+?|;([^".concat(mask(newlineChar), "]*)"), 'g'), function (_match, bracket, semicolon) {
+        return bracket !== undefined ? encodeComment(bracket) : ' ' + encodeComment("{".concat(semicolon.slice(1), "}"));
+      }).replace(new RegExp(mask(newlineChar), 'g'), ' ');
+      // delete recursive annotation variations
+      var ravRegex = /(\([^()]+\))+?/g;
+      while (ravRegex.test(ms)) {
+        ms = ms.replace(ravRegex, '');
+      }
+      // delete move numbers
+      ms = ms.replace(/\d+\.(\.\.)?/g, '');
+      // delete ... indicating black to move
+      ms = ms.replace(/\.\.\./g, '');
+      /* delete numeric annotation glyphs */
+      ms = ms.replace(/\$\d+/g, '');
+      // trim and get array of moves
+      var moves = ms.trim().split(new RegExp(/\s+/));
+      // delete empty entries
+      moves = moves.filter(function (move) {
+        return move !== '';
+      });
+      var result = '';
+      for (var halfMove = 0; halfMove < moves.length; halfMove++) {
+        var comment = decodeComment(moves[halfMove]);
+        if (comment !== undefined) {
+          this._comments[this.fen()] = comment;
+          continue;
+        }
+        var move = this._moveFromSan(moves[halfMove], strict);
+        // invalid move
+        if (move == null) {
+          // was the move an end of game marker
+          if (TERMINATION_MARKERS.indexOf(moves[halfMove]) > -1) {
+            result = moves[halfMove];
+          } else {
+            throw new Error("Invalid move in PGN: ".concat(moves[halfMove]));
+          }
+        } else {
+          // reset the end of game marker if making a valid move
+          result = '';
+          this._makeMove(move);
+        }
+      }
+      /*
+       * Per section 8.2.6 of the PGN spec, the Result tag pair must match match
+       * the termination marker. Only do this when headers are present, but the
+       * result tag is missing
+       */
+      if (result && Object.keys(this._header).length && !this._header['Result']) {
+        this.header('Result', result);
+      }
+    }
+    /*
+     * Convert a move from 0x88 coordinates to Standard Algebraic Notation
+     * (SAN)
+     *
+     * @param {boolean} strict Use the strict SAN parser. It will throw errors
+     * on overly disambiguated moves (see below):
+     *
+     * r1bqkbnr/ppp2ppp/2n5/1B1pP3/4P3/8/PPPP2PP/RNBQK1NR b KQkq - 2 4
+     * 4. ... Nge7 is overly disambiguated because the knight on c6 is pinned
+     * 4. ... Ne7 is technically the valid SAN
+     */
+  }, {
+    key: "_moveToSan",
+    value: function _moveToSan(move, moves) {
+      var output = '';
+      if (move.flags & BITS.KSIDE_CASTLE) {
+        output = 'O-O';
+      } else if (move.flags & BITS.QSIDE_CASTLE) {
+        output = 'O-O-O';
+      } else {
+        if (move.piece !== PAWN) {
+          var disambiguator = getDisambiguator(move, moves);
+          output += move.piece.toUpperCase() + disambiguator;
+        }
+        if (move.flags & (BITS.CAPTURE | BITS.EP_CAPTURE)) {
+          if (move.piece === PAWN) {
+            output += algebraic(move.from)[0];
+          }
+          output += 'x';
+        }
+        output += algebraic(move.to);
+        if (move.promotion) {
+          output += '=' + move.promotion.toUpperCase();
+        }
+      }
+      this._makeMove(move);
+      if (this.isCheck()) {
+        if (this.isCheckmate()) {
+          output += '#';
+        } else {
+          output += '+';
+        }
+      }
+      this._undoMove();
+      return output;
+    }
+    // convert a move from Standard Algebraic Notation (SAN) to 0x88 coordinates
+  }, {
+    key: "_moveFromSan",
+    value: function _moveFromSan(move) {
+      var strict = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      // strip off any move decorations: e.g Nf3+?! becomes Nf3
+      var cleanMove = strippedSan(move);
+      var pieceType = inferPieceType(cleanMove);
+      var moves = this._moves({
+        legal: true,
+        piece: pieceType
+      });
+      // strict parser
+      for (var i = 0, len = moves.length; i < len; i++) {
+        if (cleanMove === strippedSan(this._moveToSan(moves[i], moves))) {
+          return moves[i];
+        }
+      }
+      // the strict parser failed
+      if (strict) {
+        return null;
+      }
+      var piece = undefined;
+      var matches = undefined;
+      var from = undefined;
+      var to = undefined;
+      var promotion = undefined;
+      /*
+       * The default permissive (non-strict) parser allows the user to parse
+       * non-standard chess notations. This parser is only run after the strict
+       * Standard Algebraic Notation (SAN) parser has failed.
+       *
+       * When running the permissive parser, we'll run a regex to grab the piece, the
+       * to/from square, and an optional promotion piece. This regex will
+       * parse common non-standard notation like: Pe2-e4, Rc1c4, Qf3xf7,
+       * f7f8q, b1c3
+       *
+       * NOTE: Some positions and moves may be ambiguous when using the permissive
+       * parser. For example, in this position: 6k1/8/8/B7/8/8/8/BN4K1 w - - 0 1,
+       * the move b1c3 may be interpreted as Nc3 or B1c3 (a disambiguated bishop
+       * move). In these cases, the permissive parser will default to the most
+       * basic interpretation (which is b1c3 parsing to Nc3).
+       */
+      var overlyDisambiguated = false;
+      matches = cleanMove.match(/([pnbrqkPNBRQK])?([a-h][1-8])x?-?([a-h][1-8])([qrbnQRBN])?/
+      //     piece         from              to       promotion
+      );
+      if (matches) {
+        piece = matches[1];
+        from = matches[2];
+        to = matches[3];
+        promotion = matches[4];
+        if (from.length == 1) {
+          overlyDisambiguated = true;
+        }
+      } else {
+        /*
+         * The [a-h]?[1-8]? portion of the regex below handles moves that may be
+         * overly disambiguated (e.g. Nge7 is unnecessary and non-standard when
+         * there is one legal knight move to e7). In this case, the value of
+         * 'from' variable will be a rank or file, not a square.
+         */
+        matches = cleanMove.match(/([pnbrqkPNBRQK])?([a-h]?[1-8]?)x?-?([a-h][1-8])([qrbnQRBN])?/);
+        if (matches) {
+          piece = matches[1];
+          from = matches[2];
+          to = matches[3];
+          promotion = matches[4];
+          if (from.length == 1) {
+            overlyDisambiguated = true;
+          }
+        }
+      }
+      pieceType = inferPieceType(cleanMove);
+      moves = this._moves({
+        legal: true,
+        piece: piece ? piece : pieceType
+      });
+      if (!to) {
+        return null;
+      }
+      for (var _i6 = 0, _len4 = moves.length; _i6 < _len4; _i6++) {
+        if (!from) {
+          // if there is no from square, it could be just 'x' missing from a capture
+          if (cleanMove === strippedSan(this._moveToSan(moves[_i6], moves)).replace('x', '')) {
+            return moves[_i6];
+          }
+          // hand-compare move properties with the results from our permissive regex
+        } else if ((!piece || piece.toLowerCase() == moves[_i6].piece) && Ox88[from] == moves[_i6].from && Ox88[to] == moves[_i6].to && (!promotion || promotion.toLowerCase() == moves[_i6].promotion)) {
+          return moves[_i6];
+        } else if (overlyDisambiguated) {
+          /*
+           * SPECIAL CASE: we parsed a move string that may have an unneeded
+           * rank/file disambiguator (e.g. Nge7).  The 'from' variable will
+           */
+          var square = algebraic(moves[_i6].from);
+          if ((!piece || piece.toLowerCase() == moves[_i6].piece) && Ox88[to] == moves[_i6].to && (from == square[0] || from == square[1]) && (!promotion || promotion.toLowerCase() == moves[_i6].promotion)) {
+            return moves[_i6];
+          }
+        }
+      }
+      return null;
+    }
+  }, {
+    key: "ascii",
+    value: function ascii() {
+      var s = '   +------------------------+\n';
+      for (var i = Ox88.a8; i <= Ox88.h1; i++) {
+        // display the rank
+        if (file(i) === 0) {
+          s += ' ' + '87654321'[rank(i)] + ' |';
+        }
+        if (this._board[i]) {
+          var piece = this._board[i].type;
+          var color = this._board[i].color;
+          var symbol = color === WHITE ? piece.toUpperCase() : piece.toLowerCase();
+          s += ' ' + symbol + ' ';
+        } else {
+          s += ' . ';
+        }
+        if (i + 1 & 0x88) {
+          s += '|\n';
+          i += 8;
+        }
+      }
+      s += '   +------------------------+\n';
+      s += '     a  b  c  d  e  f  g  h';
+      return s;
+    }
+  }, {
+    key: "perft",
+    value: function perft(depth) {
+      var moves = this._moves({
+        legal: false
+      });
+      var nodes = 0;
+      var color = this._turn;
+      for (var i = 0, len = moves.length; i < len; i++) {
+        this._makeMove(moves[i]);
+        if (!this._isKingAttacked(color)) {
+          if (depth - 1 > 0) {
+            nodes += this.perft(depth - 1);
+          } else {
+            nodes++;
+          }
+        }
+        this._undoMove();
+      }
+      return nodes;
+    }
+    // pretty = external move object
+  }, {
+    key: "_makePretty",
+    value: function _makePretty(uglyMove) {
+      var color = uglyMove.color,
+        piece = uglyMove.piece,
+        from = uglyMove.from,
+        to = uglyMove.to,
+        flags = uglyMove.flags,
+        captured = uglyMove.captured,
+        promotion = uglyMove.promotion;
+      var prettyFlags = '';
+      for (var flag in BITS) {
+        if (BITS[flag] & flags) {
+          prettyFlags += FLAGS[flag];
+        }
+      }
+      var fromAlgebraic = algebraic(from);
+      var toAlgebraic = algebraic(to);
+      var move = {
+        color: color,
+        piece: piece,
+        from: fromAlgebraic,
+        to: toAlgebraic,
+        san: this._moveToSan(uglyMove, this._moves({
+          legal: true
+        })),
+        flags: prettyFlags,
+        lan: fromAlgebraic + toAlgebraic,
+        before: this.fen(),
+        after: ''
+      };
+      // generate the FEN for the 'after' key
+      this._makeMove(uglyMove);
+      move.after = this.fen();
+      this._undoMove();
+      if (captured) {
+        move.captured = captured;
+      }
+      if (promotion) {
+        move.promotion = promotion;
+        move.lan += promotion;
+      }
+      return move;
+    }
+  }, {
+    key: "turn",
+    value: function turn() {
+      return this._turn;
+    }
+  }, {
+    key: "board",
+    value: function board() {
+      var output = [];
+      var row = [];
+      for (var i = Ox88.a8; i <= Ox88.h1; i++) {
+        if (this._board[i] == null) {
+          row.push(null);
+        } else {
+          row.push({
+            square: algebraic(i),
+            type: this._board[i].type,
+            color: this._board[i].color
+          });
+        }
+        if (i + 1 & 0x88) {
+          output.push(row);
+          row = [];
+          i += 8;
+        }
+      }
+      return output;
+    }
+  }, {
+    key: "squareColor",
+    value: function squareColor(square) {
+      if (square in Ox88) {
+        var sq = Ox88[square];
+        return (rank(sq) + file(sq)) % 2 === 0 ? 'light' : 'dark';
+      }
+      return null;
+    }
+  }, {
+    key: "history",
+    value: function history() {
+      var _ref7 = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        _ref7$verbose = _ref7.verbose,
+        verbose = _ref7$verbose === void 0 ? false : _ref7$verbose;
+      var reversedHistory = [];
+      var moveHistory = [];
+      while (this._history.length > 0) {
+        reversedHistory.push(this._undoMove());
+      }
+      while (true) {
+        var move = reversedHistory.pop();
+        if (!move) {
+          break;
+        }
+        if (verbose) {
+          moveHistory.push(this._makePretty(move));
+        } else {
+          moveHistory.push(this._moveToSan(move, this._moves()));
+        }
+        this._makeMove(move);
+      }
+      return moveHistory;
+    }
+  }, {
+    key: "_pruneComments",
+    value: function _pruneComments() {
+      var _this4 = this;
+      var reversedHistory = [];
+      var currentComments = {};
+      var copyComment = function copyComment(fen) {
+        if (fen in _this4._comments) {
+          currentComments[fen] = _this4._comments[fen];
+        }
+      };
+      while (this._history.length > 0) {
+        reversedHistory.push(this._undoMove());
+      }
+      copyComment(this.fen());
+      while (true) {
+        var move = reversedHistory.pop();
+        if (!move) {
+          break;
+        }
+        this._makeMove(move);
+        copyComment(this.fen());
+      }
+      this._comments = currentComments;
+    }
+  }, {
+    key: "getComment",
+    value: function getComment() {
+      return this._comments[this.fen()];
+    }
+  }, {
+    key: "setComment",
+    value: function setComment(comment) {
+      this._comments[this.fen()] = comment.replace('{', '[').replace('}', ']');
+    }
+  }, {
+    key: "deleteComment",
+    value: function deleteComment() {
+      var comment = this._comments[this.fen()];
+      delete this._comments[this.fen()];
+      return comment;
+    }
+  }, {
+    key: "getComments",
+    value: function getComments() {
+      var _this5 = this;
+      this._pruneComments();
+      return Object.keys(this._comments).map(function (fen) {
+        return {
+          fen: fen,
+          comment: _this5._comments[fen]
+        };
+      });
+    }
+  }, {
+    key: "deleteComments",
+    value: function deleteComments() {
+      var _this6 = this;
+      this._pruneComments();
+      return Object.keys(this._comments).map(function (fen) {
+        var comment = _this6._comments[fen];
+        delete _this6._comments[fen];
+        return {
+          fen: fen,
+          comment: comment
+        };
+      });
+    }
+  }, {
+    key: "setCastlingRights",
+    value: function setCastlingRights(color, rights) {
+      for (var _i7 = 0, _arr = [KING, QUEEN]; _i7 < _arr.length; _i7++) {
+        var side = _arr[_i7];
+        if (rights[side] !== undefined) {
+          if (rights[side]) {
+            this._castling[color] |= SIDES[side];
+          } else {
+            this._castling[color] &= ~SIDES[side];
+          }
+        }
+      }
+      this._updateCastlingRights();
+      var result = this.getCastlingRights(color);
+      return (rights[KING] === undefined || rights[KING] === result[KING]) && (rights[QUEEN] === undefined || rights[QUEEN] === result[QUEEN]);
+    }
+  }, {
+    key: "getCastlingRights",
+    value: function getCastlingRights(color) {
+      return _defineProperty(_defineProperty({}, KING, (this._castling[color] & SIDES[KING]) !== 0), QUEEN, (this._castling[color] & SIDES[QUEEN]) !== 0);
+    }
+  }, {
+    key: "moveNumber",
+    value: function moveNumber() {
+      return this._moveNumber;
+    }
+  }]);
+  return Chess;
+}();
+
+/***/ }),
+
 /***/ "./node_modules/object-assign/index.js":
 /*!*********************************************!*\
   !*** ./node_modules/object-assign/index.js ***!
@@ -35174,19 +37225,48 @@ module.exports = rest.wrap(mime, {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PuzzleBoard; });
-/* harmony import */ var react_chessboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-chessboard */ "./node_modules/react-chessboard/dist/index.esm.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var chess_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chess.js */ "./node_modules/chess.js/dist/esm/chess.js");
+/* harmony import */ var react_chessboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-chessboard */ "./node_modules/react-chessboard/dist/index.esm.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
+
+
 function PuzzleBoard() {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"]()),
+    _useState2 = _slicedToArray(_useState, 2),
+    game = _useState2[0],
+    setGame = _useState2[1];
+  function makeAMove(move) {
+    var gameCopy = new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"](game.fen());
+    var result = gameCopy.move(move);
+    setGame(gameCopy);
+    return result; // null if the move was illegal, the move object if the move was legal
+  }
   function onDrop(sourceSquare, targetSquare) {
     console.log("Source: " + sourceSquare);
     console.log("Target: " + targetSquare);
+    var move = makeAMove({
+      from: sourceSquare,
+      to: targetSquare,
+      promotion: "q" // always promote to a queen for example simplicity
+    });
+
+    // illegal move
+    if (move === null) return false;
     return true;
   }
   ;
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(react_chessboard__WEBPACK_IMPORTED_MODULE_0__["Chessboard"], {
-    id: "BasicBoard",
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(react_chessboard__WEBPACK_IMPORTED_MODULE_2__["Chessboard"], {
     boardWidth: "400",
+    position: game.fen(),
     onPieceDrop: onDrop
   }));
 }
