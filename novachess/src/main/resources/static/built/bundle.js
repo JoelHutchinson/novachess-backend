@@ -35074,7 +35074,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function (r
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_ChessboardWrapper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/ChessboardWrapper */ "./src/main/js/components/ChessboardWrapper.js");
+/* harmony import */ var _components_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/PuzzleBoard */ "./src/main/js/components/PuzzleBoard.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -35121,11 +35121,11 @@ var App = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("tbody", null, this.state.puzzles.map(function (puzzle) {
+      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Puzzles"), /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "FEN"), /*#__PURE__*/React.createElement("th", null, "Moves"), /*#__PURE__*/React.createElement("th", null, "Popularity Score"))), /*#__PURE__*/React.createElement("tbody", null, this.state.puzzles.map(function (puzzle) {
         return /*#__PURE__*/React.createElement("tr", {
           key: puzzle.fen
         }, /*#__PURE__*/React.createElement("td", null, puzzle.fen), /*#__PURE__*/React.createElement("td", null, puzzle.moves), /*#__PURE__*/React.createElement("td", null, puzzle.popularity));
-      }))), /*#__PURE__*/React.createElement(_components_ChessboardWrapper__WEBPACK_IMPORTED_MODULE_0__["default"], null));
+      }))), /*#__PURE__*/React.createElement(_components_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__["default"], null));
     }
   }]);
   return App;
@@ -35164,24 +35164,30 @@ module.exports = rest.wrap(mime, {
 
 /***/ }),
 
-/***/ "./src/main/js/components/ChessboardWrapper.js":
-/*!*****************************************************!*\
-  !*** ./src/main/js/components/ChessboardWrapper.js ***!
-  \*****************************************************/
+/***/ "./src/main/js/components/PuzzleBoard.js":
+/*!***********************************************!*\
+  !*** ./src/main/js/components/PuzzleBoard.js ***!
+  \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ChessboardWrapper; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PuzzleBoard; });
 /* harmony import */ var react_chessboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-chessboard */ "./node_modules/react-chessboard/dist/index.esm.js");
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-var ReactDOM = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 
-function ChessboardWrapper() {
+function PuzzleBoard() {
+  function onDrop(sourceSquare, targetSquare) {
+    console.log("Source: " + sourceSquare);
+    console.log("Target: " + targetSquare);
+    return true;
+  }
+  ;
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(react_chessboard__WEBPACK_IMPORTED_MODULE_0__["Chessboard"], {
     id: "BasicBoard",
-    boardWidth: "400"
+    boardWidth: "400",
+    onPieceDrop: onDrop
   }));
 }
 

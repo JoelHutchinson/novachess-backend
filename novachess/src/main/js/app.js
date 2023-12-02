@@ -2,7 +2,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const client = require('./client');
 
-import ChessboardWrapper from './components/ChessboardWrapper';
+import PuzzleBoard from './components/PuzzleBoard';
 
 class App extends React.Component {
 
@@ -23,7 +23,15 @@ class App extends React.Component {
 	render() {
 		return (
             <div>
+                <h2>Puzzles</h2>
                 <table>
+                    <thead>
+                        <tr>
+                            <th>FEN</th>
+                            <th>Moves</th>
+                            <th>Popularity Score</th>
+                        </tr>
+                    </thead>
                     <tbody>                    
                         {this.state.puzzles.map(puzzle => {
                             return (
@@ -36,7 +44,7 @@ class App extends React.Component {
                         })}
                     </tbody>
                 </table>
-                <ChessboardWrapper />
+                <PuzzleBoard />
             </div>
 			
 		)
