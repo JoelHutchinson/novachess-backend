@@ -9,7 +9,7 @@ export default function PuzzleBoard(props) {
 
     useEffect(() => {
         if (props.puzzleFen) {
-            // Initialize game when props.puzzleFen changes
+            // Initialize puzzle when props.puzzleFen changes.
             setGame(new Chess(props.puzzleFen));
         }
     }, [props.puzzleFen]);
@@ -20,12 +20,12 @@ export default function PuzzleBoard(props) {
         setGame(gameCopy);
 
         console.log("Move: " + move.from + move.to);
-        console.log("Expected: " + props.solutionSanMoves.split(" ")[moveIndex]);
-        const moveCorrect = (move.from + move.to) === props.solutionSanMoves.split(" ")[moveIndex];
+        console.log("Expected: " + props.solutionUciMoves.split(" ")[moveIndex]);
+        const moveCorrect = (move.from + move.to) === props.solutionUciMoves.split(" ")[moveIndex];
         console.log("Move correctness: " + moveCorrect);
 
         if (moveCorrect) {
-            setMoveIndex(moveIndex + 1);
+            setMoveIndex(prevMoveIndex => prevMoveIndex + 1);
             return result;
         }
         return null;
@@ -47,9 +47,19 @@ export default function PuzzleBoard(props) {
           return true;
     };
 
+    function uciToMove(uci) {
+        return {
+            from: uci.substring(0, 2),
+            to: uci.substring(2, 4),
+            promotion: "q", // always promote to a queen for example simplicity
+          };
+    }
+
   return (
     <div>
       <Chessboard boardWidth={"400"} position={game.fen()} onPieceDrop={onDrop}/>
+      <p>Solution: {props.solutionUciMoves.split(" ")}</p>
+      <button onClick={() => makeAMove(uciToMove(props.solutionUciMoves.split(" ")[moveIndex]))}>Next Move</button>
     </div>
   );
 }

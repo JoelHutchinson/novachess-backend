@@ -37179,7 +37179,7 @@ var App = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/React.createElement("td", null, puzzle.fen), /*#__PURE__*/React.createElement("td", null, puzzle.moves), /*#__PURE__*/React.createElement("td", null, puzzle.popularity));
       }))), /*#__PURE__*/React.createElement(_components_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__["default"], {
         puzzleFen: this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].fen : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-        solutionSanMoves: this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].moves : ""
+        solutionUciMoves: this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].moves : ""
       }));
     }
   }]);
@@ -37254,7 +37254,7 @@ function PuzzleBoard(props) {
     setMoveIndex = _useState4[1];
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     if (props.puzzleFen) {
-      // Initialize game when props.puzzleFen changes
+      // Initialize puzzle when props.puzzleFen changes.
       setGame(new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"](props.puzzleFen));
     }
   }, [props.puzzleFen]);
@@ -37263,11 +37263,13 @@ function PuzzleBoard(props) {
     var result = gameCopy.move(move);
     setGame(gameCopy);
     console.log("Move: " + move.from + move.to);
-    console.log("Expected: " + props.solutionSanMoves.split(" ")[moveIndex]);
-    var moveCorrect = move.from + move.to === props.solutionSanMoves.split(" ")[moveIndex];
+    console.log("Expected: " + props.solutionUciMoves.split(" ")[moveIndex]);
+    var moveCorrect = move.from + move.to === props.solutionUciMoves.split(" ")[moveIndex];
     console.log("Move correctness: " + moveCorrect);
     if (moveCorrect) {
-      setMoveIndex(moveIndex + 1);
+      setMoveIndex(function (prevMoveIndex) {
+        return prevMoveIndex + 1;
+      });
       return result;
     }
     return null;
@@ -37286,11 +37288,22 @@ function PuzzleBoard(props) {
     return true;
   }
   ;
+  function uciToMove(uci) {
+    return {
+      from: uci.substring(0, 2),
+      to: uci.substring(2, 4),
+      promotion: "q" // always promote to a queen for example simplicity
+    };
+  }
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(react_chessboard__WEBPACK_IMPORTED_MODULE_2__["Chessboard"], {
     boardWidth: "400",
     position: game.fen(),
     onPieceDrop: onDrop
-  }));
+  }), /*#__PURE__*/React.createElement("p", null, "Solution: ", props.solutionUciMoves.split(" ")), /*#__PURE__*/React.createElement("button", {
+    onClick: function onClick() {
+      return makeAMove(uciToMove(props.solutionUciMoves.split(" ")[moveIndex]));
+    }
+  }, "Next Move"));
 }
 
 /***/ }),

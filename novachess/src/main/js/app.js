@@ -47,7 +47,7 @@ class App extends React.Component {
                 </table>
                 <PuzzleBoard
                 puzzleFen={this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].fen : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"}
-                solutionSanMoves={this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].moves : ""}
+                solutionUciMoves={this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].moves : ""}
                 />
             </div>
 			
