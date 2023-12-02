@@ -37155,6 +37155,7 @@ var App = /*#__PURE__*/function (_React$Component) {
       puzzles: [],
       currentPuzzleIndex: 0
     };
+    _this.handleNextPuzzleClick = _this.handleNextPuzzleClick.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(App, [{
@@ -37174,8 +37175,12 @@ var App = /*#__PURE__*/function (_React$Component) {
     key: "handleNextPuzzleClick",
     value: function handleNextPuzzleClick() {
       this.setState(function (state) {
-        currentPuzzleIndex: state.currentPuzzleIndex + 1;
+        return {
+          currentPuzzleIndex: (state.currentPuzzleIndex + 1) % state.puzzles.length
+        };
       });
+      console.log(this.state.currentPuzzleIndex);
+      console.log(this.state.puzzles[this.state.currentPuzzleIndex].fen);
     }
   }, {
     key: "render",
@@ -37188,7 +37193,7 @@ var App = /*#__PURE__*/function (_React$Component) {
         puzzleFen: this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].fen : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
         solutionUciMoves: this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].moves : ""
       }), /*#__PURE__*/React.createElement("button", {
-        onClick: this.handleNextPuzzleClick.bind(this)
+        onClick: this.handleNextPuzzleClick
       }, "Next Puzzle"));
     }
   }]);

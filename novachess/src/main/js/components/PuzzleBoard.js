@@ -12,6 +12,7 @@ export default function PuzzleBoard(props) {
         if (props.puzzleFen) {
             // Initialize puzzle when props.puzzleFen changes.
             setGame(new Chess(props.puzzleFen));
+            setMoveIndex(0);
         }
     }, [props.puzzleFen]);
 
@@ -56,11 +57,15 @@ export default function PuzzleBoard(props) {
           };
     }
 
+    function handleNextMoveClick() {
+        makeAMove(uciToMove(props.solutionUciMoves.split(" ")[moveIndex]));
+    }
+
   return (
     <div>
       <Chessboard boardWidth={"400"} position={game.fen()} onPieceDrop={onDrop}/>
       <p>Solution: {props.solutionUciMoves.split(" ")}</p>
-      <button onClick={() => makeAMove(uciToMove(props.solutionUciMoves.split(" ")[moveIndex]))}>Next Move</button>
+      <button onClick={handleNextMoveClick}>Next Move</button>
     </div>
   );
 }

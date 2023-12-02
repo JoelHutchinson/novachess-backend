@@ -13,6 +13,8 @@ class App extends React.Component {
             puzzles: [],
             currentPuzzleIndex: 0
         };
+
+        this.handleNextPuzzleClick = this.handleNextPuzzleClick.bind(this);
 	}
 
 	componentDidMount() {
@@ -22,9 +24,11 @@ class App extends React.Component {
 	}
 
     handleNextPuzzleClick() {
-        this.setState(state => {
-            currentPuzzleIndex: state.currentPuzzleIndex + 1
-        });
+        this.setState((state) => ({
+            currentPuzzleIndex: (state.currentPuzzleIndex + 1) % state.puzzles.length
+        }));
+        console.log(this.state.currentPuzzleIndex);
+        console.log(this.state.puzzles[this.state.currentPuzzleIndex].fen);
     }
 
 	render() {
@@ -55,7 +59,7 @@ class App extends React.Component {
                 puzzleFen={this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].fen : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"}
                 solutionUciMoves={this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].moves : ""}
                 />
-                <button onClick={this.handleNextPuzzleClick.bind(this)}>Next Puzzle</button>
+                <button onClick={this.handleNextPuzzleClick}>Next Puzzle</button>
             </div>
 			
 		)
