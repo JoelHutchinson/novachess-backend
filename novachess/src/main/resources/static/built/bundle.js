@@ -37151,50 +37151,14 @@ var App = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, App);
     _this = _super.call(this, props);
     _this.state = {
-      users: [],
-      puzzles: [],
-      currentPuzzleIndex: 0
+      users: []
     };
-    _this.handleNextPuzzleClick = _this.handleNextPuzzleClick.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(App, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var _this2 = this;
-      client({
-        method: 'GET',
-        path: '/api/puzzles'
-      }).done(function (response) {
-        _this2.setState({
-          puzzles: response.entity._embedded.puzzles
-        });
-      });
-    }
-  }, {
-    key: "handleNextPuzzleClick",
-    value: function handleNextPuzzleClick() {
-      this.setState(function (state) {
-        return {
-          currentPuzzleIndex: (state.currentPuzzleIndex + 1) % state.puzzles.length
-        };
-      });
-      console.log(this.state.currentPuzzleIndex);
-      console.log(this.state.puzzles[this.state.currentPuzzleIndex].fen);
-    }
-  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h2", null, "Puzzles"), /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "FEN"), /*#__PURE__*/React.createElement("th", null, "Moves"), /*#__PURE__*/React.createElement("th", null, "Popularity Score"))), /*#__PURE__*/React.createElement("tbody", null, this.state.puzzles.map(function (puzzle) {
-        return /*#__PURE__*/React.createElement("tr", {
-          key: puzzle.fen
-        }, /*#__PURE__*/React.createElement("td", null, puzzle.fen), /*#__PURE__*/React.createElement("td", null, puzzle.moves), /*#__PURE__*/React.createElement("td", null, puzzle.popularity));
-      }))), this.state.puzzles.length > 0 && /*#__PURE__*/React.createElement(_components_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__["default"], {
-        puzzle: this.state.puzzles[this.state.currentPuzzleIndex],
-        loadNextPuzzle: this.handleNextPuzzleClick
-      }), /*#__PURE__*/React.createElement("button", {
-        onClick: this.handleNextPuzzleClick
-      }, "Next Puzzle"));
+      return /*#__PURE__*/React.createElement(_components_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__["default"], null);
     }
   }]);
   return App;
@@ -37323,10 +37287,6 @@ function PuzzleBoard(props) {
 
     // illegal move
     if (move === null) return false;
-
-    // Computer makes the next move
-    //setTimeout(handleNextMoveClick, 200);
-    handleNextMoveClick();
     return true;
   }
   ;

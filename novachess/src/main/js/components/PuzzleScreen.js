@@ -1,10 +1,10 @@
 const React = require('react');
+const client = require('./client');
 
 import PuzzleBoard from "./PuzzleBoard";
 
 
 class PuzzleScreen extends React.Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {
