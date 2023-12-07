@@ -1,14 +1,12 @@
 const React = require('react');
-const client = require('./client');
+const client = require('../client');
 
 import PuzzleBoard from "./PuzzleBoard";
-
 
 class PuzzleScreen extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-            users: [],
             puzzles: [],
             currentPuzzleIndex: 0
         };
@@ -32,7 +30,7 @@ class PuzzleScreen extends React.Component {
 
 	render() {
 		return (
-            <div>
+            <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
                 <h2>Puzzles</h2>
                 <table>
                     <thead>
@@ -59,7 +57,6 @@ class PuzzleScreen extends React.Component {
                 puzzle={this.state.puzzles[this.state.currentPuzzleIndex]}
                 loadNextPuzzle={this.handleNextPuzzleClick}
                 />}
-                <button onClick={this.handleNextPuzzleClick}>Next Puzzle</button>
             </div>
 			
 		)

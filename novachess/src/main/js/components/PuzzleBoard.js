@@ -1,4 +1,5 @@
 const React = require('react');
+
 import { useState, useEffect } from "react";
 import { Chess } from "chess.js";
 import { Chessboard } from "react-chessboard";
@@ -97,10 +98,16 @@ export default function PuzzleBoard(props) {
 
   return (
     <div>
-      <Chessboard boardWidth={"400"} position={game.fen()} onPieceDrop={onDrop}/>
+      <div style={{display: "flex", flexDirection: "column"}}>
+        <Chessboard boardWidth={"400"} position={game.fen()} onPieceDrop={onDrop}/>
+        <div style={{display: "flex", flexDirection: "row", justifyContent: "space-around"}}>
+            <button onClick={handleNextMoveClick}>Next Move</button>
+            <button onClick={props.loadNextPuzzle}>Next Puzzle</button>
+        </div>
+      </div>
+      
       <p>Played moves: {playedMoves.join(", ")}</p>
       <p>Not played moves: {notPlayedMoves.join(", ")}</p>
-      <button onClick={handleNextMoveClick}>Next Move</button>
     </div>
   );
 }

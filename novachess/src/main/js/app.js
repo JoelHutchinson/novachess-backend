@@ -2,7 +2,7 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 const client = require('./client');
 
-import PuzzleScreen from './components/PuzzleBoard';
+import PuzzleScreen from './components/PuzzleScreen';
 
 class App extends React.Component {
 

@@ -37125,7 +37125,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_RESULT__ = (function (r
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/PuzzleBoard */ "./src/main/js/components/PuzzleBoard.js");
+/* harmony import */ var _components_PuzzleScreen__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/PuzzleScreen */ "./src/main/js/components/PuzzleScreen.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -37158,7 +37158,7 @@ var App = /*#__PURE__*/function (_React$Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/React.createElement(_components_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__["default"], null);
+      return /*#__PURE__*/React.createElement(_components_PuzzleScreen__WEBPACK_IMPORTED_MODULE_0__["default"], null);
     }
   }]);
   return App;
@@ -37310,14 +37310,118 @@ function PuzzleBoard(props) {
   function makeNextSolutionMove() {
     makeAMove(uciToMove(notPlayedMoves[0]));
   }
-  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(react_chessboard__WEBPACK_IMPORTED_MODULE_2__["Chessboard"], {
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "column"
+    }
+  }, /*#__PURE__*/React.createElement(react_chessboard__WEBPACK_IMPORTED_MODULE_2__["Chessboard"], {
     boardWidth: "400",
     position: game.fen(),
     onPieceDrop: onDrop
-  }), /*#__PURE__*/React.createElement("p", null, "Played moves: ", playedMoves.join(", ")), /*#__PURE__*/React.createElement("p", null, "Not played moves: ", notPlayedMoves.join(", ")), /*#__PURE__*/React.createElement("button", {
+  }), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "space-around"
+    }
+  }, /*#__PURE__*/React.createElement("button", {
     onClick: handleNextMoveClick
-  }, "Next Move"));
+  }, "Next Move"), /*#__PURE__*/React.createElement("button", {
+    onClick: props.loadNextPuzzle
+  }, "Next Puzzle"))), /*#__PURE__*/React.createElement("p", null, "Played moves: ", playedMoves.join(", ")), /*#__PURE__*/React.createElement("p", null, "Not played moves: ", notPlayedMoves.join(", ")));
 }
+
+/***/ }),
+
+/***/ "./src/main/js/components/PuzzleScreen.js":
+/*!************************************************!*\
+  !*** ./src/main/js/components/PuzzleScreen.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PuzzleBoard */ "./src/main/js/components/PuzzleBoard.js");
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+var client = __webpack_require__(/*! ../client */ "./src/main/js/client.js");
+
+var PuzzleScreen = /*#__PURE__*/function (_React$Component) {
+  _inherits(PuzzleScreen, _React$Component);
+  var _super = _createSuper(PuzzleScreen);
+  function PuzzleScreen(props) {
+    var _this;
+    _classCallCheck(this, PuzzleScreen);
+    _this = _super.call(this, props);
+    _this.state = {
+      puzzles: [],
+      currentPuzzleIndex: 0
+    };
+    _this.handleNextPuzzleClick = _this.handleNextPuzzleClick.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+  _createClass(PuzzleScreen, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      var _this2 = this;
+      client({
+        method: 'GET',
+        path: '/api/puzzles'
+      }).done(function (response) {
+        _this2.setState({
+          puzzles: response.entity._embedded.puzzles
+        });
+      });
+    }
+  }, {
+    key: "handleNextPuzzleClick",
+    value: function handleNextPuzzleClick() {
+      this.setState(function (state) {
+        return {
+          currentPuzzleIndex: (state.currentPuzzleIndex + 1) % state.puzzles.length
+        };
+      });
+      console.log(this.state.currentPuzzleIndex);
+      console.log(this.state.puzzles[this.state.currentPuzzleIndex].fen);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/React.createElement("div", {
+        style: {
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexDirection: "column"
+        }
+      }, /*#__PURE__*/React.createElement("h2", null, "Puzzles"), /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "FEN"), /*#__PURE__*/React.createElement("th", null, "Moves"), /*#__PURE__*/React.createElement("th", null, "Popularity Score"))), /*#__PURE__*/React.createElement("tbody", null, this.state.puzzles.map(function (puzzle) {
+        return /*#__PURE__*/React.createElement("tr", {
+          key: puzzle.fen
+        }, /*#__PURE__*/React.createElement("td", null, puzzle.fen), /*#__PURE__*/React.createElement("td", null, puzzle.moves), /*#__PURE__*/React.createElement("td", null, puzzle.popularity));
+      }))), this.state.puzzles.length > 0 && /*#__PURE__*/React.createElement(_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        puzzle: this.state.puzzles[this.state.currentPuzzleIndex],
+        loadNextPuzzle: this.handleNextPuzzleClick
+      }));
+    }
+  }]);
+  return PuzzleScreen;
+}(React.Component);
+;
+/* harmony default export */ __webpack_exports__["default"] = (PuzzleScreen);
 
 /***/ }),
 
