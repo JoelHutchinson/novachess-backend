@@ -55,11 +55,11 @@ class App extends React.Component {
                         })}
                     </tbody>
                 </table>
+                {this.state.puzzles.length > 0 &&
                 <PuzzleBoard
-                puzzleFen={this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].fen : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"}
-                solutionUciMoves={this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].moves : ""}
+                puzzle={this.state.puzzles[this.state.currentPuzzleIndex]}
                 loadNextPuzzle={this.handleNextPuzzleClick}
-                />
+                />}
                 <button onClick={this.handleNextPuzzleClick}>Next Puzzle</button>
             </div>
 			

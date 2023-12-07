@@ -37189,9 +37189,8 @@ var App = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/React.createElement("tr", {
           key: puzzle.fen
         }, /*#__PURE__*/React.createElement("td", null, puzzle.fen), /*#__PURE__*/React.createElement("td", null, puzzle.moves), /*#__PURE__*/React.createElement("td", null, puzzle.popularity));
-      }))), /*#__PURE__*/React.createElement(_components_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__["default"], {
-        puzzleFen: this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].fen : "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
-        solutionUciMoves: this.state.puzzles.length ? this.state.puzzles[this.state.currentPuzzleIndex].moves : "",
+      }))), this.state.puzzles.length > 0 && /*#__PURE__*/React.createElement(_components_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__["default"], {
+        puzzle: this.state.puzzles[this.state.currentPuzzleIndex],
         loadNextPuzzle: this.handleNextPuzzleClick
       }), /*#__PURE__*/React.createElement("button", {
         onClick: this.handleNextPuzzleClick
@@ -37248,6 +37247,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var chess_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chess.js */ "./node_modules/chess.js/dist/esm/chess.js");
 /* harmony import */ var react_chessboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-chessboard */ "./node_modules/react-chessboard/dist/index.esm.js");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -37259,37 +37262,55 @@ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 
 function PuzzleBoard(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"](props.puzzleFen)),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"](props.puzzle.fen)),
     _useState2 = _slicedToArray(_useState, 2),
     game = _useState2[0],
     setGame = _useState2[1];
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(0),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
     _useState4 = _slicedToArray(_useState3, 2),
-    moveIndex = _useState4[0],
-    setMoveIndex = _useState4[1];
+    playedMoves = _useState4[0],
+    setPlayedMoves = _useState4[1];
+  var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(uciListToMoveStack(props.puzzle.moves)),
+    _useState6 = _slicedToArray(_useState5, 2),
+    notPlayedMoves = _useState6[0],
+    setNotPlayedMoves = _useState6[1];
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    console.log("PUZZLE FEN CHANGED. LOADING NEW PUZZLE.");
-    if (props.puzzleFen) {
+    console.log("LOADING NEW PUZZLE.");
+    if (props.puzzle.fen) {
       // Initialize puzzle when props.puzzleFen changes.
-      setGame(new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"](props.puzzleFen));
-      setMoveIndex(0);
+      setGame(new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"](props.puzzle.fen));
+      setPlayedMoves([]);
+      setNotPlayedMoves(uciListToMoveStack(props.puzzle.moves));
+
+      // Make the first solution move.
+      //setTimeout(makeNextSolutionMove, 1000);
     }
-  }, [props.puzzleFen]);
+  }, [props.puzzle]);
   function makeAMove(move) {
-    var gameCopy = new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"](game.fen());
-    var result = gameCopy.move(move);
-    setGame(gameCopy);
-    console.log("Move: " + move.from + move.to);
-    console.log("Expected: " + props.solutionUciMoves.split(" ")[moveIndex]);
-    var moveCorrect = move.from + move.to === props.solutionUciMoves.split(" ")[moveIndex];
-    console.log("Move correctness: " + moveCorrect);
-    if (moveCorrect) {
-      setMoveIndex(function (prevMoveIndex) {
-        return prevMoveIndex + 1;
-      });
-      return result;
+    if (notPlayedMoves.length > 0) {
+      // Check if the played move matches the solution move.
+      var solutionMove = notPlayedMoves[0];
+      var isMoveCorrect = move.from + move.to === solutionMove;
+
+      // Log the move.
+      console.log("Move: " + move.from + move.to);
+      console.log("Expected: " + notPlayedMoves[0]);
+      console.log("Move correctness: " + isMoveCorrect);
+      if (isMoveCorrect) {
+        var gameCopy = new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"](game.fen());
+        var result = gameCopy.move(move);
+        setGame(gameCopy);
+
+        // Push the top solution move onto the played stack.
+        setPlayedMoves([notPlayedMoves[0]].concat(_toConsumableArray(playedMoves)));
+
+        // Pop the top solution move off of the unplayed stack.
+        setNotPlayedMoves(notPlayedMoves.slice(1));
+        return result;
+      } else {
+        return null;
+      }
     }
-    return null;
   }
   function onDrop(sourceSquare, targetSquare) {
     console.log("Source: " + sourceSquare);
@@ -37302,6 +37323,10 @@ function PuzzleBoard(props) {
 
     // illegal move
     if (move === null) return false;
+
+    // Computer makes the next move
+    //setTimeout(handleNextMoveClick, 200);
+    handleNextMoveClick();
     return true;
   }
   ;
@@ -37313,17 +37338,23 @@ function PuzzleBoard(props) {
     };
   }
   function handleNextMoveClick() {
-    if (moveIndex >= props.solutionUciMoves.split(" ").length) {
+    if (notPlayedMoves.length === 0) {
       props.loadNextPuzzle();
     } else {
-      makeAMove(uciToMove(props.solutionUciMoves.split(" ")[moveIndex]));
+      makeNextSolutionMove();
     }
+  }
+  function uciListToMoveStack(uciList) {
+    return uciList.split(" ");
+  }
+  function makeNextSolutionMove() {
+    makeAMove(uciToMove(notPlayedMoves[0]));
   }
   return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(react_chessboard__WEBPACK_IMPORTED_MODULE_2__["Chessboard"], {
     boardWidth: "400",
     position: game.fen(),
     onPieceDrop: onDrop
-  }), /*#__PURE__*/React.createElement("p", null, "Solution: ", props.solutionUciMoves.split(" ")), /*#__PURE__*/React.createElement("button", {
+  }), /*#__PURE__*/React.createElement("p", null, "Played moves: ", playedMoves.join(", ")), /*#__PURE__*/React.createElement("p", null, "Not played moves: ", notPlayedMoves.join(", ")), /*#__PURE__*/React.createElement("button", {
     onClick: handleNextMoveClick
   }, "Next Move"));
 }
