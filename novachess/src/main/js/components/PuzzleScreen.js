@@ -47,14 +47,23 @@ class PuzzleScreen extends React.Component {
 
 	render() {
 		return (
-            <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
-                {this.state.puzzles.length > 0 &&
-                <PuzzleBoard
-                puzzle={this.state.puzzles[this.state.currentPuzzleIndex]}
-                loadNextPuzzle={this.handleNextPuzzleClick}
-                />}
+            <div style={{
+                height: '100%'
+            }}>
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    height: '100%'
+                }}>
+                    {this.state.puzzles.length > 0 &&
+                    <PuzzleBoard
+                    puzzle={this.state.puzzles[this.state.currentPuzzleIndex]}
+                    loadNextPuzzle={this.handleNextPuzzleClick}
+                    />}
+                </div>
                 <Button onClick={this.toggleDrawer(true)}>
-                    Puzzle Data
+                Puzzle Data
                 </Button>
                 <SwipeableDrawer
                     anchor={"bottom"}

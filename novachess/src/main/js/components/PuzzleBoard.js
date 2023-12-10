@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Chess } from "chess.js";
 import { Chessboard } from "react-chessboard";
 
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 export default function PuzzleBoard(props) {
     const [game, setGame] = useState(new Chess(props.puzzle.fen));
@@ -101,13 +103,13 @@ export default function PuzzleBoard(props) {
       <div style={{display: "flex", flexDirection: "column"}}>
         <Chessboard boardWidth={"400"} position={game.fen()} onPieceDrop={onDrop}/>
         <div style={{display: "flex", flexDirection: "row", justifyContent: "space-around"}}>
-            <button onClick={handleNextMoveClick}>Next Move</button>
-            <button onClick={props.loadNextPuzzle}>Next Puzzle</button>
+            <Button onClick={handleNextMoveClick}>Next Move</Button>
+            <Button onClick={props.loadNextPuzzle}>Next Puzzle</Button>
         </div>
       </div>
       
-      <p>Played moves: {playedMoves.join(", ")}</p>
-      <p>Not played moves: {notPlayedMoves.join(", ")}</p>
+      <Typography sx={{ p: 2, color: 'text.secondary' }}>Played moves: {playedMoves.join(", ")}</Typography>
+      <Typography sx={{ p: 2, color: 'text.secondary' }}>Not played moves: {notPlayedMoves.join(", ")}</Typography>
     </div>
   );
 }

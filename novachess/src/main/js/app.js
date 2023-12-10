@@ -15,7 +15,11 @@ class App extends React.Component {
 
 	render() {
 		return (
-            <PuzzleScreen />                
+			<div style={{
+				height: '95vh'
+			}}>
+            	<PuzzleScreen />
+			</div>            
 		)
 	}
 };
