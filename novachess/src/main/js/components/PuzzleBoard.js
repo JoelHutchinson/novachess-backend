@@ -107,9 +107,10 @@ export default function PuzzleBoard(props) {
             <Button onClick={props.loadNextPuzzle}>Next Puzzle</Button>
         </div>
       </div>
-      
+      {/*
       <Typography sx={{ p: 2, color: 'text.secondary' }}>Played moves: {playedMoves.join(", ")}</Typography>
       <Typography sx={{ p: 2, color: 'text.secondary' }}>Not played moves: {notPlayedMoves.join(", ")}</Typography>
+      */}
     </div>
   );
 }
