@@ -2,6 +2,7 @@ const React = require('react');
 const client = require('../client');
 
 import PuzzleBoard from "./PuzzleBoard";
+import PuzzleTable from "./PuzzleTable";
 
 class PuzzleScreen extends React.Component {
 	constructor(props) {
@@ -32,26 +33,7 @@ class PuzzleScreen extends React.Component {
 		return (
             <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
                 <h2>Puzzles</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>FEN</th>
-                            <th>Moves</th>
-                            <th>Popularity Score</th>
-                        </tr>
-                    </thead>
-                    <tbody>                    
-                        {this.state.puzzles.map(puzzle => {
-                            return (
-                                <tr key={puzzle.fen}>
-                                    <td>{puzzle.fen}</td>
-                                    <td>{puzzle.moves}</td>
-                                    <td>{puzzle.popularity}</td>
-                                </tr>
-                            );
-                        })}
-                    </tbody>
-                </table>
+                <PuzzleTable puzzles={this.state.puzzles}/>
                 {this.state.puzzles.length > 0 &&
                 <PuzzleBoard
                 puzzle={this.state.puzzles[this.state.currentPuzzleIndex]}
