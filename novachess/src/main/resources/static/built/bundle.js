@@ -82317,16 +82317,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_chessboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-chessboard */ "./node_modules/react-chessboard/dist/index.esm.js");
 /* harmony import */ var _mui_material_Typography__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/Typography */ "./node_modules/@mui/material/Typography/index.js");
 /* harmony import */ var _mui_material_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material/Button */ "./node_modules/@mui/material/Button/index.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -82364,14 +82358,6 @@ function PuzzleBoard(props) {
       //setTimeout(makeNextSolutionMove, 1000);
     }
   }, [props.puzzle]);
-  function safeGameMutate(modify) {
-    setGame(function (g) {
-      var update = _objectSpread({}, g);
-      modify(update);
-      return update;
-    });
-  }
-  ;
   function makeAMove(move) {
     if (notPlayedMoves.length > 0) {
       // Check if the played move matches the solution move.
@@ -82450,12 +82436,6 @@ function PuzzleBoard(props) {
   }, /*#__PURE__*/React.createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
     onClick: handleNextMoveClick
   }, "Next Move"), /*#__PURE__*/React.createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    onClick: function onClick() {
-      safeGameMutate(function (game) {
-        game.undo();
-      });
-    }
-  }, "undo"), /*#__PURE__*/React.createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
     onClick: props.loadNextPuzzle
   }, "Next Puzzle"))));
 }
@@ -82473,9 +82453,8 @@ function PuzzleBoard(props) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PuzzleBoard */ "./src/main/js/components/PuzzleBoard.js");
 /* harmony import */ var _PuzzleTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PuzzleTable */ "./src/main/js/components/PuzzleTable.js");
-/* harmony import */ var _TestBoard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TestBoard */ "./src/main/js/components/TestBoard.js");
-/* harmony import */ var _mui_material_SwipeableDrawer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/SwipeableDrawer */ "./node_modules/@mui/material/SwipeableDrawer/index.js");
-/* harmony import */ var _mui_material_Button__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/material/Button */ "./node_modules/@mui/material/Button/index.js");
+/* harmony import */ var _mui_material_SwipeableDrawer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @mui/material/SwipeableDrawer */ "./node_modules/@mui/material/SwipeableDrawer/index.js");
+/* harmony import */ var _mui_material_Button__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/material/Button */ "./node_modules/@mui/material/Button/index.js");
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
@@ -82492,7 +82471,6 @@ function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _ty
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 var client = __webpack_require__(/*! ../client */ "./src/main/js/client.js");
-
 
 
 
@@ -82563,9 +82541,9 @@ var PuzzleScreen = /*#__PURE__*/function (_React$Component) {
       }, this.state.puzzles.length > 0 && /*#__PURE__*/React.createElement(_PuzzleBoard__WEBPACK_IMPORTED_MODULE_0__["default"], {
         puzzle: this.state.puzzles[this.state.currentPuzzleIndex],
         loadNextPuzzle: this.handleNextPuzzleClick
-      }), /*#__PURE__*/React.createElement(_TestBoard__WEBPACK_IMPORTED_MODULE_2__["default"], null)), /*#__PURE__*/React.createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      })), /*#__PURE__*/React.createElement(_mui_material_Button__WEBPACK_IMPORTED_MODULE_3__["default"], {
         onClick: this.toggleDrawer(true)
-      }, "Puzzle Data"), /*#__PURE__*/React.createElement(_mui_material_SwipeableDrawer__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, "Puzzle Data"), /*#__PURE__*/React.createElement(_mui_material_SwipeableDrawer__WEBPACK_IMPORTED_MODULE_2__["default"], {
         anchor: "bottom",
         open: this.state.drawerOpen,
         onOpen: this.toggleDrawer(true),
@@ -82615,92 +82593,6 @@ function PuzzleTable(props) {
       key: puzzle.fen
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_TableCell__WEBPACK_IMPORTED_MODULE_3__["default"], null, puzzle.fen), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_TableCell__WEBPACK_IMPORTED_MODULE_3__["default"], null, puzzle.moves), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__["createElement"](_mui_material_TableCell__WEBPACK_IMPORTED_MODULE_3__["default"], null, puzzle.popularity));
   })));
-}
-
-/***/ }),
-
-/***/ "./src/main/js/components/TestBoard.js":
-/*!*********************************************!*\
-  !*** ./src/main/js/components/TestBoard.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return TestBoard; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var chess_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! chess.js */ "./node_modules/chess.js/dist/esm/chess.js");
-/* harmony import */ var react_chessboard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-chessboard */ "./node_modules/react-chessboard/dist/index.esm.js");
-function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
-function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
-function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
-function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
-function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
-function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t["return"] && (u = t["return"](), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-function TestBoard(props) {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(new chess_js__WEBPACK_IMPORTED_MODULE_1__["Chess"]()),
-    _useState2 = _slicedToArray(_useState, 2),
-    game = _useState2[0],
-    setGame = _useState2[1];
-  function safeGameMutate(modify) {
-    setGame(function (g) {
-      var update = _objectSpread({}, g);
-      modify(update);
-      return update;
-    });
-  }
-  function onDrop(sourceSquare, targetSquare, piece) {
-    var _piece$1$toLowerCase;
-    var gameCopy = _objectSpread({}, game);
-    var move = gameCopy.move({
-      from: sourceSquare,
-      to: targetSquare,
-      promotion: (_piece$1$toLowerCase = piece[1].toLowerCase()) !== null && _piece$1$toLowerCase !== void 0 ? _piece$1$toLowerCase : "q"
-    });
-    setGame(gameCopy);
-    return move;
-  }
-  var pieces = ["wP", "wN", "wB", "wR", "wQ", "wK", "bP", "bN", "bB", "bR", "bQ", "bK"];
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_chessboard__WEBPACK_IMPORTED_MODULE_2__["Chessboard"], {
-    id: "StyledBoard",
-    boardOrientation: "black",
-    position: game.fen(),
-    onPieceDrop: onDrop,
-    customBoardStyle: {
-      borderRadius: "4px",
-      boxShadow: "0 2px 10px rgba(0, 0, 0, 0.5)"
-    },
-    customDarkSquareStyle: {
-      backgroundColor: "#779952"
-    },
-    customLightSquareStyle: {
-      backgroundColor: "#edeed1"
-    }
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      safeGameMutate(function (game) {
-        game.reset();
-      });
-    }
-  }, "reset"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    onClick: function onClick() {
-      safeGameMutate(function (game) {
-        game.undo();
-      });
-    }
-  }, "undo"));
 }
 
 /***/ }),
