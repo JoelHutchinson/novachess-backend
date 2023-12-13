@@ -1,2 +1,40 @@
-# novachess
-Web application including a suite of tools for chess training and tournament preparation.
+# Novachess: A Chess Training Web Application
+Welcome to the `Novachess` repository. Novachess is a sophisticated full-stack web application designed to offer a comprehensive suite of tools for chess training and tournament preparation. This document will guide you through the features, architecture, and steps to build and run the project.
+
+## Overview
+Novachess integrates advanced web technologies and chess-specific packages to deliver an immersive experience for chess enthusiasts. The application includes:
+
+- A dynamic and responsive chessboard interface.
+- Tools for analyzing and learning chess puzzles and opening variations.
+- A RESTful API to manage chess resources effectively.
+
+## Key Features
+- Front-end: Built with ReactJS, incorporating react-chessboard and chess.js for an interactive chessboard experience.
+- Back-end: Java Spring Boot framework for robust back-end functionality.
+- Database: H2 embedded database paired with JPA for efficient data persistence, storing resources like puzzles and opening variations.
+- RESTful API: Implemented with Spring Boot Web, allowing seamless interactions with various resources.
+- HATEOAS Integration: Utilizes Spring HATEOAS’ EntityModel to enrich API responses with conditional links, adhering to HATEOAS principles.
+Repository Details
+
+## Prerequisites
+Before building and running the project, ensure you have the following installed:
+
+- Node.js and npm
+- Java Development Kit (JDK)
+- Maven
+
+## Build and Run
+To build and run Novachess, follow these steps:
+
+1. Front-end Build:
+    ```npx webpack --config webpack.config.js```
+2. Back-end Execution:
+    ```mvn spring-boot:run```
+
+After executing these commands, Novachess should be up and running on your local server.
+
+## Contribution
+Contributions to Novachess are welcome! If you're interested in enhancing the application or fixing bugs, please fork the repository, make your changes, and create a pull request.
+
+## License
+This project is licensed under the MIT License.
