@@ -4,13 +4,14 @@ import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 
 @Entity
 class OpeningVariation {
 
-	private @Id @GeneratedValue Long id;
+	private @Id @GeneratedValue(strategy=GenerationType.AUTO) Long id;
 	private String startFen;
 	private String sanMoves;
 
