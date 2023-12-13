@@ -10,7 +10,7 @@ Novachess integrates advanced web technologies and chess-specific packages to de
 
 ## Key Features
 - Front-end: Built with ReactJS, incorporating react-chessboard and chess.js for an interactive chessboard experience.
-- Back-end: Java Spring Boot framework for robust back-end functionality.
+- Back-end: Java Spring Boot framework implements database interaction and RESTful API.
 - Database: H2 embedded database paired with JPA for efficient data persistence, storing resources like puzzles and opening variations.
 - RESTful API: Implemented with Spring Boot Web, allowing seamless interactions with various resources.
 - HATEOAS Integration: Utilizes Spring HATEOAS’ EntityModel to enrich API responses with conditional links, adhering to HATEOAS principles.
