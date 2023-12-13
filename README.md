@@ -5,8 +5,8 @@ Welcome to the `Novachess` repository. Novachess is a sophisticated full-stack w
 Novachess integrates advanced web technologies and chess-specific packages to deliver an immersive experience for chess enthusiasts. The application includes:
 
 - A dynamic and responsive chessboard interface.
-- Tools for analyzing and learning chess puzzles and opening variations.
-- A RESTful API to manage chess resources effectively.
+- Tools for solving chess puzzles and analyzing opening variations.
+- A RESTful API to manage resources effectively.
 
 ## Key Features
 - Front-end: Built with ReactJS, incorporating react-chessboard and chess.js for an interactive chessboard experience.
@@ -25,10 +25,11 @@ Before building and running the project, ensure you have the following installed
 
 ## Build and Run
 To build and run Novachess, follow these steps:
-
-1. Front-end Build:
+1. Install dependencies:
+    ```npm install```
+2. Front-end Build:
     ```npx webpack --config webpack.config.js```
-2. Back-end Execution:
+3. Back-end Execution:
     ```mvn spring-boot:run```
 
 After executing these commands, Novachess should be up and running on your local server.
