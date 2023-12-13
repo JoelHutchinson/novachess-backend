@@ -157,8 +157,9 @@ dist
 .pnp.*
 
 # Secret properties
-application-secret.properties
+**/application-secret.properties
+*/application-secret.properties
 
 # Ignore generated bundle files
-bundle.js
-bundle.js.map
+**/bundle.js
+**/bundle.js.map
