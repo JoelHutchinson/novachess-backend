@@ -11,7 +11,7 @@ export default function PuzzleBoard(props) {
     const [game, setGame] = useState(new Chess(props.puzzle.fen));
     const [playedMoves, setPlayedMoves] = useState([]);
     const [notPlayedMoves, setNotPlayedMoves] = useState(uciListToMoveStack(props.puzzle.moves));
-    
+    const [triggerSolutionMove, setTriggerSolutionMove] = useState(false);
 
     useEffect(() => {
         console.log("LOADING NEW PUZZLE.");
@@ -20,11 +20,16 @@ export default function PuzzleBoard(props) {
             setGame(new Chess(props.puzzle.fen));
             setPlayedMoves([]);
             setNotPlayedMoves(uciListToMoveStack(props.puzzle.moves));
-
-            // Make the first solution move.
-            //setTimeout(makeNextSolutionMove, 1000);
+            setTriggerSolutionMove(true);
         }
     }, [props.puzzle]);
+
+    useEffect(() => {
+        if (triggerSolutionMove) {
+            makeNextSolutionMove();
+            setTriggerSolutionMove(false);
+        }
+    }, [triggerSolutionMove]);
 
     function makeAMove(move) {
         if (notPlayedMoves.length > 0) {
