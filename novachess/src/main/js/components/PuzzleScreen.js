@@ -1,4 +1,4 @@
-const React = require('react');
+import React from 'react';
 const client = require('../client');
 
 import PuzzleBoard from "./PuzzleBoard";
