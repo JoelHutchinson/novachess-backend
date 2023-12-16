@@ -40,6 +40,13 @@ export default function PuzzleBoard(props: PuzzleBoardProps) {
 
     function makeAMove(move: Move): PuzzleMoveOutcome {
         if (notPlayedMoves.length > 0) {
+            // Check if move is legal.
+            const gameCopy = new Chess(game.fen());
+            const result = gameCopy.move(move);
+            if (result === null) {
+                return 'illegal';
+            }
+            
             // Check if the played move matches the solution move.
             const solutionMove = notPlayedMoves[0];
             const isMoveCorrect = move.from === solutionMove.from
@@ -51,8 +58,6 @@ export default function PuzzleBoard(props: PuzzleBoardProps) {
             console.log("Move correctness: " + isMoveCorrect);
 
             if (isMoveCorrect) {
-                const gameCopy = new Chess(game.fen());
-                const result = gameCopy.move(move);
                 setGame(gameCopy);
 
                 // Push the top solution move onto the played stack.
@@ -63,10 +68,9 @@ export default function PuzzleBoard(props: PuzzleBoardProps) {
                 return 'correct';
             }
             else {
-                return 'illegal';
+                return 'incorrect';
             }
         }
-
         return 'error';
     }
 
@@ -82,9 +86,24 @@ export default function PuzzleBoard(props: PuzzleBoardProps) {
           };
 
         const moveResult = makeAMove(move);
-      
+          
+        switch (moveResult) {
+            case ('correct'):
+                // Play the next solution move
+                setTriggerSolutionMove(true);
+                break;
+            case ('incorrect'):
+                // Handle incorrect attempt
+                break;
+            case ('illegal'):
+                // Handle illegal move
+                break;
+            case ('error'):
+                break;
+        }
+
           // illegal move
-          if (moveResult === null) return false;
+          if (moveResult === 'illegal') return false;
 
           return true;
     };
