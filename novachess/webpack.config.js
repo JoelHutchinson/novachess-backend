@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
     entry: './src/main/js/app.js',
-    devtool: 'sourcemaps',
+    devtool: 'source-map',
     cache: true,
     mode: 'development',
     output: {
@@ -12,7 +12,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.(ts|tsx|js|jsx)$/,
                 include: [
                     path.resolve(__dirname, 'src'), // Your source files
                     path.resolve(__dirname, 'node_modules/chess.js') // Target chess.js specifically
@@ -21,10 +21,13 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ["@babel/preset-env", "@babel/preset-react"]
+                        presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"]
                     }
                 }
             }
         ]
-    }
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js', '.jsx'],
+    },
 };
