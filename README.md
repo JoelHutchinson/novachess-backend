@@ -26,16 +26,13 @@ Before building and running the project, ensure you have the following installed
 ## Build and Run
 To build and run Novachess, follow these steps:
 
-### Front-end
 1. Install dependencies:
     ```npm install```
-2. Build:
+2. Build front-end:
     ```npx webpack --config webpack.config.js```
-
-### Back-end
-1. Build:
+3. Build back-end:
     ```mvn clean install```
-2. Execution:
+4. Execution:
     ```mvn spring-boot:run```
 
 After executing these commands, Novachess should be up and running on your local server.
