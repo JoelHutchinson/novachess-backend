@@ -12,4 +12,4 @@ export type Move = {
     promotion?: string;
 };
 
-export type MoveOutcome = 'correct' | 'incorrect' | 'illegal';
+export type PuzzleMoveOutcome = 'correct' | 'incorrect' | 'illegal' | 'error';

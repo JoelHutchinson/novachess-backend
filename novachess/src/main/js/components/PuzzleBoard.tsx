@@ -7,7 +7,7 @@ import { Chessboard } from "react-chessboard";
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-import { Puzzle, Move } from '../@types/puzzle';
+import { Puzzle, Move, PuzzleMoveOutcome } from '../@types/puzzle';
 
 interface PuzzleBoardProps {
     puzzle: Puzzle;
@@ -38,7 +38,7 @@ export default function PuzzleBoard(props: PuzzleBoardProps) {
         }
     }, [triggerSolutionMove]);
 
-    function makeAMove(move: Move) {
+    function makeAMove(move: Move): PuzzleMoveOutcome {
         if (notPlayedMoves.length > 0) {
             // Check if the played move matches the solution move.
             const solutionMove = notPlayedMoves[0];
@@ -60,13 +60,14 @@ export default function PuzzleBoard(props: PuzzleBoardProps) {
                 
                 // Pop the top solution move off of the unplayed stack.
                 setNotPlayedMoves(notPlayedMoves.slice(1));
-
-                return result;
+                return 'correct';
             }
             else {
-                return null;
+                return 'illegal';
             }
         }
+
+        return 'error';
     }
 
 
