@@ -7,7 +7,13 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-export default function PuzzleTable(props) {
+import { Puzzle } from '../@types/puzzle';
+
+interface PuzzleTableProps {
+    puzzles: Puzzle[];
+};
+
+export default function PuzzleTable(props: PuzzleTableProps) {
     return (
         <Table>
             <TableHead>
@@ -20,7 +26,7 @@ export default function PuzzleTable(props) {
             <TableBody>                    
                 {props.puzzles.map(puzzle => {
                     return (
-                        <TableRow key={puzzle.fen}>
+                        <TableRow key={puzzle.id + puzzle.fen}>
                             <TableCell>{puzzle.fen}</TableCell>
                             <TableCell>{puzzle.moves}</TableCell>
                             <TableCell>{puzzle.popularity}</TableCell>
