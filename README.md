@@ -20,7 +20,7 @@ Repository Details
 Before building and running the project, ensure you have the following installed:
 
 - Node.js and npm
-- Java Development Kit (JDK)
+- Java Development Kit (JDK) 17
 - Maven
 
 ## Build and Run
