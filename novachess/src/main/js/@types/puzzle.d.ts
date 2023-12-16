@@ -1,7 +1,7 @@
 export interface Puzzle {
     id?: string;
     fen: string;
-    moves: string[];
+    moves: string;
     rating: number;
     popularity: number;
 };

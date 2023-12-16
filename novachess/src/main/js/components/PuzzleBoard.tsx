@@ -7,11 +7,18 @@ import { Chessboard } from "react-chessboard";
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-export default function PuzzleBoard(props) {
+import { Puzzle, Move } from '../@types/puzzle';
+
+interface PuzzleBoardProps {
+    puzzle: Puzzle;
+    loadNextPuzzle: () => void;
+};
+
+export default function PuzzleBoard(props: PuzzleBoardProps) {
     const [game, setGame] = useState(new Chess(props.puzzle.fen));
-    const [playedMoves, setPlayedMoves] = useState([]);
-    const [notPlayedMoves, setNotPlayedMoves] = useState(uciListToMoveStack(props.puzzle.moves));
-    const [triggerSolutionMove, setTriggerSolutionMove] = useState(false);
+    const [playedMoves, setPlayedMoves] = useState<Move[]>([]);
+    const [notPlayedMoves, setNotPlayedMoves] = useState<Move[]>(uciMovesToMoveStack(props.puzzle.moves));
+    const [triggerSolutionMove, setTriggerSolutionMove] = useState<boolean>(false);
 
     useEffect(() => {
         console.log("LOADING NEW PUZZLE.");
@@ -19,7 +26,7 @@ export default function PuzzleBoard(props) {
             // Initialize puzzle when props.puzzleFen changes.
             setGame(new Chess(props.puzzle.fen));
             setPlayedMoves([]);
-            setNotPlayedMoves(uciListToMoveStack(props.puzzle.moves));
+            setNotPlayedMoves(uciMovesToMoveStack(props.puzzle.moves));
             setTriggerSolutionMove(true);
         }
     }, [props.puzzle]);
@@ -31,11 +38,12 @@ export default function PuzzleBoard(props) {
         }
     }, [triggerSolutionMove]);
 
-    function makeAMove(move) {
+    function makeAMove(move: Move) {
         if (notPlayedMoves.length > 0) {
             // Check if the played move matches the solution move.
             const solutionMove = notPlayedMoves[0];
-            const isMoveCorrect = (move.from + move.to) === solutionMove;
+            const isMoveCorrect = move.from === solutionMove.from
+                && move.to === solutionMove.to;
 
             // Log the move.
             console.log("Move: " + move.from + move.to);
@@ -62,23 +70,25 @@ export default function PuzzleBoard(props) {
     }
 
 
-    function onDrop(sourceSquare, targetSquare) {
+    function onDrop(sourceSquare: string, targetSquare: string) {
         console.log("Source: " + sourceSquare);
         console.log("Target: " + targetSquare);
 
-        const move = makeAMove({
+        const move : Move = {
             from: sourceSquare,
             to: targetSquare,
             promotion: "q", // always promote to a queen for example simplicity
-          });
+          };
+
+        const moveResult = makeAMove(move);
       
           // illegal move
-          if (move === null) return false;
+          if (moveResult === null) return false;
 
           return true;
     };
 
-    function uciToMove(uci) {
+    function uciToMove(uci: string): Move {
         return {
             from: uci.substring(0, 2),
             to: uci.substring(2, 4),
@@ -95,18 +105,18 @@ export default function PuzzleBoard(props) {
         }
     }
 
-    function uciListToMoveStack(uciList) {
-        return uciList.split(" ");
+    function uciMovesToMoveStack(uciList: string): Move[] {
+        return uciList.split(" ").map(uciToMove);
     }
 
     function makeNextSolutionMove() {
-        makeAMove(uciToMove(notPlayedMoves[0]));
+        makeAMove(notPlayedMoves[0]);
     }
 
   return (
     <div>
       <div style={{display: "flex", flexDirection: "column"}}>
-        <Chessboard boardWidth={"400"} position={game.fen()} onPieceDrop={onDrop}/>
+        <Chessboard boardWidth={400} position={game.fen()} onPieceDrop={onDrop}/>
         <div style={{display: "flex", flexDirection: "row", justifyContent: "space-around"}}>
             <Button onClick={handleNextMoveClick}>Next Move</Button>
             <Button onClick={props.loadNextPuzzle}>Next Puzzle</Button>
