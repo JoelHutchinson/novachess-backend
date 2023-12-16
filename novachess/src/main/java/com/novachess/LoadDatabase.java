@@ -16,6 +16,7 @@ class LoadDatabase {
 
     return args -> {
         // Load sample puzzles.
+        /* 
         puzzleRepository.save(new Puzzle(
             "q3k1nr/1pp1nQpp/3p4/1P2p3/4P3/B1PP1b2/B5PP/5K2 b k - 0 17",
             "e8d7 a2e6 d7d8 f7f8",
@@ -37,9 +38,9 @@ class LoadDatabase {
             998,
             0));
         puzzleRepository.findAll().forEach(puzzle -> log.info("Preloaded " + puzzle));
-        
+        */
         // Load sample users.
-        
+        /*
         openingVariationRepository.save(new OpeningVariation(
             "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
             "e4 c5 d4 cxd4 c3 dxc3 Nxc3"
@@ -50,7 +51,7 @@ class LoadDatabase {
             ));
         
         openingVariationRepository.findAll().forEach(openingVariation -> log.info("Preloaded " + openingVariation));
-        
+        */
     };
   }
 }

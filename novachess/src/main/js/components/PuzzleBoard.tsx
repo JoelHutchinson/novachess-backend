@@ -130,7 +130,12 @@ export default function PuzzleBoard(props: PuzzleBoardProps) {
     }
 
     function makeNextSolutionMove() {
-        makeAMove(notPlayedMoves[0]);
+        if (notPlayedMoves.length === 0) {
+            props.loadNextPuzzle();
+        }
+        else{
+            makeAMove(notPlayedMoves[0]);
+        }
     }
 
   return (
