@@ -7,8 +7,17 @@ import PuzzleTable from "./PuzzleTable";
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Button from '@mui/material/Button';
 
-class PuzzleScreen extends React.Component {
-	constructor(props) {
+import { Puzzle } from '../@types/puzzle'
+import { PuzzleApiResponse } from '../@types/api';
+
+interface PuzzleScreenState {
+    puzzles: Puzzle[];
+    currentPuzzleIndex: number;
+    drawerOpen: boolean;
+}
+
+class PuzzleScreen extends React.Component<{}, PuzzleScreenState> {
+	constructor(props: {}) {
 		super(props);
 		this.state = {
             puzzles: [],
@@ -20,7 +29,7 @@ class PuzzleScreen extends React.Component {
 	}
 
 	componentDidMount() {
-        client({method: 'GET', path: '/api/puzzles'}).done(response => {
+        client({method: 'GET', path: '/api/puzzles'}).done((response: PuzzleApiResponse) => {
 			this.setState({puzzles: response.entity._embedded.puzzles});
 		});
 	}
@@ -33,11 +42,11 @@ class PuzzleScreen extends React.Component {
         console.log(this.state.puzzles[this.state.currentPuzzleIndex].fen);
     }
 
-    toggleDrawer = (open) => (event) => {
+    toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
         if (
           event &&
           event.type === 'keydown' &&
-          (event.key === 'Tab' || event.key === 'Shift')
+          ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')
         ) {
           return;
         }
