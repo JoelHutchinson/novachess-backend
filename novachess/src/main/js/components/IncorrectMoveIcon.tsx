@@ -10,7 +10,7 @@ interface IncorrectMoveIconProps {
 const useStyles = makeStyles({
   cancelIcon: {
     color: red[500],
-    animation: '$appear 1s ease-in-out',
+    animation: '$appear 0.5s ease-in-out',
   },
   '@keyframes appear': {
     '0%': {

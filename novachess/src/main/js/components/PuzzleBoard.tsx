@@ -9,6 +9,9 @@ import Button from '@mui/material/Button';
 
 import { Puzzle, Move, PuzzleMoveOutcome } from '../@types/puzzle';
 
+import CorrectMoveIcon from "./CorrectMoveIcon";
+import IncorrectMoveIcon from "./IncorrectMoveIcon";
+
 interface PuzzleBoardProps {
     puzzle: Puzzle;
     loadNextPuzzle: () => void;
@@ -19,7 +22,9 @@ export default function PuzzleBoard(props: PuzzleBoardProps) {
     const [playedMoves, setPlayedMoves] = useState<Move[]>([]);
     const [notPlayedMoves, setNotPlayedMoves] = useState<Move[]>(uciMovesToMoveStack(props.puzzle.moves));
     const [triggerSolutionMove, setTriggerSolutionMove] = useState<boolean>(false);
-
+    const [showCorrectIcon, setShowCorrectIcon] = useState(false);
+    const [showIncorrectIcon, setShowIncorrectIcon] = useState(false);
+    
     useEffect(() => {
         console.log("LOADING NEW PUZZLE.");
         if (props.puzzle.fen) {
@@ -88,13 +93,20 @@ export default function PuzzleBoard(props: PuzzleBoardProps) {
         const moveResult = makeAMove(move);
           
         switch (moveResult) {
-            case ('correct'):
-                // Play the next solution move
+            case 'correct':
+                // Display correct move icon.
+                setShowCorrectIcon(true);
+                setTimeout(() => setShowCorrectIcon(false), 1000); // Hide the icon after a delay
+
+                // Make the next solution move.
                 setTriggerSolutionMove(true);
                 break;
-            case ('incorrect'):
-                // Handle incorrect attempt
+            case 'incorrect':
+                // Display the incorrect move icon.
+                setShowIncorrectIcon(true);
+                setTimeout(() => setShowIncorrectIcon(false), 1000); // Hide the icon after a delay
                 break;
+                
             case ('illegal'):
                 // Handle illegal move
                 break;
@@ -144,6 +156,8 @@ export default function PuzzleBoard(props: PuzzleBoardProps) {
         <Chessboard boardWidth={400} position={game.fen()} onPieceDrop={onDrop}/>
         <div style={{display: "flex", flexDirection: "row", justifyContent: "space-around"}}>
             <Button onClick={handleNextMoveClick}>Next Move</Button>
+            {showCorrectIcon && <CorrectMoveIcon isVisible={true} />}
+            {showIncorrectIcon && <IncorrectMoveIcon isVisible={true} />}
             <Button onClick={props.loadNextPuzzle}>Next Puzzle</Button>
         </div>
       </div>
