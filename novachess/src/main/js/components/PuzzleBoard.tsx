@@ -99,7 +99,7 @@ export default function PuzzleBoard(props: PuzzleBoardProps) {
                 setTimeout(() => setShowCorrectIcon(false), 1000); // Hide the icon after a delay
 
                 // Make the next solution move.
-                setTriggerSolutionMove(true);
+                setTimeout(() => setTriggerSolutionMove(true), 500);
                 break;
             case 'incorrect':
                 // Display the incorrect move icon.
