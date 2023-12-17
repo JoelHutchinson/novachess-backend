@@ -156,8 +156,10 @@ export default function PuzzleBoard(props: PuzzleBoardProps) {
         <Chessboard boardWidth={400} position={game.fen()} onPieceDrop={onDrop}/>
         <div style={{display: "flex", flexDirection: "row", justifyContent: "space-around"}}>
             <Button onClick={handleNextMoveClick}>Next Move</Button>
-            {showCorrectIcon && <CorrectMoveIcon isVisible={true} />}
-            {showIncorrectIcon && <IncorrectMoveIcon isVisible={true} />}
+            <div style={{marginTop: "5px", width: "24px", height: "24px", display: "flex"}}>
+                {showCorrectIcon && <CorrectMoveIcon isVisible={true} />}
+                {showIncorrectIcon && <IncorrectMoveIcon isVisible={true} />}
+            </div>
             <Button onClick={props.loadNextPuzzle}>Next Puzzle</Button>
         </div>
       </div>
