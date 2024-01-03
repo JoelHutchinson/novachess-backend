@@ -13,6 +13,7 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.hateoas.IanaLinkRelations;
 
@@ -41,12 +42,11 @@ class UserController {
 	// end::get-aggregate-root[]
 
 	// Single item
-	
-	@GetMapping("/api/users/{id}")
-	EntityModel<User> one(@PathVariable Long id) {
-		User user = repository.findById(id)
-			.orElseThrow(() -> new UserNotFoundException(id));
+    @GetMapping("/api/users")
+    EntityModel<User> getUserByEmail(@RequestParam String email) {
+        User user = repository.findByEmail(email)
+            .orElseThrow(() -> new UserNotFoundException(email));
 
-		return assembler.toModel(user);
-	}
+        return assembler.toModel(user);
+    }
 }
