@@ -43,7 +43,7 @@ class UserController {
 
 	// Single item
     @GetMapping("/api/users")
-    EntityModel<User> getUserByEmail(@RequestParam String email) {
+    EntityModel<User> one(@RequestParam String email) {
         User user = repository.findByEmail(email)
             .orElseThrow(() -> new UserNotFoundException(email));
 
