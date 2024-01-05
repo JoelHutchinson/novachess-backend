@@ -15,7 +15,7 @@ class User {
 	private @Id @GeneratedValue(strategy=GenerationType.AUTO) Long id;
 	private String name;
 	private String email;
-	private @JsonIgnore String password;
+	private String password;
 
 	User() {}
 
@@ -77,6 +77,6 @@ class User {
 	@Override
 	public String toString() {
 		return "User{" + "id=" + this.id + ", name='" + this.name + '\'' + ", email='" +
-                this.email + ", password='" + this.password + '\'' + '}';
+                this.email + '\'' + ", password='" + this.password + '\'' + '}';
 	}
 }

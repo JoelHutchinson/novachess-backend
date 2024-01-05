@@ -13,6 +13,8 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -28,7 +30,6 @@ class UserController {
 		this.assembler = assembler;
 	}
 
-
 	// Aggregate root
 	// tag::get-aggregate-root[]
 	@GetMapping("/api/users")
@@ -41,12 +42,21 @@ class UserController {
 	}
 	// end::get-aggregate-root[]
 
-	// Single item
-    @GetMapping("/api/users")
-    EntityModel<User> one(@RequestParam String email) {
+    // Single item
+    @GetMapping("/api/users/{email}")
+    EntityModel<User> one(@PathVariable String email) {
         User user = repository.findByEmail(email)
             .orElseThrow(() -> new UserNotFoundException(email));
 
         return assembler.toModel(user);
+    }
+
+	@PostMapping("/api/users")
+    ResponseEntity<?> newUser(@RequestBody User newUser) {
+        EntityModel<User> userEntityModel = assembler.toModel(repository.save(newUser));
+
+        return ResponseEntity
+            .created(userEntityModel.getRequiredLink(IanaLinkRelations.SELF).toUri()) //
+            .body(userEntityModel);
     }
 }

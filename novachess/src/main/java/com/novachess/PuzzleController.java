@@ -38,7 +38,7 @@ class PuzzleController {
 			.collect(Collectors.toList());
 
 		return CollectionModel.of(puzzles, linkTo(methodOn(PuzzleController.class).all()).withSelfRel());
-		}
+	}
 	// end::get-aggregate-root[]
 
 	// Single item
