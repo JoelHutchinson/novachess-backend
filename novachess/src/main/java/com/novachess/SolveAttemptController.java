@@ -9,6 +9,8 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.hateoas.IanaLinkRelations;
 
@@ -17,10 +19,17 @@ class SolveAttemptController {
 
     private final SolveAttemptRepository repository;
     private final SolveAttemptModelAssembler assembler;
+    private final UserRepository userRepository;
+    private final PuzzleRepository puzzleRepository;
 
-    SolveAttemptController(SolveAttemptRepository repository, SolveAttemptModelAssembler assembler) {
+    SolveAttemptController(SolveAttemptRepository repository,
+                           SolveAttemptModelAssembler assembler,
+                           UserRepository userRepository,
+                           PuzzleRepository puzzleRepository) {
         this.repository = repository;
         this.assembler = assembler;
+        this.userRepository = userRepository;
+        this.puzzleRepository = puzzleRepository;
     }
 
     @GetMapping("/api/solveattempts")
@@ -38,5 +47,21 @@ class SolveAttemptController {
             .orElseThrow(() -> new SolveAttemptNotFoundException(id));
 
         return assembler.toModel(attempt);
+    }
+
+    @PostMapping("/api/solveattempts")
+    ResponseEntity<?> createSolveAttempt(@RequestBody SolveAttempt newSolveAttempt) {
+        // Validate the user and puzzle exist
+        userRepository.findById(newSolveAttempt.getUser().getId())
+            .orElseThrow(() -> new UserNotFoundException(newSolveAttempt.getUser().getEmail()));
+        puzzleRepository.findById(newSolveAttempt.getPuzzle().getId())
+            .orElseThrow(() -> new PuzzleNotFoundException(newSolveAttempt.getPuzzle().getId()));
+
+        SolveAttempt savedSolveAttempt = repository.save(newSolveAttempt);
+        EntityModel<SolveAttempt> entityModel = assembler.toModel(savedSolveAttempt);
+
+        return ResponseEntity
+            .created(entityModel.getRequiredLink(IanaLinkRelations.SELF).toUri())
+            .body(entityModel);
     }
 }
