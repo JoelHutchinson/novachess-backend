@@ -38,16 +38,17 @@ class LoadDatabase {
             998,
             0));
         puzzleRepository.findAll().forEach(puzzle -> log.info("Preloaded " + puzzle));
-
+         */
         // Load sample users.
+        /*
         userRepository.save(new User(
-            "Joel Hutchinson",
+            "JoelHutchinson",
             "joel.hutchinson2411@gmail.com",
-            "abc"));
+            "abc123", 1500));
         userRepository.save(new User(
             "John Doe",
             "john.doe@gmail.com",
-            "cba"));
+            "cba321"));
         userRepository.findAll().forEach(user -> log.info("Preloaded " + user));
         */
     };
