@@ -43,6 +43,7 @@ class UserController {
 	// end::get-aggregate-root[]
 
     // Single item
+	// TODO: Username instead of email as path variable.
     @GetMapping("/api/users/{email}")
     EntityModel<User> one(@PathVariable String email) {
         User user = repository.findByEmail(email)

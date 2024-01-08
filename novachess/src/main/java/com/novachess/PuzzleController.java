@@ -42,7 +42,6 @@ class PuzzleController {
 	// end::get-aggregate-root[]
 
 	// Single item
-	
 	@GetMapping("/api/puzzles/{id}")
 	EntityModel<Puzzle> one(@PathVariable Long id) {
 		Puzzle puzzle = repository.findById(id)
@@ -50,6 +49,15 @@ class PuzzleController {
 
 		return assembler.toModel(puzzle);
 	}
+
+	// Get current puzzle for a given user
+	/*
+	@GetMapping("/api/puzzles/user/{userEmail}/current")
+	EntityModel<Puzzle> currentPuzzle(@PathVariable String userEmail) {
+		
+		return assembler.toModel(puzzle);
+	}
+	*/
 
 	@PatchMapping("/api/puzzles/{id}/upvote")
 	ResponseEntity<?> upvotePuzzle(@PathVariable Long id) {
