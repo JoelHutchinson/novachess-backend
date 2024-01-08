@@ -12,7 +12,7 @@ public class UserModelAssembler implements RepresentationModelAssembler<User, En
     public EntityModel<User> toModel(User user) {
         return EntityModel.of(user,
             linkTo(methodOn(UserController.class).one(user.getEmail())).withSelfRel(),
-            //linkTo(methodOn(PuzzleController.class).currentPuzzle(user.getEmail())).withRel("currentPuzzle"),
+            linkTo(methodOn(PuzzleController.class).one(user.getCurrentPuzzleId())).withRel("currentPuzzle"),
             linkTo(methodOn(UserController.class).all()).withRel("users"));
     }
 }

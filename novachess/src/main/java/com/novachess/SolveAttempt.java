@@ -28,7 +28,7 @@ class SolveAttempt {
 
     SolveAttempt() {}
 
-    SolveAttempt(User user, Puzzle puzzle, LocalDateTime attemptTime, boolean success, String solutionAttempt) {
+    SolveAttempt(User user, Puzzle puzzle, LocalDateTime attemptTime, boolean success) {
         this.user = user;
         this.puzzle = puzzle;
         this.attemptTime = attemptTime;
