@@ -11,7 +11,6 @@
 /home/joel/Documents/programming/novachess-backend/src/main/java/com/novachess/PuzzleModelAssembler.java
 /home/joel/Documents/programming/novachess-backend/src/main/java/com/novachess/User.java
 /home/joel/Documents/programming/novachess-backend/src/main/java/com/novachess/UserModelAssembler.java
-/home/joel/Documents/programming/novachess-backend/src/main/java/com/novachess/HomeController.java
 /home/joel/Documents/programming/novachess-backend/src/main/java/com/novachess/PuzzleController.java
 /home/joel/Documents/programming/novachess-backend/src/main/java/com/novachess/SolveAttemptRepository.java
 /home/joel/Documents/programming/novachess-backend/src/main/java/com/novachess/SolveAttemptModelAssembler.java
