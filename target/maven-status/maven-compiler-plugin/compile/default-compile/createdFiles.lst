@@ -1,0 +1,9 @@
+com/novachess/PuzzleController.class
+com/novachess/PuzzleModelAssembler.class
+com/novachess/NovachessApplication.class
+com/novachess/LoadDatabase.class
+com/novachess/Puzzle.class
+com/novachess/PuzzleRepository.class
+com/novachess/PuzzleNotFoundAdvice.class
+com/novachess/PuzzleNotFoundException.class
+com/novachess/HomeController.class
