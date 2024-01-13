@@ -16,7 +16,7 @@ class LoadDatabase {
 
     return args -> {
         // Load sample puzzles.
-        /*
+        
         puzzleRepository.save(new Puzzle(
             "q3k1nr/1pp1nQpp/3p4/1P2p3/4P3/B1PP1b2/B5PP/5K2 b k - 0 17",
             "e8d7 a2e6 d7d8 f7f8",
@@ -38,19 +38,21 @@ class LoadDatabase {
             998,
             0));
         puzzleRepository.findAll().forEach(puzzle -> log.info("Preloaded " + puzzle));
-         */
+        
         // Load sample users.
-        /*
+        
         userRepository.save(new User(
             "JoelHutchinson",
             "joel.hutchinson2411@gmail.com",
-            "abc123", 1500));
+            "abc123",
+            1500));
         userRepository.save(new User(
-            "John Doe",
+            "JohnDoe",
             "john.doe@gmail.com",
-            "cba321"));
+            "cba321",
+            1500));
         userRepository.findAll().forEach(user -> log.info("Preloaded " + user));
-        */
+        
     };
   }
 }

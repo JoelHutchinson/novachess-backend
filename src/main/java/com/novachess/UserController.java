@@ -44,10 +44,10 @@ class UserController {
 
     // Single item
 	// TODO: Username instead of email as path variable.
-    @GetMapping("/api/users/{email}")
-    EntityModel<User> one(@PathVariable String email) {
-        User user = repository.findByEmail(email)
-            .orElseThrow(() -> new UserNotFoundException(email));
+    @GetMapping("/api/users/{username}")
+    EntityModel<User> one(@PathVariable String username) {
+        User user = repository.findByUsername(username)
+            .orElseThrow(() -> new UserNotFoundException(username));
 
         return assembler.toModel(user);
     }

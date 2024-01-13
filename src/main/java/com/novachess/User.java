@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 class User {
 
     private @Id @GeneratedValue(strategy=GenerationType.AUTO) Long id;
-    private String name;
+    private String username;
     private String email;
     private String password;
     private int puzzleRating;
@@ -21,8 +21,8 @@ class User {
 
     User() {}
 
-    User(String name, String email, String password, int puzzleRating) {
-        this.name = name;
+    User(String username, String email, String password, int puzzleRating) {
+        this.username = username;
         this.email = email;
         this.password = password;
         this.puzzleRating = puzzleRating;
@@ -33,8 +33,8 @@ class User {
 		return this.id;
 	}
 
-	public String getName() {
-		return this.name;
+	public String getUsername() {
+		return this.username;
 	}
 
 	public String getEmail() {
@@ -57,8 +57,8 @@ class User {
 		this.id = id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public void setEmail(String email) {
@@ -88,7 +88,7 @@ class User {
         if (!(o instanceof User))
             return false;
         User user = (User) o;
-        return Objects.equals(this.id, user.id) && Objects.equals(this.name, user.name)
+        return Objects.equals(this.id, user.id) && Objects.equals(this.username, user.username)
                 && Objects.equals(this.email, user.email)
                 && Objects.equals(this.password, user.password)
                 && this.puzzleRating == user.puzzleRating;  // Include puzzleRating in equality check
@@ -96,12 +96,12 @@ class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.name, this.email, this.password, this.puzzleRating);  // Include puzzleRating in hash
+        return Objects.hash(this.id, this.username, this.email, this.password, this.puzzleRating);  // Include puzzleRating in hash
     }
 
     @Override
     public String toString() {
-        return "User{" + "id=" + this.id + ", name='" + this.name + '\'' + ", email='" +
+        return "User{" + "id=" + this.id + ", username='" + this.username + '\'' + ", email='" +
                 this.email + '\'' + ", password='" + this.password + '\'' + ", puzzleRating=" + this.puzzleRating + '}';
     }
 }
