@@ -13,6 +13,7 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.hateoas.IanaLinkRelations;
@@ -50,14 +51,28 @@ class PuzzleController {
 		return assembler.toModel(puzzle);
 	}
 
-	// Get current puzzle for a given user
-	/*
-	@GetMapping("/api/puzzles/user/{userEmail}/current")
-	EntityModel<Puzzle> currentPuzzle(@PathVariable String userEmail) {
-		
-		return assembler.toModel(puzzle);
-	}
-	*/
+	// Endpoint to get puzzles by rating
+    @GetMapping("/api/puzzles")
+    CollectionModel<EntityModel<Puzzle>> allByRating(
+            @RequestParam(required = false) Integer minRating,
+            @RequestParam(required = false) Integer maxRating) {
+
+        List<EntityModel<Puzzle>> puzzles;
+
+        if (minRating != null && maxRating != null) {
+            puzzles = repository.findByRatingBetween(minRating, maxRating).stream()
+                .map(assembler::toModel)
+                .collect(Collectors.toList());
+        } else {
+            // Fallback if no parameters are provided
+            puzzles = repository.findAll().stream()
+                .map(assembler::toModel)
+                .collect(Collectors.toList());
+        }
+
+        return CollectionModel.of(puzzles, 
+                linkTo(methodOn(PuzzleController.class).allByRating(minRating, maxRating)).withSelfRel());
+    }
 
 	@PatchMapping("/api/puzzles/{id}/upvote")
 	ResponseEntity<?> upvotePuzzle(@PathVariable Long id) {
