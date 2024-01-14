@@ -24,9 +24,12 @@ class PuzzleController {
 	private final PuzzleRepository repository;
 	private final PuzzleModelAssembler assembler;
 
-	PuzzleController(PuzzleRepository repository, PuzzleModelAssembler assembler) {
+	private final PuzzleService service;
+
+	PuzzleController(PuzzleRepository repository, PuzzleModelAssembler assembler, PuzzleService service) {
 		this.repository = repository;
 		this.assembler = assembler;
+		this.service = service;
 	}
 
 
@@ -50,6 +53,14 @@ class PuzzleController {
 
 		return assembler.toModel(puzzle);
 	}
+
+	// Endpoint to get next suggested puzzle for a given user
+	@GetMapping("/api/users/{username}/nextSuggestedPuzzle")
+    public EntityModel<Puzzle> getNextSuggestedPuzzle(@PathVariable String username) {
+        Puzzle puzzle = service.getNextSuggestedPuzzleForUser(username);
+        
+		return assembler.toModel(puzzle);
+    }
 
 	// Endpoint to get puzzles by rating
     @GetMapping("/api/puzzles")
