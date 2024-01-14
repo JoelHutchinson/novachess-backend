@@ -15,9 +15,6 @@ class User {
     private String email;
     private String password;
     private int puzzleRating;
-	
-	@JsonIgnore
-	private Long currentPuzzleId = 1L;
 
     User() {}
 
@@ -26,7 +23,6 @@ class User {
         this.email = email;
         this.password = password;
         this.puzzleRating = puzzleRating;
-		this.currentPuzzleId = 1L;
     }
 
     public Long getId() {
@@ -43,10 +39,6 @@ class User {
 
 	public String getPassword() {
 		return this.password;
-	}
-
-	public long getCurrentPuzzleId() {
-		return this.currentPuzzleId;
 	}
 
 	public int getPuzzleRating() {
@@ -74,11 +66,7 @@ class User {
         this.puzzleRating = puzzleRating;
     }
 
-	public void setCurrentPuzzleId(Long currentPuzzleId) {
-		this.currentPuzzleId = currentPuzzleId;
-	}
-
-
+    
     // Override equals, hashCode and toString methods
 
     @Override
